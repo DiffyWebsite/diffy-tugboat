@@ -1,0 +1,20 @@
+uuid: 4a53b62d-bd87-40bd-83cb-dc92615f9c46
+langcode: en
+status: true
+dependencies:
+  theme:
+    - diffy
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: diffy_page_title
+theme: diffy
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
