@@ -15,6 +15,7 @@ git pull
 echo "==================================================="
 echo "============= Update schema and clear cache ======="
 echo "==================================================="
+cd /var/www/diffy-marketing/drupal
 drush cr
 drush cim
 drush cr
