@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Deploy prod site Over SSH
           command: |
-            ssh root@159.65.110.240 'bash /var/www/diffy_marketing/deploy/deploy_prod_site.sh'
+            ssh root@159.65.110.240 'bash /var/www/diffy-marketing/deploy/deploy_prod_site.sh'
 
 workflows:
   version: 2
