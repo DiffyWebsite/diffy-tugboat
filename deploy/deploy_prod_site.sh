@@ -13,6 +13,11 @@ cd /var/www/diffy-marketing
 git pull
 
 echo "==================================================="
+echo "============= Update permissions +++==============="
+echo "==================================================="
+chown -R www-data:www-data /var/www/diffy-marketing/drupal
+
+echo "==================================================="
 echo "============= Update schema and clear cache ======="
 echo "==================================================="
 cd /var/www/diffy-marketing/drupal
