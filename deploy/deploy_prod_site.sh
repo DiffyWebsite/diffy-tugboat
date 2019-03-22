@@ -13,13 +13,9 @@ cd /var/www/diffy-marketing
 git pull
 
 echo "==================================================="
-echo "============= Composer install ===================="
-echo "==================================================="
-composer install
-
-echo "==================================================="
 echo "============= Update schema and clear cache ======="
 echo "==================================================="
+cd /var/www/diffy-marketing/drupal
 drush cr
 drush cim
 drush cr
