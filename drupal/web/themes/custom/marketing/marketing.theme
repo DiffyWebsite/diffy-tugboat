@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the marketing theme.
+ */
+
+/**
+ * Implements hook_preprocess.
+ */
+function marketing_preprocess(&$variables, $hook)
+{
+  $variables['base_path'] = base_path();
+}
