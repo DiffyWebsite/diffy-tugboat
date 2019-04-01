@@ -1,4 +1,4 @@
-
+{{ attach_library('marketing/calculator') }}
 
 <section class="container-fluid max-width-1280 main-banner mt-5">
   <div class="row px-3">
@@ -190,8 +190,12 @@
             <label class="m-0 py-2" for="sel1">No. of projects</label>
           </div>
           <div class="col-md-7 counter-form__appearance m-auto">
-            <select class="form-control" id="sel1">
-              <option>2</option>
+            <select class="form-control projects" id="sel1">
+              <option>1</option>
+              <option selected>2</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
             </select>
             <p class="operator">x</p>
           </div>
@@ -204,8 +208,12 @@
             <label class="m-0 py-2" for="sel2">No. of pagers per project</label>
           </div>
           <div class="col-md-7 counter-form__appearance m-auto">
-            <select class="form-control" id="sel2">
+            <select class="form-control pages" id="sel2">
+              <option>10</option>
               <option>20</option>
+              <option selected>50</option>
+              <option>80</option>
+              <option>100</option>
             </select>
             <p class="operator">x</p>
           </div>
@@ -218,8 +226,12 @@
             <label class="m-0 py-2" for="sel3">No. of Breakpoints</label>
           </div>
           <div class="col-md-7 counter-form__appearance m-auto">
-            <select class="form-control" id="sel3">
-              <option>3</option>
+            <select class="form-control breakpoints" id="sel3">
+              <option>1</option>
+              <option>2</option>
+              <option selected>3</option>
+              <option>4</option>
+              <option>5</option>
             </select>
             <p class="operator">x</p>
           </div>
@@ -232,8 +244,11 @@
             <label class="m-0 py-2" for="sel4">Deployments per month</label>
           </div>
           <div class="col-md-7 counter-form__appearance m-auto">
-            <select class="form-control" id="sel4">
+            <select class="form-control deployments" id="sel4">
               <option>1</option>
+              <option selected>2</option>
+              <option>5</option>
+              <option>10</option>
             </select>
             <p class="operator">=</p>
           </div>
@@ -248,7 +263,7 @@
           </div>
           <div class="col-sm-7 text-center text-sm-left">
             <form>
-              <input class="my-auto counter-form--summary__input" value="2" id="inp1" disabled>
+              <input class="my-auto counter-form--summary__input hours" value="2" id="inp1" disabled>
               <label class="my-auto counter-form--summary__text" for="inp1">
                 Hours a month
               </label>
