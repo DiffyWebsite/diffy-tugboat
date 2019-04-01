@@ -1,0 +1,22 @@
+uuid: a1862abd-bf67-4fdd-b584-50d16686568c
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - marketing
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: marketing_help
+theme: marketing
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

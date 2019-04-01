@@ -1,12 +1,6 @@
 global-styling:
   version: VERSION
   js:
-    https://code.jquery.com/jquery-3.3.1.slim.min.js:
-      type: external
-      minified: true
-      attributes:
-        crossorigin: anonymous
-        integrity: sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo
     https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js: { type: external, minified: false }
     https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js:
       type: external
@@ -38,6 +32,9 @@ global-styling:
       https://fonts.googleapis.com/css?family=Open+Sans: { type: external, minified: false }
       css/style.css: {}
   dependencies:
-#    - core/jquery
-#    - core/jquery.once
+    - core/jquery
+    - core/jquery.once
     - core/drupal
+calculator:
+  js:
+    js/calculator.js: {}
