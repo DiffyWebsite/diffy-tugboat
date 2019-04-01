@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+<div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+  <ul class="navbar-nav justify-content-lg-between text-center text-lg-left">
+    {% for item in items %}
+      <li class="nav-item my-2 my-lg-0">
+        {{ link(item.title, item.url, { 'class': ['nav-link']}) }}
+      </li>
+    {% endfor %}
+    <li class="nav-item navbar-block__login my-2 my-lg-0">
+      <a class="nav-link px-3 px-md-3 px-lg-4" href="#">Login/Register</a>
+    </li>
+  </ul>
+</div>

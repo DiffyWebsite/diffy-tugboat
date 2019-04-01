@@ -56,28 +56,7 @@
       <button class="navbar-toggler px-1" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="js-button--change fas fa-bars"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-        <ul class="navbar-nav justify-content-lg-between text-center text-lg-left">
-          <li class="nav-item my-2 my-lg-0">
-            <a class="nav-link" href="#">Visual Testing</a>
-          </li>
-          <li class="nav-item my-2 my-lg-0">
-            <a class="nav-link" href=" {{ path('entity.node.canonical', {'node': 2}) }}">Features</a>
-          </li>
-          <li class="nav-item my-2 my-lg-0">
-            <a class="nav-link" href=" {{ path('entity.node.canonical', {'node': 3}) }}">Pricing</a>
-          </li>
-          <li class="nav-item my-2 my-lg-0">
-            <a class="nav-link" href="#">About us</a>
-          </li>
-          <li class="nav-item my-2 my-lg-0">
-            <a class="nav-link" href="#">Request Demo</a>
-          </li>
-          <li class="nav-item navbar-block__login my-2 my-lg-0">
-            <a class="nav-link px-3 px-md-3 px-lg-4" href="#">Login/Register</a>
-          </li>
-        </ul>
-      </div>
+      {{ page.primary_menu }}
     </nav>
   </div>
 </div>
