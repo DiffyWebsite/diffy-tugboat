@@ -5,6 +5,11 @@ package: Other
 core: 8.x
 libraries:
   - marketing/global-styling
- 
 base theme: false
+regions:
+  content: 'Content'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_fourth: 'Footer fourth'
 
