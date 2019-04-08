@@ -1,6 +1,6 @@
 uuid: 702977ef-6dd6-4e40-9e61-acad2ea86eff
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
 id: marketing_messages
 theme: marketing
-region: highlighted
-weight: 0
+region: content
+weight: 1
 provider: null
 plugin: system_messages_block
 settings:

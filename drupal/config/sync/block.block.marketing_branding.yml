@@ -1,6 +1,6 @@
 uuid: d26670ab-f4e3-456e-a760-57f6309b2bf9
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
 id: marketing_branding
 theme: marketing
-region: header
+region: content
 weight: 0
 provider: null
 plugin: system_branding_block

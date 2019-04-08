@@ -1,6 +1,6 @@
 uuid: b3a364bf-aea7-4b82-809f-7d6ad7913953
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,8 +10,8 @@ _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
 id: marketing_breadcrumbs
 theme: marketing
-region: breadcrumb
-weight: 0
+region: content
+weight: -2
 provider: null
 plugin: system_breadcrumb_block
 settings:

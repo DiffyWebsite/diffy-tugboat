@@ -1,0 +1,24 @@
+uuid: 5a18dfab-0b5c-460f-82db-afce1ed20eaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-fourth
+  module:
+    - system
+  theme:
+    - marketing
+id: footerfourth
+theme: marketing
+region: footer_fourth
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-fourth'
+settings:
+  id: 'system_menu_block:footer-fourth'
+  label: 'Footer fourth'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

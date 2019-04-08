@@ -1,0 +1,24 @@
+uuid: 0e5cb7bd-5b8f-46e5-8b9c-6ea2c6c93f72
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-first
+  module:
+    - system
+  theme:
+    - marketing
+id: footerfirst
+theme: marketing
+region: footer_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-first'
+settings:
+  id: 'system_menu_block:footer-first'
+  label: 'Footer first'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

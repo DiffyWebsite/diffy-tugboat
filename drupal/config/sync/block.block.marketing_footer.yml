@@ -1,6 +1,6 @@
 uuid: 08ed0d45-7a71-4375-ba65-0a06db3e27ca
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.footer
@@ -12,8 +12,8 @@ _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
 id: marketing_footer
 theme: marketing
-region: sidebar_first
-weight: 0
+region: content
+weight: -1
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
