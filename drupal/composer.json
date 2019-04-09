@@ -24,6 +24,7 @@
         "drupal/core": "^8.6.0",
         "drupal/google_analytics": "^3.0",
         "drupal/hotjar": "^1.5",
+        "drupal/quicklink": "^1.0",
         "drupal/yoast_seo": "^1.5",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",
