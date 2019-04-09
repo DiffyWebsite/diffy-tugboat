@@ -81,18 +81,6 @@
 
 <section class="mt-5 slider-block">
   <div class="container carousel">
-
-    <div class="d-none d-md-block carousel__button--left">
-      <button class="carousel__button">
-        <em class="fas fa-chevron-left"></em>
-      </button>
-    </div>
-    <div class="d-none d-md-block carousel__button--right">
-      <button class="carousel__button">
-        <em class="fas fa-chevron-right"></em>
-      </button>
-    </div>
-
     <div class="row justify-content-center">
 
       <div class="col-6 col-md-2 logo p-0 d-flex">
@@ -116,6 +104,7 @@
       </div>
     </div>
   </div>
+
   <div class="carousel slide" data-ride="carousel" data-touch="true" id="carouselExampleControls">
     <div class="carousel-inner  col-md-7 mx-auto slider-group mt-5">
       <div class="carousel-item active">
@@ -134,16 +123,23 @@
           <button class="mx-1 mx-sm-2 carousel--mobile__button"></button>
         </div>
         <p class="text-center text--light mb-5 mt-3">Chris Charlton Web <br> Developer, Digital Marketing</p>
-        <div class="d-flex justify-content-center mb-3">
-          <a href="https://app.diffy.website" class="button button--try-for-free">Try for free</a>
+      </div>
+      <div class="carousel-item">
+        <i class="fas fa-quote-left"></i>
+        <p class="px-3 m-0 text-center">
+          The Discover Los Angeles website has thousands of events, articles, and guides for locals and visitors.
+          Deploying anything that may impact the consumer’s experience is something we need to catch before the general
+          public does.
+          Diffy’s automated service helps us know exactly what changed on our front-end between deployments.
+        </p>
+        <i class="fas fa-quote-right d-flex justify-content-end"></i>
+        <div class="carousel--mobile d-flex d-md-none">
+          <button class="mx-1 mx-sm-2 carousel--mobile__button carousel--mobile__button--active"></button>
+          <button class="mx-1 mx-sm-2 carousel--mobile__button"></button>
+          <button class="mx-1 mx-sm-2 carousel--mobile__button"></button>
+          <button class="mx-1 mx-sm-2 carousel--mobile__button"></button>
         </div>
-        <p class="d-flex justify-content-center text--light text--small">14 days trial period</p>
-      </div>
-      <div class="carousel-item">
-        <div class="d-block w-100"  alt="Second slide">Second</div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-block w-100"  alt="Third slide">Third</div>
+        <p class="text-center text--light mb-5 mt-3">Chris Charlton Web <br> Developer, Digital Marketing</p>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -154,6 +150,15 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+  </div>
+</section>
+
+<section class="try-block mt-5">
+  <div>
+    <div class="d-flex justify-content-center mb-3">
+      <a href="https://app.diffy.website" class="button button--try-for-free">Try for free</a>
+    </div>
+    <p class="d-flex justify-content-center text--light text--small">14 days trial period</p>
   </div>
 </section>
 
