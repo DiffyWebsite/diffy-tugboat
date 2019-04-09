@@ -35,7 +35,9 @@ global-styling:
   dependencies:
     - core/jquery
     - core/jquery.once
+    - core/jquery.form
     - core/drupal
+    - core/drupal.dialog.ajax
 calculator:
   js:
     js/calculator.js: {}

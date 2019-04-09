@@ -12,3 +12,22 @@ function marketing_preprocess(&$variables, $hook)
 {
   $variables['base_path'] = base_path();
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function marketing_form_contact_message_feedback_form_alter(&$form, $form_state, $form_id) {
+  $form['actions']['preview']['#access'] = FALSE;
+  $form['actions']['submit']['#submit'][] = '_marketing_form_contact_message_feedback_form_submit';
+  $form['actions']['submit']['#attributes']['class'][] = 'use-ajax-submit';
+}
+
+/**
+ * Post processing after ajax form submission.
+ */
+function _marketing_form_contact_message_feedback_form_submit(array $form, &$form_state) {
+  $response = new \Drupal\Core\Ajax\AjaxResponse();
+  $currentURL = \Drupal\Core\Url::fromRoute('<current>');
+  $response->addCommand(new \Drupal\Core\Ajax\RedirectCommand($currentURL->toString()));
+  $form_state->setResponse($response);
+}
