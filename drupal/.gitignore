@@ -16,3 +16,7 @@
 
 # Ignore .env files as they are personal
 /.env
+
+# NodeJS runtime infrastructure.
+package-lock.json
+node_modules
