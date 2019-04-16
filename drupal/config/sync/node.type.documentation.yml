@@ -1,0 +1,18 @@
+uuid: 92bb3842-92c9-4623-8d37-8dbe05ca09fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - documentation
+    parent: 'documentation:'
+name: Documentation
+type: documentation
+description: 'Documentation page. It displays information of the product documentation.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

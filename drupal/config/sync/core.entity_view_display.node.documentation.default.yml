@@ -1,16 +1,16 @@
-uuid: 12890179-e38d-482d-82c6-a0b9bad383e3
+uuid: 5bbba3cc-21d9-44eb-ad04-8218f3fb8f37
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.homepage.body
-    - node.type.homepage
+    - field.field.node.documentation.body
+    - node.type.documentation
   module:
     - text
     - user
-id: node.homepage.default
+id: node.documentation.default
 targetEntityType: node
-bundle: homepage
+bundle: documentation
 mode: default
 content:
   body:

@@ -1,0 +1,8 @@
+uuid: d4991316-7500-4158-9ef8-555b73980a52
+langcode: en
+status: true
+dependencies: {  }
+id: documentation
+label: Documentation
+description: 'Documentation menu. It contains the hierarchy of documentation articles. '
+locked: false
