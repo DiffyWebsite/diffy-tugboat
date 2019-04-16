@@ -16,38 +16,48 @@ function marketing_preprocess(&$variables, $hook)
 }
 
 /**
+ * Implements hook_preprocess_page.
+ */
+function marketing_preprocess_page(&$variables)
+{
+  $contact_form_id = 'request_demo';
+  $message = \Drupal::entityTypeManager()
+    ->getStorage('contact_message')
+    ->create(array('contact_form' => $contact_form_id)); // This works in a controller, use \Drupal::service('entity.form_builder') elsewhere.
+  $form = \Drupal::service('entity.form_builder')->getForm($message);
+  $variables['request_demo_form'] = render($form);
+}
+
+/**
  * Implements hook_preprocess_node.
  */
-function marketing_preprocess_node(&$variables) {
-    switch ($variables['node']->getType()) {
-        case "documentation":
-            $menu_parameters = new \Drupal\Core\Menu\MenuTreeParameters();
-            $menu_parameters->setMaxDepth(1);
-            // $menu_parameters->setRoot($root_menu_item->getPluginId());
-            $menu_parameters->excludeRoot();
-            $menu_name = 'documentation';
-            $menu_tree_service = \Drupal::service('menu.link_tree');
-            $tree = $menu_tree_service->load($menu_name, $menu_parameters);
-            $variables['documentation_menu'] = $menu_tree_service->build($tree);
-            break;
+function marketing_preprocess_node(&$variables)
+{
+  switch ($variables['node']->getType()) {
+    case "documentation":
+      $menu_parameters = new \Drupal\Core\Menu\MenuTreeParameters();
+      $menu_parameters->setMaxDepth(1);
+      // $menu_parameters->setRoot($root_menu_item->getPluginId());
+      $menu_parameters->excludeRoot();
+      $menu_name = 'documentation';
+      $menu_tree_service = \Drupal::service('menu.link_tree');
+      $tree = $menu_tree_service->load($menu_name, $menu_parameters);
+      $variables['documentation_menu'] = $menu_tree_service->build($tree);
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu__ID
+ * ID main
+ */
+function marketing_preprocess_menu__main(&$variables)
+{
+  foreach($variables['items'] as &$menu_item) {
+    if ($menu_item['title'] == 'Demo') {
+      $menu_item['attributes']->setAttribute('data-toggle', 'modal');
+      $menu_item['attributes']->setAttribute('data-target', '#requestDemoModal');
+      break;
     }
-}
-
-/**
- * Implements hook_form_alter().
- */
-function marketing_form_contact_message_feedback_form_alter(&$form, $form_state, $form_id) {
-  $form['actions']['preview']['#access'] = FALSE;
-  $form['actions']['submit']['#submit'][] = '_marketing_form_contact_message_feedback_form_submit';
-  $form['actions']['submit']['#attributes']['class'][] = 'use-ajax-submit';
-}
-
-/**
- * Post processing after ajax form submission.
- */
-function _marketing_form_contact_message_feedback_form_submit(array $form, &$form_state) {
-  $response = new \Drupal\Core\Ajax\AjaxResponse();
-  $currentURL = \Drupal\Core\Url::fromRoute('<current>');
-  $response->addCommand(new \Drupal\Core\Ajax\RedirectCommand($currentURL->toString()));
-  $form_state->setResponse($response);
+  }
 }

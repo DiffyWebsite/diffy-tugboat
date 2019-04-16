@@ -22,7 +22,7 @@
 <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
   <ul class="navbar-nav justify-content-lg-between text-center text-lg-left">
     {% for item in items %}
-      <li class="nav-item my-2 my-lg-0">
+      <li {{ item.attributes.addClass(['nav-item', 'my-2', 'my-lg-0']) }}>
         {{ link(item.title, item.url, { 'class': ['nav-link']}) }}
       </li>
     {% endfor %}
