@@ -1,0 +1,21 @@
+uuid: f94d2585-5898-4227-9166-a27ee9117c72
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.demo_request
+    - field.field.block_content.demo_request.field_form
+id: block_content.demo_request.default
+targetEntityType: block_content
+bundle: demo_request
+mode: default
+content:
+  field_form:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

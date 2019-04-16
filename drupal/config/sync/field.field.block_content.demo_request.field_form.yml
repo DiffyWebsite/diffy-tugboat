@@ -1,0 +1,21 @@
+uuid: 833542d1-2e15-4933-b597-e71e05ba1546
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.demo_request
+    - field.storage.block_content.field_form
+id: block_content.demo_request.field_form
+field_name: field_form
+entity_type: block_content
+bundle: demo_request
+label: Form
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:contact_form'
+  handler_settings: {  }
+field_type: entity_reference

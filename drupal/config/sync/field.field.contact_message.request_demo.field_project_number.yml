@@ -1,0 +1,23 @@
+uuid: 0124fffe-7af2-43c8-88a0-4ec5c6339887
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_demo
+    - field.storage.contact_message.field_project_number
+  module:
+    - options
+id: contact_message.request_demo.field_project_number
+field_name: field_project_number
+entity_type: contact_message
+bundle: request_demo
+label: 'How many project you plan to test'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

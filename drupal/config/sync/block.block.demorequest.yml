@@ -1,0 +1,25 @@
+uuid: ae56cccd-79ef-469b-b803-48f7a832e91f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:demo_request:2f94f1f6-d816-4259-8c6b-eebf1fc325de'
+  module:
+    - block_content
+  theme:
+    - marketing
+id: demorequest
+theme: marketing
+region: hidden
+weight: 0
+provider: null
+plugin: 'block_content:2f94f1f6-d816-4259-8c6b-eebf1fc325de'
+settings:
+  id: 'block_content:2f94f1f6-d816-4259-8c6b-eebf1fc325de'
+  label: 'Demo request'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,32 @@
+uuid: 3fb933e2-14fb-4d67-9080-168f12258956
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_demo
+    - field.field.contact_message.request_demo.field_phone
+    - field.field.contact_message.request_demo.field_project_number
+  module:
+    - options
+    - text
+id: contact_message.request_demo.default
+targetEntityType: contact_message
+bundle: request_demo
+mode: default
+content:
+  field_phone:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_project_number:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden:
+  message: true
