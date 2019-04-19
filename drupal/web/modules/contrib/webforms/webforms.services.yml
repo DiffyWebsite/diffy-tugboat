@@ -1,4 +1,0 @@
-services:
-  webforms.node_extractor:
-    class: \Drupal\webforms\WebformsNodeExtractor
-    arguments: ['@entity_type.manager']
