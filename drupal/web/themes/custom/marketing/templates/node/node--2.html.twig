@@ -1,6 +1,6 @@
-<h2 class="text-center pricing__headline px-4 px-md-0">
-  Manage your team and clients effectively
-</h2>
+{#<h2 class="text-center pricing__headline px-4 px-md-0">#}
+  {#Manage your team and clients effectively#}
+{#</h2>#}
 
 <section class="container mt-5 px-3 px-md-5 pricing-card-block">
   <div class="row px-3">
@@ -12,10 +12,12 @@
           <small class="m-0">Great start for freelancers to test 2-5 projects.</small>
         </div>
         <ul class="p-3 text-center pricing-card__body">
-          <li>100 pages</li>
-          <li>Email support</li>
-          <li>Team management</li>
-          <li>REST API</li>
+          <li><strong>100 pages<a href="#pages">*</a></strong></li>
+          <li><strong>Shared workers<a href="#workers">*</a></strong></li>
+          <li class="text--light">Custom compare images</li>
+          <li class="text--light">Multiple environments</li>
+          <li class="text--light">Screenshot modification</li>
+          <li class="text--light">Automation, REST API</li>
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
@@ -37,10 +39,12 @@
           <small class="m-0">For organizations having 10+ projects.</small>
         </div>
         <ul class="p-3 text-center pricing-card__body">
-          <li>1000 pages</li>
-          <li>1 dedicated worker</li>
-          <li>Slack support</li>
-          <li>Onboarding consultations</li>
+          <li><strong>1000 pages<a href="#pages">*</a></strong></li>
+          <li><strong>1 dedicated worker<a href="#workers">*</a></strong></li>
+          <li class="text--light">Custom compare images</li>
+          <li class="text--light">Multiple environments</li>
+          <li class="text--light">Screenshot modification</li>
+          <li class="text--light">Automation, REST API</li>
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
@@ -58,9 +62,12 @@
           <small class="m-0">Dedicated environment for your team with maximum performance.</small>
         </div>
         <ul class="p-3 text-center pricing-card__body">
-          <li>Unlimited pages</li>
-          <li>Priority live support</li>
-          <li>Any number dedicated works</li>
+          <li><strong>Unlimited pages<a href="#pages">*</a></strong></li>
+          <li><strong>Any number dedicated works<a href="#workers">*</a></strong></li>
+          <li class="text--light">Custom compare images</li>
+          <li class="text--light">Multiple environments</li>
+          <li class="text--light">Screenshot modification</li>
+          <li class="text--light">Automation, REST API</li>
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
@@ -89,7 +96,7 @@
             </div>
           </div>
           <div class="col-11">
-            <h4 class="mb-4 pt-1">What means 100 pages as a plan type?</h4>
+            <h4 class="mb-4 pt-1"><a name="pages"></a>What means 100 pages as a plan type?</h4>
             <p>This means that all your projects together should not exceed 100 pages.
               On average single site would have around 20-30 critical pages to check.
               But you still create really large number of screenshots as we do not
@@ -121,7 +128,7 @@
             </div>
           </div>
           <div class="col-11 pt-1">
-            <h4 class="mb-4">What means "dedicated workers"?</h4>
+            <h4 class="mb-4"><a name="workers"></a>What means "dedicated workers"?</h4>
             <p>We are using Amazon Lambda for taking screenshots, but diffs are taken
               on our own infrastructure. If you have dedicated workers that means
               your screenshot comparison jobs will have faster completion.
@@ -138,7 +145,7 @@
             </div>
           </div>
           <div class="col-11 pt-1">
-            <h4 class="mb-4">What is Slack support?</h4>
+            <h4 class="mb-4">What type of support you have?</h4>
             <p>We use Slack (probably as you do too). So we could create a shared
               channel where we you can ask us anything.
             </p>
