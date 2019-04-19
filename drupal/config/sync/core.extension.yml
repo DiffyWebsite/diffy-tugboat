@@ -20,6 +20,7 @@ module:
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
+  facebook_pixel: 0
   field: 0
   field_ui: 0
   file: 0
@@ -51,6 +52,8 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  webform: 0
+  webform_ui: 0
   yoast_seo: 0
   menu_link_content: 1
   views: 10
