@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\block\Entity\Block;
-
 /**
  * @file
  * Functions to support theming in the marketing theme.
@@ -16,25 +14,13 @@ function marketing_preprocess(&$variables, $hook)
 }
 
 /**
- * Implements hook_preprocess_page.
- */
-function marketing_preprocess_page(&$variables)
-{
-  $contact_form_id = 'request_demo';
-  $message = \Drupal::entityTypeManager()
-    ->getStorage('contact_message')
-    ->create(array('contact_form' => $contact_form_id)); // This works in a controller, use \Drupal::service('entity.form_builder') elsewhere.
-  $form = \Drupal::service('entity.form_builder')->getForm($message);
-  $variables['request_demo_form'] = render($form);
-}
-
-/**
  * Implements hook_preprocess_node.
  */
 function marketing_preprocess_node(&$variables)
 {
   switch ($variables['node']->getType()) {
     case "documentation":
+      // Sets documentation menu.
       $menu_parameters = new \Drupal\Core\Menu\MenuTreeParameters();
       $menu_parameters->setMaxDepth(1);
       // $menu_parameters->setRoot($root_menu_item->getPluginId());
@@ -44,20 +30,5 @@ function marketing_preprocess_node(&$variables)
       $tree = $menu_tree_service->load($menu_name, $menu_parameters);
       $variables['documentation_menu'] = $menu_tree_service->build($tree);
       break;
-  }
-}
-
-/**
- * Implements hook_preprocess_menu__ID
- * ID main
- */
-function marketing_preprocess_menu__main(&$variables)
-{
-  foreach($variables['items'] as &$menu_item) {
-    if ($menu_item['title'] == 'Demo') {
-      $menu_item['attributes']->setAttribute('data-toggle', 'modal');
-      $menu_item['attributes']->setAttribute('data-target', '#requestDemoModal');
-      break;
-    }
   }
 }
