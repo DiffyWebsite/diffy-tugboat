@@ -41,3 +41,6 @@ global-styling:
 calculator:
   js:
     js/calculator.js: {}
+content_navigation:
+  js:
+    js/content_navigation.js: {}

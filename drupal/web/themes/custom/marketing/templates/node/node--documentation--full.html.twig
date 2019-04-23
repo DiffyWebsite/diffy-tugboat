@@ -66,44 +66,20 @@
  * @see template_preprocess_node()
  */
 #}
-<div class="container-fluid">
+{{ attach_library('marketing/content_navigation') }}
+<article {{ attributes.addClass('container-fluid') }}>
   <div class="row">
     <div class="col-sm">
       {{ documentation_menu }}
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
     </div>
     <div class="col-sm">
-      <h1>{{ label }}</h1>
-      {{ content }}
+      {{ title_prefix }}
+        <h1>{{ label }}</h1>
+      {{ title_suffix }}
+      <div {{ content_attributes.addClass('documentation_content') }}>
+        {{ content }}
+      </div>
     </div>
-    <div class="col-sm">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-    </div>
+    <div class="col-sm content_navigation"></div>
   </div>
-</div>
+</article>
