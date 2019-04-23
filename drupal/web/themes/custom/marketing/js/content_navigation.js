@@ -86,7 +86,6 @@
       window.menuTree = menuTree;
 
       // navigation.append(menuTree)
-      console.log(menuTree, navigation);
       menuTree.appendTo(navigation);
     }
   };
