@@ -67,7 +67,7 @@
  */
 #}
 {{ attach_library('marketing/content_navigation') }}
-<article {{ attributes.addClass('container-fluid') }}>
+<article {{ attributes.addClass('container-fluid').setAttribute('id', 'page-documentation') }}>
   <div class="row">
     <div class="col-sm">
       {{ documentation_menu }}
@@ -80,6 +80,8 @@
         {{ content }}
       </div>
     </div>
-    <div class="col-sm content_navigation"></div>
+    <div class="col-sm">
+      <div class="content_navigation"></div>
+    </div>
   </div>
 </article>

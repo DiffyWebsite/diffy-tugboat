@@ -1,7 +1,20 @@
 (function ($, Drupal) {
   Drupal.behaviors.contentNavigationBehavior = {
+    popParent: function(header, pathStack) {
+      if (header.text() == 'Шлях стажера: Binary Studio Academy') {
+        debugger;
+      }
+      do {
+        parentLevel = pathStack.pop();
+      } while (this.getLevelNumber(header) <= this.getLevelNumber(parentLevel));
+
+      return parentLevel;
+    },
 
     getLevelNumber: function(header) {
+      if (!header) {
+        debugger;
+      }
       var tagName = header.prop('tagName');
       return +tagName[1];
     },
@@ -24,9 +37,9 @@
       var ul = $('<ul>');
       levelContainer.forEach(function (_header) {
         var li = $('<li>')
-          .addClass('nav-item')
           .append(
             $('<div>')
+              .addClass('title')
               .text(_header.text())
           )
           .click(function(event) {
@@ -53,19 +66,19 @@
       var _this = this;
       var virtualTopContainer = previousHeader = parentLevel = $('<h0>');
       var headers = $(':header', documentation);
-      var pathStack = [virtualTopContainer];
+      var pathStack = [];
       headers.each(function() {
         var header = $(this);
         var elementLevelNumber = _this.getLevelNumber(header);
         var previousHeaderNumber =_this.getLevelNumber(previousHeader);
         if (elementLevelNumber > previousHeaderNumber) {
           // Down.
-          pathStack.push(parentLevel);
+          pathStack.push(previousHeader);
           parentLevel = previousHeader;
         }
         else if (elementLevelNumber < previousHeaderNumber) {
           // Up.
-          parentLevel = pathStack.pop();
+          parentLevel = _this.popParent(header, pathStack);
         }
         _this.addTo(parentLevel, header);
         previousHeader = header;
@@ -83,10 +96,9 @@
       }
       var virtualTopContainer = this.getTopVirtualContainer(documentation);
       var menuTree = this.generateDom(virtualTopContainer);
-      window.menuTree = menuTree;
-
-      // navigation.append(menuTree)
-      menuTree.appendTo(navigation);
+      if (menuTree) {
+        menuTree.appendTo(navigation);
+      }
     }
   };
 

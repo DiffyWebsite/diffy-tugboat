@@ -44,3 +44,6 @@ calculator:
 content_navigation:
   js:
     js/content_navigation.js: {}
+  css:
+    theme:
+      css/content_navigation.css: {}

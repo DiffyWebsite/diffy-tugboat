@@ -19,7 +19,7 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-<ul class="nav">
+<ul class="nav flex-column">
   {% for item in items %}
     <li class="nav-item my-2 my-lg-0">
       {{ link(item.title, item.url, { 'class': ['nav-link']}) }}
