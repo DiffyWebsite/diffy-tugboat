@@ -35,7 +35,15 @@ global-styling:
   dependencies:
     - core/jquery
     - core/jquery.once
+    - core/jquery.form
     - core/drupal
+    - core/drupal.dialog.ajax
 calculator:
   js:
     js/calculator.js: {}
+content_navigation:
+  js:
+    js/content_navigation.js: {}
+  css:
+    theme:
+      css/content_navigation.css: {}

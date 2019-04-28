@@ -1,0 +1,28 @@
+uuid: bf1ab7f3-e446-45c4-8084-d55196212e81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.documentation.body
+    - node.type.documentation
+  module:
+    - text
+    - user
+id: node.documentation.default
+targetEntityType: node
+bundle: documentation
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

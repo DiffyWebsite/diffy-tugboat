@@ -1,0 +1,170 @@
+.pricing__headline {
+  margin-bottom: 120px;
+  padding-top: 70px;
+}
+
+.pricing-card-block {
+  .pricing-card--shadow {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    width: 100%;
+    opacity: 1;
+    transition: opacity 400ms;
+  }
+
+  .js-hidden {
+    opacity: 0 !important;
+  }
+
+  .popular {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: -80px;
+    opacity: 1;
+    transition: opacity 400ms;
+
+    .popular__text {
+      position: absolute;
+      width: 75px;
+      height: 25px;
+      background-color: #03a1b5;
+      color: white;
+      text-align: center;
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: -5px;
+    }
+  }
+
+  .pricing-card {
+    display: flex;
+    flex-wrap: wrap;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 8px 0;
+        color: $font-color;
+      }
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+    color: #03a1b5;
+    font-weight: 900;
+  }
+
+  .popular__headline {
+    color: $purple-color;
+  }
+
+  small {
+    color: $font-color;
+  }
+
+  b {
+    font-size: 28px;
+    color: $purple-color;
+  }
+
+  .border {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+.question-headline {
+  margin-top: 80px;
+}
+
+.question-headline--hidden {
+  display: none;
+}
+
+.question-block {
+  background-image: url("../images/pink_bg.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 100px 0 40px 0;
+  margin: 80px 0 0 0;
+
+  .fas {
+    color: white;
+    background-color: $purple-color;
+    padding: 8px 10px;
+    border-radius: 50%;
+  }
+
+  h4 {
+    font-size: 21px;
+    color: $font-color;
+    font-weight: 900;
+  }
+}
+
+@media (max-width: $lg) {
+  .pricing-card-block {
+    .pricing-card--popular {
+      margin-top: 120px;
+    }
+  }
+
+  .pricing__headline {
+    margin-bottom: 60px;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: $md) {
+  .pricing__headline {
+    margin-bottom: 60px;
+    padding-top: 100px;
+  }
+
+  .question-block {
+    padding-top: 40px;
+  }
+
+  .question-headline {
+    display: none;
+  }
+
+  .question-headline--hidden {
+    display: block;
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: $sm) {
+  .pricing-card-block {
+    h4 {
+      font-size: 16px;
+    }
+
+    b {
+      font-size: 18px;
+    }
+  }
+
+  .question-headline--hidden {
+    padding: 10px 0;
+  }
+
+  .question-block {
+    padding: 10px 0 0 0;
+    margin: 40px 0 0 0;
+
+    h4 {
+      font-size: 16px;
+    }
+
+    .fas {
+      padding: 6px 8px;
+      border-radius: 50%;
+      font-size: 13px;
+    }
+  }
+}

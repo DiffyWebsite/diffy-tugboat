@@ -19,15 +19,10 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-<div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-  <ul class="navbar-nav justify-content-lg-between text-center text-lg-left">
-    {% for item in items %}
-      <li {{ item.attributes.addClass(['nav-item', 'my-2', 'my-lg-0']) }}>
-        {{ link(item.title, item.url, { 'class': ['nav-link']}) }}
-      </li>
-    {% endfor %}
-    <li class="nav-item navbar-block__login my-2 my-lg-0">
-      <a class="nav-link px-3 px-md-3 px-lg-4" href="https://app.diffy.website">Login/Register</a>
+<ul class="nav flex-column">
+  {% for item in items %}
+    <li class="nav-item my-2 my-lg-0">
+      {{ link(item.title, item.url, { 'class': ['nav-link']}) }}
     </li>
-  </ul>
-</div>
+  {% endfor %}
+</ul>
