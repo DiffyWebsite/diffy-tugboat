@@ -8,10 +8,7 @@
 
 define('MARKETING_PAGE_PRICING_NID', 2);
 define('MARKETING_APP_REGISTER_URL', 'https://app.diffy.website/#/register');
-define(
-  'MARKETING_APP_UPDATE_PRICING_PLAN_URL',
-  'https://app.diffy.website/#/update/'
-);
+define('MARKETING_APP_UPDATE_PRICING_PLAN_URL', 'https://app.diffy.website/#/update/');
 
 /**
  * Implements hook_preprocess.
