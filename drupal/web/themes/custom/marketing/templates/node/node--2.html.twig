@@ -23,7 +23,9 @@
         <div class="p-3 text-center pricing-card__bottom">
           <b>$ 50/mo</b>
           <p class="text--light text--small">(50¢ per page)</p>
-          <a target="_blank" href="https://app.diffy.website?type=individual" class="button button--select btn pt-2">Select</a>
+          {% if marketing_individual_url is not empty %}
+            <a target="_blank" href="{{ marketing_individual_url }}" class="button button--select btn pt-2">Select</a>
+          {% endif %}
         </div>
       </article>
     </div>
@@ -50,7 +52,9 @@
         <div class="p-3 text-center pricing-card__bottom">
           <b>$ 150/mo</b>
           <p class="text--light text--small">(15¢ per page)</p>
-          <a target="_blank" href="https://app.diffy.website?type=agency" class="button button--select btn pt-2">Select</a>
+          {% if marketing_agency_url is not empty %}
+            <a target="_blank" href="{{ marketing_agency_url }}" class="button button--select btn pt-2">Select</a>
+          {% endif %}
         </div>
       </article>
     </div>

@@ -5,6 +5,14 @@
  * Functions to support theming in the marketing theme.
  */
 
+
+define('MARKETING_PAGE_PRICING_NID', 2);
+define('MARKETING_APP_REGISTER_URL', 'https://app.diffy.website/#/register');
+define(
+  'MARKETING_APP_UPDATE_PRICING_PLAN_URL',
+  'https://app.diffy.website/#/update/'
+);
+
 /**
  * Implements hook_preprocess.
  */
@@ -18,6 +26,8 @@ function marketing_preprocess(&$variables, $hook)
  */
 function marketing_preprocess_node(&$variables)
 {
+  $variables['#cache']['contexts'][] = 'url.query_args';
+
   switch ($variables['node']->getType()) {
     case "documentation":
       // Sets documentation menu.
@@ -31,4 +41,30 @@ function marketing_preprocess_node(&$variables)
       $variables['documentation_menu'] = $menu_tree_service->build($tree);
       break;
   }
+
+  if ($variables['node']->id() == MARKETING_PAGE_PRICING_NID) {
+    // Pricing page.
+    $current = \Drupal::request()->query->get('current');
+    $isTeamMember = \Drupal::request()->query->get('isTeamMember');
+
+    $variables['marketing_agency_url'] = MARKETING_APP_REGISTER_URL;
+    $variables['marketing_individual_url'] = MARKETING_APP_REGISTER_URL;
+
+    if ($isTeamMember || (!empty($current) && $current !== 'trial')) {
+      $variables['marketing_agency_url'] = NULL;
+      $variables['marketing_individual_url'] = NULL;
+    }
+    elseif ($current == 'trial') {
+      $variables['marketing_agency_url'] = rtrim(
+          MARKETING_APP_UPDATE_PRICING_PLAN_URL,
+          '/'
+        ) . '/agency_150/Agency';
+      $variables['marketing_individual_url'] = rtrim(
+          MARKETING_APP_UPDATE_PRICING_PLAN_URL,
+          '/'
+        ) . '/individual_50/Individual';
+    }
+
+  }
+
 }
