@@ -52,14 +52,8 @@ function marketing_preprocess_node(&$variables)
       $variables['marketing_individual_url'] = NULL;
     }
     elseif ($current == 'trial') {
-      $variables['marketing_agency_url'] = rtrim(
-          MARKETING_APP_UPDATE_PRICING_PLAN_URL,
-          '/'
-        ) . '/agency_150/Agency';
-      $variables['marketing_individual_url'] = rtrim(
-          MARKETING_APP_UPDATE_PRICING_PLAN_URL,
-          '/'
-        ) . '/individual_50/Individual';
+      $variables['marketing_agency_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/agency_150/150/Agency';
+      $variables['marketing_individual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/individual_50/50/Individual';
     }
 
   }
