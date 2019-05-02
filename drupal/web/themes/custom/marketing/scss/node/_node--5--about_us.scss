@@ -8,6 +8,10 @@ $imageDir: '../images';
 #node--5--about_us {
 
   section.promotion {
+    margin-top: 52px;
+    @media (min-width: 576px) {
+      margin-top: 0px;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -123,6 +127,10 @@ $imageDir: '../images';
       border: none;
       background: #00BCD4;
       padding: 10px 20px;
+    }
+
+    .description {
+      color: #93A9B0;
     }
   }
 }

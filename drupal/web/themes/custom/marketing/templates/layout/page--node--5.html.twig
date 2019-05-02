@@ -43,7 +43,7 @@
  * @see html.html.twig
  */
 #}
-<div id="page-node-5-about_us" class="container-fluid max-width-1280">
+<div id="page-node-5-about_us">
   <div class="navbar-block navbar-block__mobile--overlay">
     <div class="container-fluid max-width-1280 navbar-block--shadow">
 
@@ -61,7 +61,10 @@
       </nav>
     </div>
   </div>
-  {{ page.content }}
+
+  <div class="container-fluid max-width-1280">
+    {{ page.content }}
+  </div>
   <footer class="mt-5">
     <div class="container-fluid max-width-1280">
       <div class="row px-3">
