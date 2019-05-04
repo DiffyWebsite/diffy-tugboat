@@ -19,6 +19,20 @@ function marketing_preprocess(&$variables, $hook)
 }
 
 /**
+ * Implements hook_preprocess_menu_local_task.
+ *
+ * @param $variables
+ */
+function marketing_preprocess_menu_local_task(&$variables) {
+  $class = array('nav-link');
+  if($variables['element']["#active"])
+  {
+    $class[] = 'active';
+  }
+  $variables['element']['#link']['url']->setOption('attributes', array('class' => $class));
+}
+
+/**
  * Implements hook_preprocess_node.
  */
 function marketing_preprocess_node(&$variables)
