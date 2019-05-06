@@ -36,8 +36,7 @@ function marketing_preprocess_node(&$variables)
     case "documentation":
       // Sets documentation menu.
       $menu_parameters = new \Drupal\Core\Menu\MenuTreeParameters();
-      $menu_parameters->setMaxDepth(1);
-      // $menu_parameters->setRoot($root_menu_item->getPluginId());
+      $menu_parameters->setMaxDepth(10);
       $menu_parameters->excludeRoot();
       $menu_name = 'documentation';
       $menu_tree_service = \Drupal::service('menu.link_tree');
