@@ -3,13 +3,21 @@
   color: #99979c;
 
   ul {
+    position: fixed;
     list-style-type: none;
-    padding-left: 10px;
+    padding-left: 12px;
 
     li {
       list-style-type: none;
+      padding-top: 12px;
+
+      &.is-active {
+        text-decoration: underline;
+      }
+
       .title {
         cursor: pointer;
+        font-size: 12px;
       }
     }
   }

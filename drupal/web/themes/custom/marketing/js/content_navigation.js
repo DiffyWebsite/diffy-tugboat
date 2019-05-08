@@ -1,9 +1,7 @@
 (function ($, Drupal) {
   Drupal.behaviors.contentNavigationBehavior = {
+    active: undefined,
     popParent: function(header, pathStack) {
-      if (header.text() == 'Шлях стажера: Binary Studio Academy') {
-        debugger;
-      }
       do {
         parentLevel = pathStack.pop();
       } while (this.getLevelNumber(header) <= this.getLevelNumber(parentLevel));
@@ -12,9 +10,6 @@
     },
 
     getLevelNumber: function(header) {
-      if (!header) {
-        debugger;
-      }
       var tagName = header.prop('tagName');
       return +tagName[1];
     },
@@ -46,6 +41,9 @@
             event.stopPropagation();
             var $this = $(this);
             var header = $this.data('header');
+            _this.active.removeClass('is-active');
+            _this.active = $this;
+            _this.active.addClass('is-active');
             $('html, body').animate({
               scrollTop: header.offset().top
             }, 1000);
@@ -88,6 +86,7 @@
     },
 
     attach: function (context, settings) {
+      var _this = this;
       var documentation = $('.documentation_content').once('processed').get(0);
       var navigation = $('.content_navigation').once('processed').get(0);
       if (!documentation) {
@@ -99,6 +98,11 @@
       if (menuTree) {
         menuTree.appendTo(navigation);
       }
+      _this.active = $('ul > li:first', navigation);
+      if (_this.active.length > 0) {
+        _this.active.addClass('is-active');
+      }
+      console.log(_this.active);
     }
   };
 
