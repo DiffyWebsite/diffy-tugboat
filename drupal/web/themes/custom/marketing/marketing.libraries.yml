@@ -47,3 +47,9 @@ content_navigation:
   css:
     theme:
       css/content_navigation.css: {}
+pricing_page:
+  js:
+    js/pricing_page.js: {}
+  css:
+    theme:
+      css/pricing_page.css: {}
