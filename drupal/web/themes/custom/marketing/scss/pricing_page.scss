@@ -122,6 +122,10 @@
   }
 }
 
+.marketing-hidden {
+  display: none!important;
+}
+
 @media (max-width: $lg) {
   .pricing-card-block {
     .pricing-card--popular {
