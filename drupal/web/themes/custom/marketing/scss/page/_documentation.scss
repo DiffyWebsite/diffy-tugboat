@@ -1,4 +1,12 @@
 #page-documentation {
+  padding-top: 36px;
+
+  .page-title h1 {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 12px;
+  }
+
   .documentation-menu-place {
     > ul > li > a {
       font-weight: bolder;

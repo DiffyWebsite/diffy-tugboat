@@ -23,6 +23,9 @@
       levelContainer.push(object);
     },
 
+    /**
+     * Builds tree DOM presentation.
+     */
     generateDom: function(header) {
       var _this = this;
       var levelContainer = header.data('levelContainer');
@@ -37,20 +40,18 @@
               .addClass('title')
               .text(_header.text())
           )
+          .data('header', _header)
           .click(function(event) {
             event.stopPropagation();
             var $this = $(this);
             var header = $this.data('header');
-            _this.active.removeClass('is-active');
-            _this.active = $this;
-            _this.active.addClass('is-active');
             $('html, body').animate({
-              scrollTop: header.offset().top
+              scrollTop: header.offset().top - 99
             }, 1000);
           })
-          .data('header', _header)
           .appendTo(ul);
 
+        _header.data('menu-item-dom', li);
         var subUl = _this.generateDom(_header);
         if (subUl) {
           subUl.appendTo(li);
@@ -60,6 +61,9 @@
       return ul;
     },
 
+    /**
+     * Transforms flat list of headers to the tree presentation.
+     */
     getTopVirtualContainer: function(documentation) {
       var _this = this;
       var virtualTopContainer = previousHeader = parentLevel = $('<h0>');
@@ -102,7 +106,26 @@
       if (_this.active.length > 0) {
         _this.active.addClass('is-active');
       }
-      console.log(_this.active);
+
+      var headers = $(':header', documentation);
+      // It keeps section tracking while scrolling.
+      $(window).scroll(function() {
+        var top = $(window).scrollTop();
+        var currentHeader = headers.toArray().find(function(header) {
+          var elementTop = $(header).offset().top;
+          return elementTop > top && elementTop - 200 < top;
+        });
+        if (!currentHeader) {
+          return;
+        }
+        var $currentHeader = $(currentHeader);
+        var $currentElementMenu = $currentHeader.data('menu-item-dom');
+        if (!!$currentHeader && !$currentElementMenu.hasClass('is-active')) {
+          _this.active.removeClass('is-active');
+          _this.active = $currentElementMenu;
+          _this.active.addClass('is-active');
+        }
+      })
     }
   };
 
