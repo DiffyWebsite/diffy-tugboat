@@ -36,6 +36,8 @@ function marketing_preprocess_menu_local_task(&$variables) {
  */
 function marketing_preprocess_node(&$variables)
 {
+  $variables['#cache']['contexts'][] = 'url.query_args';
+
   switch ($variables['node']->getType()) {
     case "documentation":
       // Sets documentation menu.
