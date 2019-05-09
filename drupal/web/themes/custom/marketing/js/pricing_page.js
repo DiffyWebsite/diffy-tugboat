@@ -9,6 +9,12 @@
       var $individualPriceDescription = $('.indvidual-price-description');
       var $agencyPricePlace = $('.agency-price-text');
       var $agencyPriceDescription = $('.agency-price-description');
+
+      const $marketingIndividualMonthBtn = $('.marketing-individual-month-btn');
+      const $marketingIndividualAnnualBtn = $('.marketing-individual-annual-btn');
+      const $marketingAgencyMonthBtn = $('.marketing-agency-month-btn');
+      const $marketingAgencyAnnualBtn = $('.marketing-agency-annual-btn');
+
       switchers.click(function() {
         var type = $(this).data('type');
         switchers.toggleClass('active');
@@ -33,6 +39,16 @@
               description: '(4.2¢ per page)'
             }
           };
+
+          $marketingIndividualMonthBtn.addClass('marketing-hidden');
+          $marketingIndividualAnnualBtn.removeClass('marketing-hidden');
+          $marketingAgencyMonthBtn.addClass('marketing-hidden');
+          $marketingAgencyAnnualBtn.removeClass('marketing-hidden');
+        } else {
+          $marketingIndividualMonthBtn.removeClass('marketing-hidden');
+          $marketingIndividualAnnualBtn.addClass('marketing-hidden');
+          $marketingAgencyMonthBtn.removeClass('marketing-hidden');
+          $marketingAgencyAnnualBtn.addClass('marketing-hidden');
         }
         $individualPricePlace.text(prices.individual.price);
         $individualPriceDescription.text(prices.individual.description);

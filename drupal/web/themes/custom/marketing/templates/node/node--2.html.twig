@@ -26,7 +26,13 @@
         <div class="p-3 text-center pricing-card__bottom">
           <b class="indvidual-price-text">$ 50/mo</b>
           <p class="text--light text--small indvidual-price-description">(50¢ per page)</p>
-          <a target="_blank" href="https://app.diffy.website?type=individual" class="button button--select btn pt-2">Select</a>
+          {% if marketing_individual_url is not empty %}
+            <a target="_blank" href="{{ marketing_individual_url }}" class="marketing-individual-month-btn button button--select btn pt-2">Select</a>
+          {% endif %}
+
+          {% if marketing_individual_annual_url is not empty %}
+            <a target="_blank" href="{{ marketing_individual_annual_url }}" class="marketing-individual-annual-btn button button--select btn pt-2 marketing-hidden">Select</a>
+          {% endif %}
         </div>
       </article>
     </div>
@@ -53,7 +59,13 @@
         <div class="p-3 text-center pricing-card__bottom">
           <b class="agency-price-text">$ 150/mo</b>
           <p class="text--light text--small agency-price-description">(15¢ per page)</p>
-          <a target="_blank" href="https://app.diffy.website?type=agency" class="button button--select btn pt-2">Select</a>
+          {% if marketing_agency_url is not empty %}
+            <a target="_blank" href="{{ marketing_agency_url }}" class="marketing-agency-month-btn button button--select btn pt-2">Select</a>
+          {% endif %}
+
+          {% if marketing_agency_annual_url is not empty %}
+            <a target="_blank" href="{{ marketing_agency_annual_url }}" class="marketing-agency-annual-btn button button--select btn pt-2 marketing-hidden">Select</a>
+          {% endif %}
         </div>
       </article>
     </div>
