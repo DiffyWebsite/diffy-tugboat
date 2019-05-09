@@ -56,10 +56,18 @@ function marketing_preprocess_node(&$variables)
 
     $variables['marketing_agency_url'] = MARKETING_APP_REGISTER_URL;
     $variables['marketing_individual_url'] = MARKETING_APP_REGISTER_URL;
+    $variables['marketing_agency_annual_url'] = MARKETING_APP_REGISTER_URL;
+    $variables['marketing_individual_annual_url'] = MARKETING_APP_REGISTER_URL;
+    $variables['marketing_agency_annual2_url'] = MARKETING_APP_REGISTER_URL;
+    $variables['marketing_individual_annual2_url'] = MARKETING_APP_REGISTER_URL;
 
     if ($isTeamMember || (!empty($current) && $current !== 'trial')) {
       $variables['marketing_agency_url'] = NULL;
       $variables['marketing_individual_url'] = NULL;
+      $variables['marketing_agency_annual_url'] = NULL;
+      $variables['marketing_individual_annual_url'] = NULL;
+      $variables['marketing_agency_annual2_url'] = NULL;
+      $variables['marketing_individual_annual2_url'] = NULL;
     }
     elseif ($current == 'trial') {
       $variables['marketing_agency_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26o8psu9Lw8sx/150/Agency';
