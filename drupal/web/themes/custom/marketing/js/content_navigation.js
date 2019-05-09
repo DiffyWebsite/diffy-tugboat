@@ -1,9 +1,7 @@
 (function ($, Drupal) {
   Drupal.behaviors.contentNavigationBehavior = {
+    active: undefined,
     popParent: function(header, pathStack) {
-      if (header.text() == 'Шлях стажера: Binary Studio Academy') {
-        debugger;
-      }
       do {
         parentLevel = pathStack.pop();
       } while (this.getLevelNumber(header) <= this.getLevelNumber(parentLevel));
@@ -12,9 +10,6 @@
     },
 
     getLevelNumber: function(header) {
-      if (!header) {
-        debugger;
-      }
       var tagName = header.prop('tagName');
       return +tagName[1];
     },
@@ -28,6 +23,9 @@
       levelContainer.push(object);
     },
 
+    /**
+     * Builds tree DOM presentation.
+     */
     generateDom: function(header) {
       var _this = this;
       var levelContainer = header.data('levelContainer');
@@ -42,17 +40,18 @@
               .addClass('title')
               .text(_header.text())
           )
+          .data('header', _header)
           .click(function(event) {
             event.stopPropagation();
             var $this = $(this);
             var header = $this.data('header');
             $('html, body').animate({
-              scrollTop: header.offset().top
+              scrollTop: header.offset().top - 99
             }, 1000);
           })
-          .data('header', _header)
           .appendTo(ul);
 
+        _header.data('menu-item-dom', li);
         var subUl = _this.generateDom(_header);
         if (subUl) {
           subUl.appendTo(li);
@@ -62,6 +61,9 @@
       return ul;
     },
 
+    /**
+     * Transforms flat list of headers to the tree presentation.
+     */
     getTopVirtualContainer: function(documentation) {
       var _this = this;
       var virtualTopContainer = previousHeader = parentLevel = $('<h0>');
@@ -88,6 +90,7 @@
     },
 
     attach: function (context, settings) {
+      var _this = this;
       var documentation = $('.documentation_content').once('processed').get(0);
       var navigation = $('.content_navigation').once('processed').get(0);
       if (!documentation) {
@@ -99,6 +102,30 @@
       if (menuTree) {
         menuTree.appendTo(navigation);
       }
+      _this.active = $('ul > li:first', navigation);
+      if (_this.active.length > 0) {
+        _this.active.addClass('is-active');
+      }
+
+      var headers = $(':header', documentation);
+      // It keeps section tracking while scrolling.
+      $(window).scroll(function() {
+        var top = $(window).scrollTop();
+        var currentHeader = headers.toArray().find(function(header) {
+          var elementTop = $(header).offset().top;
+          return elementTop > top && elementTop - 200 < top;
+        });
+        if (!currentHeader) {
+          return;
+        }
+        var $currentHeader = $(currentHeader);
+        var $currentElementMenu = $currentHeader.data('menu-item-dom');
+        if (!!$currentHeader && !$currentElementMenu.hasClass('is-active')) {
+          _this.active.removeClass('is-active');
+          _this.active = $currentElementMenu;
+          _this.active.addClass('is-active');
+        }
+      })
     }
   };
 

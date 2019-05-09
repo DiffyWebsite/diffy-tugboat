@@ -5,7 +5,6 @@
  * Functions to support theming in the marketing theme.
  */
 
-
 define('MARKETING_PAGE_PRICING_NID', 2);
 define('MARKETING_APP_REGISTER_URL', 'https://app.diffy.website/#/register');
 define('MARKETING_APP_UPDATE_PRICING_PLAN_URL', 'https://app.diffy.website/#/update/');
@@ -43,8 +42,7 @@ function marketing_preprocess_node(&$variables)
     case "documentation":
       // Sets documentation menu.
       $menu_parameters = new \Drupal\Core\Menu\MenuTreeParameters();
-      $menu_parameters->setMaxDepth(1);
-      // $menu_parameters->setRoot($root_menu_item->getPluginId());
+      $menu_parameters->setMaxDepth(10);
       $menu_parameters->excludeRoot();
       $menu_name = 'documentation';
       $menu_tree_service = \Drupal::service('menu.link_tree');
@@ -66,10 +64,15 @@ function marketing_preprocess_node(&$variables)
       $variables['marketing_individual_url'] = NULL;
     }
     elseif ($current == 'trial') {
-      $variables['marketing_agency_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/agency_150/150/Agency';
-      $variables['marketing_individual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/individual_50/50/Individual';
+      $variables['marketing_agency_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26o8psu9Lw8sx/150/Agency';
+      $variables['marketing_individual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26n9rwm181ats/50/Individual';
+
+      $variables['marketing_agency_annual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26c9kVGMzMgxA/750/Agency';
+      $variables['marketing_individual_annual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26jxmXhZ57CF4/250/Individual';
+
+      $variables['marketing_agency_annual2_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26cS1xQPY3wXL/1500/Agency';
+      $variables['marketing_individual_annual2_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26jZoaN5MkZpy/500/Individual';
     }
 
   }
-
 }

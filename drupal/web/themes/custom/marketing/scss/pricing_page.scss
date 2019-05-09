@@ -1,6 +1,23 @@
+@import "variables";
+
 .pricing__headline {
   margin-bottom: 120px;
   padding-top: 70px;
+}
+
+.price-period-switcher {
+  margin-bottom: 121px;
+
+  .switcher {
+    padding: 12px 92px;
+    border-bottom: solid 1px #03A1B5;
+    cursor: pointer;
+
+    &.active {
+      background-color: #03A1B5;
+      color: white;
+    }
+  }
 }
 
 .pricing-card-block {
@@ -103,6 +120,10 @@
     color: $font-color;
     font-weight: 900;
   }
+}
+
+.marketing-hidden {
+  display: none!important;
 }
 
 @media (max-width: $lg) {

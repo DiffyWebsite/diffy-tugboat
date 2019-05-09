@@ -4,7 +4,6 @@
 @import "navbar";
 @import "footer";
 @import "home";
-@import "pricing";
 @import "features";
 @import "documentation";
 @import "screenshots";
@@ -101,6 +100,9 @@ p {
     font-size: 13px !important;
   }
 }
+
+// Imports styles for entity type pages.
+@import "./page/documentation";
 
 // Imports specific styles for specific nodes.
 @import "./node/node--5--about_us";

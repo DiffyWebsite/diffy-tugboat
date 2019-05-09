@@ -1,10 +1,13 @@
 {#<h2 class="text-center pricing__headline px-4 px-md-0">#}
   {#Manage your team and clients effectively#}
 {#</h2>#}
-
-<section class="container mt-5 px-3 px-md-5 pricing-card-block">
+{{ attach_library('marketing/pricing_page') }}
+<section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block">
+  <div class="price-period-switcher d-flex justify-content-center">
+    <div class="switcher monthly active" data-type="monthly">Monthly</div>
+    <div class="switcher annual" data-type="annual">Annual</div>
+  </div>
   <div class="row px-3">
-
     <div class="col-lg-4 pricing-card m-0">
       <article class="pricing-card--shadow js-hidden">
         <div class="pricing-card--shadow p-3 text-center pricing-card__head">
@@ -21,10 +24,14 @@
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
-          <b>$ 50/mo</b>
-          <p class="text--light text--small">(50¢ per page)</p>
+          <b class="indvidual-price-text">$ 50/mo</b>
+          <p class="text--light text--small indvidual-price-description">(50¢ per page)</p>
           {% if marketing_individual_url is not empty %}
-            <a target="_blank" href="{{ marketing_individual_url }}" class="button button--select btn pt-2">Select</a>
+            <a target="_blank" href="{{ marketing_individual_url }}" class="marketing-individual-month-btn button button--select btn pt-2">Select</a>
+          {% endif %}
+
+          {% if marketing_individual_annual_url is not empty %}
+            <a target="_blank" href="{{ marketing_individual_annual_url }}" class="marketing-individual-annual-btn button button--select btn pt-2 marketing-hidden">Select</a>
           {% endif %}
         </div>
       </article>
@@ -50,10 +57,14 @@
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
-          <b>$ 150/mo</b>
-          <p class="text--light text--small">(15¢ per page)</p>
+          <b class="agency-price-text">$ 150/mo</b>
+          <p class="text--light text--small agency-price-description">(15¢ per page)</p>
           {% if marketing_agency_url is not empty %}
-            <a target="_blank" href="{{ marketing_agency_url }}" class="button button--select btn pt-2">Select</a>
+            <a target="_blank" href="{{ marketing_agency_url }}" class="marketing-agency-month-btn button button--select btn pt-2">Select</a>
+          {% endif %}
+
+          {% if marketing_agency_annual_url is not empty %}
+            <a target="_blank" href="{{ marketing_agency_annual_url }}" class="marketing-agency-annual-btn button button--select btn pt-2 marketing-hidden">Select</a>
           {% endif %}
         </div>
       </article>
