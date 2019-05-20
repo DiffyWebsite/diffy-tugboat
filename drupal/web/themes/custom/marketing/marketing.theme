@@ -75,10 +75,10 @@ function marketing_preprocess_node(&$variables)
       $variables['marketing_agency_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26o8psu9Lw8sx/150/Agency';
       $variables['marketing_individual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26n9rwm181ats/50/Individual';
 
-      $variables['marketing_agency_annual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26c9kVGMzMgxA/750/Agency';
+      $variables['marketing_agency_annual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26cS1xQPY3wXL/1500/Agency';
       $variables['marketing_individual_annual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26jxmXhZ57CF4/250/Individual';
 
-      $variables['marketing_agency_annual2_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26cS1xQPY3wXL/1500/Agency';
+      $variables['marketing_agency_annual2_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26c9kVGMzMgxA/750/Agency';
       $variables['marketing_individual_annual2_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26jZoaN5MkZpy/500/Individual';
     }
 
