@@ -35,8 +35,8 @@
               description: '(21¢ per page)',
             },
             agency: {
-              price: '$ 750/yr',
-              description: '(4.2¢ per page)'
+              price: '$ 1500/yr',
+              description: '(12.5¢ per page)'
             }
           };
 
