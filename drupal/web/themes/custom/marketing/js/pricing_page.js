@@ -31,8 +31,8 @@
         if (type == 'annual') {
           prices = {
             individual: {
-              price: '$ 250/yr',
-              description: '(21¢ per page)',
+              price: '$ 500/yr',
+              description: '(41.6¢ per page)',
             },
             agency: {
               price: '$ 1500/yr',
