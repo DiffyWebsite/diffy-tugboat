@@ -8,27 +8,30 @@
         </div>
 
         <div class="col-md-4 d-flex mb-4 mb-md-0">
+            <a href="/documentation/ui-guide">
             <article class="shadow-card p-3 text-center">
                 <img class="mb-3" src="{{ base_path ~ directory }}/images/guide.svg" alt="guide-picture">
                 <h4 class="mb-3">UI guide</h4>
                 <p class="mb-0">Tips and Tricks about UI. Discover more features</p>
-            </article>
+            </article></a>
         </div>
 
         <div class="col-md-4 d-flex mb-4 mb-md-0">
+            <a href="/documentation/using-apis">
             <article class="shadow-card p-3 text-center">
                 <img class="mb-3" src="{{ base_path ~ directory }}/images/api.svg" alt="api-picture">
                 <h4 class="mb-3">Using APIs</h4>
                 <p class="mb-0">How to use APIs for automating testing, deployments</p>
-            </article>
+            </article></a>
         </div>
 
         <div class="col-md-4 d-flex mb-4 mb-md-0">
+            <a href="/documentation/tutorials">
             <article class="shadow-card p-3 text-center">
                 <img class="mb-3" src="{{ base_path ~ directory }}/images/tutorials.svg" alt="book-picture">
                 <h4 class="mb-3">Tutorials</h4>
                 <p class="mb-0"></p>
-            </article>
+            </article></a>
         </div>
 
     </div>
@@ -38,39 +41,39 @@
 
     <div class="mb-5 text-center">
         <h2 class="mt-5">
-            Popular documentation
+            Popular documentation pages
         </h2>
     </div>
 
     <div class="row px-3">
 
         <div class="col-md-6 px-2 px-md-4 px-lg-5 my-3">
-            <a href="#">
+            <a href="/documentation/mask-and-exclude-dom-elements">
                 <h3 class="py-3 popular-documentation--headline">Mask and exclude</h3>
             </a>
         </div>
 
         <div class="col-md-6 px-2 px-md-4 px-lg-5 my-3">
-            <a href="#">
+            <a href="/documentation/preview-screenshots-diffs">
                 <h3 class="py-3 popular-documentation--headline">Preview Screenshots, Diffs</h3>
             </a>
         </div>
 
         <div class="col-md-6 px-2 px-md-4 px-lg-5 my-3">
-            <a href="#">
+            <a href="/documentation/team-management">
                 <h3 class="py-3 popular-documentation--headline">Teams management</h3>
             </a>
         </div>
 
         <div class="col-md-6 px-2 px-md-4 px-lg-5 my-3">
-            <a href="#">
-                <h3 class="py-3 popular-documentation--headline">Review results Offline</h3>
+            <a href="/documentation/getting-started-apis">
+                <h3 class="py-3 popular-documentation--headline">Getting Started with APIs</h3>
             </a>
         </div>
 
         <div class="col-md-6 px-2 px-md-4 px-lg-5 my-3">
-            <a href="#">
-                <h3 class="py-3 popular-documentation--headline">Pixel perfect diff</h3>
+            <a href="/documentation/pantheon-quicksilver-quick-start">
+                <h3 class="py-3 popular-documentation--headline">Pantheon Quicksilver Quick Start</h3>
             </a>
         </div>
 
@@ -88,14 +91,12 @@
         </div>
 
         <div class="col-md-8">
-            <h3>Baseline images</h3>
-            <p class="text--light text--small">A month ago</p>
-            <p>Excited to announce Baseline images functionality. Idea is that you can create
-                a set of images to compare against that can consist from different environments.
-                So instead of immediate comparison of environments now you can
-                collect your “ideal” set and then compare it with your builds.
+            <h3>Testing popups. Execute javascript prior taking a screenshot</h3>
+            {#<p class="text--light text--small">A month ago</p>#}
+            <p>Now it is possible to execute arbitrary javascript prior taking a screenshot. It allow taking screenshots
+                of popups or any other elements that require some user interaction.
             </p>
-            <button class="button button-more" type="button">More<img class="px-2" src="{{ base_path ~ directory }}/images/arrow.svg" alt="arrow"></button>
+            <a href="https://headwayapp.co/diffy-changelog" class="button button-more" type="button">More<img class="px-2" src="{{ base_path ~ directory }}/images/arrow.svg" alt="arrow"></a>
         </div>
 
     </div>
