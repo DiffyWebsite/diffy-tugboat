@@ -528,7 +528,7 @@ p {
             box-shadow: 0 3px 6px rgba(0, 188, 212, 0.2); }
 
 .text--light {
-  color: #93a9b0; }
+  color: #93a9b0 !important; }
 
 .text--small {
   font-size: 13px; }
