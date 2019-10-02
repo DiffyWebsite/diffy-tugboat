@@ -19,7 +19,7 @@ jobs:
       - run: |
           git remote add pantheon ssh://codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f@codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in:2222/~/repository.git
           git push pantheon $CIRCLE_BRANCH:master --force
-          sleep 20
+          sleep 25
           bash diffy-utils/runCheck.sh $CIRCLE_SHA1 $API_KEY
 
 workflows:
