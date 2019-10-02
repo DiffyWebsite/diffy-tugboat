@@ -14,10 +14,11 @@ jobs:
     docker:
       - image: circleci/php:7.2
     working_directory: ~/repo
+    environment:
+      TERMINUS_MACHINE_TOKEN: 'plymWIwKu3wvV4K_y5NUlq4g0w4Yd0l93CexBSBwsIw0w'
+      SITE_ENV: 'diffy-marketing.dev'
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/repo
       - add_ssh_keys:
           fingerprints:
             - "3b:c2:4c:31:fa:a6:f5:6b:2e:90:b5:19:ea:c0:ee:de"
@@ -26,8 +27,24 @@ jobs:
           echo 'codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSY3gnr0DrbqJJSnEFy6jazDmAdBm4Zs/EkWIQa7x31qgSYyYJMz5V+pk62lBf2BN42VtubwO83vW9G+yG2K1RGOvZJaK5GBvBb/Ws2ZPcp/4sNHpPzkdd75e5/Pk8AWA59XUbJcBWmrDrHMbWV1j2zqPPikxbqGeTTjSx4QR18LIRei5OwT6VQnaVnJqPAqFZ+oCbpr0DL96foL3UEY8EWT/6GH2cANEGZO4ppbhdDw4uG6TaI7S0lxWMQEVy+iwjCNH/nanjd73cwoYd90E0OVdgNDr3hVbIuE6sUW6UwlaAwuyOM/xJYPg1y0rF66958pyVJlZ9KD5A0kY3bHg7' >> ~/.ssh/known_hosts
           git remote add pantheon ssh://codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f@codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in:2222/~/repository.git
           git push pantheon $CIRCLE_BRANCH:master --force
-          sleep 25
-          bash diffy-utils/runCheck.sh $CIRCLE_SHA1 $API_KEY
+      - restore_cache:
+          key: v1-terminus-cache
+      - run: |
+          cd ~/
+          mkdir terminus
+          cd ~/terminus
+          curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar
+          php installer.phar install
+          alias terminus=/home/circleci/vendor/bin/terminus
+      - save_cache:
+          key: v1-terminus-cache
+          paths:
+            - ~/terminus
+      - run: |
+          terminus auth:login --machine-token $TERMINUS_MACHINE_TOKEN
+          terminus env:clear-cache $SITE_ENV
+          sleep 2
+          bash ~/repo/diffy-utils/runCheck.sh $CIRCLE_SHA1 $API_KEY
 
 workflows:
   version: 2
