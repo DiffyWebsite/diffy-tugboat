@@ -36,6 +36,7 @@ jobs:
           paths:
             - ~/terminus
       - run: |
+          cd ~/
           alias terminus=/home/circleci/terminus/vendor/bin/terminus
           terminus auth:login --machine-token $TERMINUS_MACHINE_TOKEN
           terminus env:clear-cache $SITE_ENV
