@@ -2,27 +2,35 @@
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
-
 version: 2.0
 
 jobs:
-  deploy_prod_site:
-    machine:
-      enabled: true
+  display_branch:
+    docker:
+      - image: circleci/php:7.2
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "70:4a:95:47:0f:14:bb:9e:76:4b:77:e1:72:66:e2:29"
-      - run:
-          name: Deploy prod site Over SSH
-          command: |
-            ssh root@134.209.214.191 'bash /var/www/diffy-marketing/deploy/deploy_prod_site.sh'
+      - run: echo $CIRCLE_BRANCH
+  pr:
+    docker:
+      - image: circleci/php:7.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: |
+          git remote add pantheon ssh://codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f@codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in:2222/~/repository.git
+          git push pantheon $CIRCLE_BRANCH:master --force
+          sleep 20
+          bash diffy-utils/runCheck.sh $CIRCLE_SHA1 $API_KEY
 
 workflows:
   version: 2
-  build-and-deploy:
+  build-deploy:
     jobs:
-      - deploy_prod_site:
+      - display_branch
+      - pr:
           filters:
             branches:
-              only: master
+              ignore:
+                - master
+                - staging
+                - /release-.*/

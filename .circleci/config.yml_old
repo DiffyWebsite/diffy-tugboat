@@ -1,0 +1,28 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+
+version: 2.0
+
+jobs:
+  deploy_prod_site:
+    machine:
+      enabled: true
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "70:4a:95:47:0f:14:bb:9e:76:4b:77:e1:72:66:e2:29"
+      - run:
+          name: Deploy prod site Over SSH
+          command: |
+            ssh root@134.209.214.191 'bash /var/www/diffy-marketing/deploy/deploy_prod_site.sh'
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - deploy_prod_site:
+          filters:
+            branches:
+              only: master
