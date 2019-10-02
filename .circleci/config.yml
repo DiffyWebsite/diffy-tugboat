@@ -23,10 +23,7 @@ jobs:
             - "3b:c2:4c:31:fa:a6:f5:6b:2e:90:b5:19:ea:c0:ee:de"
             - "31:89:4b:a7:c7:d9:42:4e:bc:9b:bf:39:3b:df:67:21"
       - run: |
-#          echo '104.154.99.4 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCw5AjaS6bU+BxtOvbbSwx3pC0GcJmKaCkYep2WUSSL1vcwyyFBVwdukTP18ysj6huuxnMWNwPLqJSWT4jI6cbUZWf7bWVRFIZJ+0JXv3pRfJKT+mOLk4xhPHvt5idh4rU63dJRJjLodJpaS48gfTdPxt4KZPm/Y76KCDAMD++K0Itd9G/Aily7miaPXTBcx7ioobwhRBiJxJSyQoSolXrIpN7dgw7Kih1HLIsAj+iChHOtL7NCsK8+xYrUCCdAH/7ldKz4opgx+FY3tTHrgvZtFHlBAX/b9JTy+zjqXKm6j/qjGHG6cRA4vd/ZvrteFqW7+LbIKRDhA6U8GioUaq7V' >> ~/.ssh/known_hosts
           echo 'codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSY3gnr0DrbqJJSnEFy6jazDmAdBm4Zs/EkWIQa7x31qgSYyYJMz5V+pk62lBf2BN42VtubwO83vW9G+yG2K1RGOvZJaK5GBvBb/Ws2ZPcp/4sNHpPzkdd75e5/Pk8AWA59XUbJcBWmrDrHMbWV1j2zqPPikxbqGeTTjSx4QR18LIRei5OwT6VQnaVnJqPAqFZ+oCbpr0DL96foL3UEY8EWT/6GH2cANEGZO4ppbhdDw4uG6TaI7S0lxWMQEVy+iwjCNH/nanjd73cwoYd90E0OVdgNDr3hVbIuE6sUW6UwlaAwuyOM/xJYPg1y0rF66958pyVJlZ9KD5A0kY3bHg7' >> ~/.ssh/known_hosts
-
-
           git remote add pantheon ssh://codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f@codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in:2222/~/repository.git
           git push pantheon $CIRCLE_BRANCH:master --force
           sleep 25
