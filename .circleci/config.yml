@@ -28,16 +28,16 @@ jobs:
           git remote add pantheon ssh://codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f@codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in:2222/~/repository.git
           git push pantheon $CIRCLE_BRANCH:master --force
       - restore_cache:
-          key: v1-terminus-cache
+          key: v1-terminus-cache-{{ checksum "~/repo/.circleci/config.yml" }}
       - run: |
           cd ~/
           mkdir terminus
           cd ~/terminus
           curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar
           php installer.phar install
-          alias terminus=/home/circleci/vendor/bin/terminus
+          alias terminus=/home/circleci/terminus/vendor/bin/terminus
       - save_cache:
-          key: v1-terminus-cache
+          key: v1-terminus-cache-{{ checksum "~/repo/.circleci/config.yml" }}
           paths:
             - ~/terminus
       - run: |
