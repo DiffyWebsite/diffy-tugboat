@@ -37,9 +37,8 @@ jobs:
             - ~/terminus
       - run: |
           cd ~/
-          alias terminus=/home/circleci/terminus/vendor/bin/terminus
-          terminus auth:login --machine-token $TERMINUS_MACHINE_TOKEN
-          terminus env:clear-cache $SITE_ENV
+          ~/terminus/vendor/bin/terminus auth:login --machine-token $TERMINUS_MACHINE_TOKEN
+          ~/terminus/vendor/bin/terminus env:clear-cache $SITE_ENV
           sleep 2
           bash ~/repo/diffy-utils/runCheck.sh $CIRCLE_SHA1 $API_KEY
 workflows:
