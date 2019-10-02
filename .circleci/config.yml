@@ -45,7 +45,6 @@ jobs:
           terminus env:clear-cache $SITE_ENV
           sleep 2
           bash ~/repo/diffy-utils/runCheck.sh $CIRCLE_SHA1 $API_KEY
-
 workflows:
   version: 2
   build-deploy:
