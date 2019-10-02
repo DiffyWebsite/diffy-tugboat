@@ -34,7 +34,6 @@ RESULT=`curl -s \
 
 TOKEN="${RESULT//\"/}"
 
-
 if [[ -z "$TOKEN" ]]; then
    echo "============= Diffy authorization failed =========="
    echo $RESULT
