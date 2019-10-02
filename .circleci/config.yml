@@ -19,6 +19,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "3b:c2:4c:31:fa:a6:f5:6b:2e:90:b5:19:ea:c0:ee:de"
+            - "31:89:4b:a7:c7:d9:42:4e:bc:9b:bf:39:3b:df:67:21"
       - run: |
           echo 'codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f@codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in:2222 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSY3gnr0DrbqJJSnEFy6jazDmAdBm4Zs/EkWIQa7x31qgSYyYJMz5V+pk62lBf2BN42VtubwO83vW9G+yG2K1RGOvZJaK5GBvBb/Ws2ZPcp/4sN$' >> ~/.ssh/known_hosts
           git remote add pantheon ssh://codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f@codeserver.dev.51b73c1d-15ea-4605-9b35-139337cefb1f.drush.in:2222/~/repository.git
