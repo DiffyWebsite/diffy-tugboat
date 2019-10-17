@@ -16,9 +16,9 @@ ENVDEVURL="http://dev-diffy-marketing.pantheonsite.io/"
 ENVPRURL="http://pr-diffy-marketing.pantheonsite.io/"
 
 if [[ "$BRANCH" == "master" ]]; then
-  ENV2URL = ENVDEVURL
+  ENV2URL = $ENVDEVURL
 else
-  ENV2URL = ENVPRURL
+  ENV2URL = $ENVPRURL
 fi
 
 ENV1CREDSMODE=false
