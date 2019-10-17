@@ -79,6 +79,7 @@ workflows:
           filters:
             branches:
               ignore:
+                - production
                 - master
                 - staging
                 - /release-.*/
