@@ -70,8 +70,6 @@ jobs:
           cd ~/
           ~/terminus/vendor/bin/terminus auth:login --machine-token $TERMINUS_MACHINE_TOKEN
           ~/terminus/vendor/bin/terminus env:clear-cache $SITE_ENV
-          sleep 2
-          bash ~/repo/diffy-utils/runCheck.sh $CIRCLE_SHA1 $API_KEY master
 workflows:
   version: 2
   build-deploy:
