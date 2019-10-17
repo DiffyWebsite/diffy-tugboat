@@ -87,4 +87,4 @@ workflows:
       - master:
           filters:
             branches:
-              master
+              only: master

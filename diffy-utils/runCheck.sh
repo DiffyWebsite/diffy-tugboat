@@ -8,17 +8,16 @@ API_KEY="$2"
 BRANCH="$3"
 
 DIFFY_HOST="http://stage.diffy.website"
-
 PROJECT_ID=1195
 
 ENV1URL="http://test-diffy-marketing.pantheonsite.io/"
 ENVDEVURL="http://dev-diffy-marketing.pantheonsite.io/"
 ENVPRURL="http://pr-diffy-marketing.pantheonsite.io/"
 
-if [[ "$BRANCH" == "master" ]]; then
-  ENV2URL = ENVDEVURL
+if [[ "$BRANCH" != "pr" ]]; then
+  ENV2URL=$ENVDEVURL
 else
-  ENV2URL = ENVPRURL
+  ENV2URL=$ENVPRURL
 fi
 
 ENV1CREDSMODE=false
@@ -28,6 +27,12 @@ ENV1CREDSPASS=''
 ENV2CREDSMODE=false
 ENV2CREDSUSER=''
 ENV2CREDSPASS=''
+
+
+echo "============= ENV1 =========="
+echo $ENV1URL
+echo "============= ENV2 =========="
+echo $ENV2URL
 
 echo "============= COMMIT_SHA =========="
 echo $COMMIT_SHA
