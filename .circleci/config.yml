@@ -16,7 +16,7 @@ jobs:
     working_directory: ~/repo
     environment:
       TERMINUS_MACHINE_TOKEN: 'plymWIwKu3wvV4K_y5NUlq4g0w4Yd0l93CexBSBwsIw0w'
-      SITE_ENV: 'diffy-marketing.dev'
+      SITE_ENV: 'diffy-marketing.pr'
     steps:
       - checkout
       - add_ssh_keys:
