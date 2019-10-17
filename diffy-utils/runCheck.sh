@@ -15,10 +15,10 @@ ENV1URL="http://test-diffy-marketing.pantheonsite.io/"
 ENVDEVURL="http://dev-diffy-marketing.pantheonsite.io/"
 ENVPRURL="http://pr-diffy-marketing.pantheonsite.io/"
 
-if [[ "$BRANCH" == "master" ]]; then
-  ENV2URL = $ENVDEVURL
+if [[ "$BRANCH" -eq "master" ]]; then
+  ENV2URL=$ENVDEVURL
 else
-  ENV2URL = $ENVPRURL
+  ENV2URL=$ENVPRURL
 fi
 
 ENV1CREDSMODE=false
