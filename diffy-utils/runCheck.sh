@@ -8,7 +8,6 @@ API_KEY="$2"
 BRANCH="$3"
 
 DIFFY_HOST="http://stage.diffy.website"
-
 PROJECT_ID=1195
 
 ENV1URL="http://test-diffy-marketing.pantheonsite.io/"
