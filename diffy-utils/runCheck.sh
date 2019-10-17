@@ -5,12 +5,21 @@ echo "============= Run diffy compare and Github check =="
 echo "==================================================="
 COMMIT_SHA="$1"
 API_KEY="$2"
+BRANCH="$3"
 
 DIFFY_HOST="http://stage.diffy.website"
 
 PROJECT_ID=1195
-ENV1URL="http://dev-diffy-marketing.pantheonsite.io/"
-ENV2URL="http://test-diffy-marketing.pantheonsite.io/"
+
+ENV1URL="http://test-diffy-marketing.pantheonsite.io/"
+ENVDEVURL="http://dev-diffy-marketing.pantheonsite.io/"
+ENVPRURL="http://pr-diffy-marketing.pantheonsite.io/"
+
+if [[ "$BRANCH" == "master" ]]; then
+  ENV2URL = ENVDEVURL
+else
+  ENV2URL = ENVPRURL
+fi
 
 ENV1CREDSMODE=false
 ENV1CREDSUSER=''
