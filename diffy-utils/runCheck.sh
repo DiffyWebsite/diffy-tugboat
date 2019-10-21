@@ -7,7 +7,7 @@ COMMIT_SHA="$1"
 API_KEY="$2"
 BRANCH="$3"
 
-DIFFY_HOST="http://stage.diffy.website"
+DIFFY_HOST="https://app.diffy.website"
 PROJECT_ID=1195
 
 ENV1URL="http://test-diffy-marketing.pantheonsite.io/"
