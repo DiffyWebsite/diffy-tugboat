@@ -28,7 +28,6 @@ ENV2CREDSMODE=false
 ENV2CREDSUSER=''
 ENV2CREDSPASS=''
 
-
 echo "============= ENV1 =========="
 echo $ENV1URL
 echo "============= ENV2 =========="
