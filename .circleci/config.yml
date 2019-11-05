@@ -15,7 +15,6 @@ jobs:
       - image: circleci/php:7.2
     working_directory: ~/repo
     environment:
-      TERMINUS_MACHINE_TOKEN: 'plymWIwKu3wvV4K_y5NUlq4g0w4Yd0l93CexBSBwsIw0w'
       SITE_ENV: 'diffy-marketing.pr'
     steps:
       - checkout
@@ -46,7 +45,6 @@ jobs:
       - image: circleci/php:7.2
     working_directory: ~/repo
     environment:
-      TERMINUS_MACHINE_TOKEN: 'plymWIwKu3wvV4K_y5NUlq4g0w4Yd0l93CexBSBwsIw0w'
       SITE_ENV: 'diffy-marketing.dev'
     steps:
       - checkout
