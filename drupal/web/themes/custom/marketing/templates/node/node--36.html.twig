@@ -141,7 +141,7 @@
 
     <div class="col-md-3 d-flex mb-4">
       <article class="shadow-card p-4">
-        <h3 class="mb-4">As authenticated user</h3>
+        <h3 class="mb-4">As logged in user</h3>
         <p class="mb-3">
           You can take screenshots as authenticated user to test your backend. Support Drupal, Wordpress and any custom form to login.
         </p>
@@ -167,11 +167,12 @@
       <h2>Integrations</h2>
     </div>
 
-    <div class="col-md-6 d-flex mb-4 mb-md-0">
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
       <article class="shadow-card p-4">
-        <button class="mb-4 button-integrations" type="button"><img class="" src="{{ base_path ~ directory }}/images/pantheon_vector_logo.svg"
-                                                                    alt="button"></button>
-        <h3 class="mb-4">Pantheon</h3>
+        <button class="mb-4 button-integrations" type="button">
+          <img class="" src="{{ base_path ~ directory }}/images/pantheon_vector_logo.svg" alt="button">
+        </button>
+        <h3 class="mb-4">Pantheon - Quicksilver</h3>
         <p class="mb-3">Monitor your website for updates and if any found — create an updated site and compare it
           visually with production.
           So you can run your updates safely. <a target="_blank" href="https://github.com/DiffyWebsite/quicksilver-examples/tree/master/diffy_visualregression">Read more.</a>
@@ -179,9 +180,10 @@
       </article>
     </div>
 
-    <div class="col-md-6 d-flex mb-4 mb-md-0">
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
       <article class="shadow-card p-4">
-        <button class="mb-4 button-integrations" type="button"><img class="p-3" src="{{ base_path ~ directory }}/images/logo---blue.svg" alt="button">
+        <button class="mb-4 button-integrations" type="button">
+          <img class="p-3" src="{{ base_path ~ directory }}/images/logo---blue.svg" alt="button">
         </button>
         <h3 class="mb-3">Acquia</h3>
         <p class="mb-3">Thanks to webhooks trigger Diffy comparison job once you did deployment.
@@ -191,13 +193,53 @@
       </article>
     </div>
 
-    <div class="col-md-6 d-flex mb-4 mb-md-0 mt-4">
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0 mt-4">
       <article class="shadow-card p-4">
-        <img class="mb-3" style="width: 154px" src="{{ base_path ~ directory }}/images/platformsh.png">
+        <div class="mb-3 button-integrations" style="background-color: white">
+          <img class="mt-2" style="width: 154px" src="{{ base_path ~ directory }}/images/platformsh.png">
+        </div>
         <h3 class="mb-3">Platform.sh</h3>
         <p class="mb-3">We test Drupal core Umami distribution with Diffy and Platform.sh. Allows to do visual testing of patches for both anonymous
           and admin users.
           <a target="_blank" href="https://medium.com/diffy/umami-distribution-testing-automation-with-platform-sh-and-diffy-91272af485b">Read more.</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
+      <article class="shadow-card p-4">
+        <div class="mb-3 button-integrations" style="background-color: white">
+          <img class="mt-1" width=154 src="{{ base_path ~ directory }}/images/github-logo.jpg">
+        </div>
+        <h3 class="mb-4">Github - checks</h3>
+        <p class="mb-3">Diffy has a Github app that provides a check for your pull requests. Once testing job is completed it will be posted
+          to your pull request as a check.
+          <a target="_blank" href="https://diffy.website/documentation/pantheon-build-tools">Read more.</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
+      <article class="shadow-card p-4">
+        <button class="mb-4 button-integrations" type="button">
+          <img class="" src="{{ base_path ~ directory }}/images/pantheon_vector_logo.svg" alt="button">
+        </button>
+        <h3 class="mb-4">Pantheon - <a href="https://pantheon.io/docs/guides/build-tools">Build Tools</a></h3>
+        <p class="mb-3">Build Tools allow to spin up Multi Dev pull request environments. We provide an easy integration to
+          compare those environments with Dev and post results back to Github.
+          <a target="_blank" href="https://diffy.website/documentation/github-integration">Read more.</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
+      <article class="shadow-card p-4">
+        <div class="mb-4 button-integrations" style="background-color: white">
+          <img class="mt-2" width="154" src="{{ base_path ~ directory }}/images/circleci-logo.png">
+        </div>
+        <h3 class="mb-4">CircleCI Orb</h3>
+        <p class="mb-3">We have a custom CircleCI Orb that compares pull request environments with DEV.
+          <a target="_blank" href="https://github.com/DiffyWebsite/diffy-circleci-orb">Read more.</a>
         </p>
       </article>
     </div>
