@@ -4,13 +4,6 @@
 {{ attach_library('marketing/pricing_page') }}
 
 <section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block align-center">
-  <p style="font-size: 30px;
-    text-align: center;
-    font-weight: 900;">
-    Here are our <i>Unlimited plans</i></p>
-</section>
-
-<section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block align-center">
   <p style="font-size: 20px;
     text-align: center;
     font-weight: 900;">
@@ -24,7 +17,32 @@
     <div class="switcher annual" data-type="annual">Annual</div>
   </div>
   <div class="row px-3">
-    <div class="col-lg-4 pricing-card m-0">
+    <div class="col-lg-3 pricing-card m-0">
+      <article class="pricing-card--shadow js-hidden">
+        <div class="pricing-card--shadow p-3 text-center pricing-card__head">
+          <h4>Pay-as-you-go</h4>
+          <small class="m-0">Pay only for what you use</small>
+        </div>
+        <ul class="p-3 text-center pricing-card__body">
+          <li><strong>1000 screenshots</strong></li>
+          <li class="text--light">Real-time usage reporting</li>
+          <li class="text--light">Multiple environments</li>
+          <li class="text--light">Screenshot modification</li>
+          <li class="text--light">Automation, REST API</li>
+          <li class="text--light">Team management</li>
+        </ul>
+        <div class="border"></div>
+        <div class="p-3 text-center pricing-card__bottom">
+          <b class="payasyougo-price-text">USD 20</b>
+          <p class="text--light text--small payasyougo-price-description">(2¢ per screenshots)</p>
+          {% if marketing_payasyougo_url is not empty %}
+            <a target="_blank" href="{{ marketing_payasyougo_url }}" class="marketing-payasyougo-btn button button--select btn pt-2">{{ marketing_price_btn }}</a>
+          {% endif %}
+        </div>
+      </article>
+    </div>
+
+    <div class="col-lg-3 pricing-card m-0">
       <article class="pricing-card--shadow js-hidden">
         <div class="pricing-card--shadow p-3 text-center pricing-card__head">
           <h4>Individual</h4>
@@ -53,7 +71,7 @@
       </article>
     </div>
 
-    <div class="col-lg-4 pricing-card pricing-card--popular">
+    <div class="col-lg-3 pricing-card pricing-card--popular">
       <div class="popular js-hidden">
         <img class="popular__image" src="{{ base_path ~ directory }}/images/price_person.svg" alt="popular">
         <div class="popular__text">Popular</div>
@@ -86,7 +104,7 @@
       </article>
     </div>
 
-    <div class="col-lg-4 pricing-card mt-5 mt-lg-0">
+    <div class="col-lg-3 pricing-card mt-5 mt-lg-0">
       <article class="pricing-card--shadow js-hidden">
         <div class="pricing-card--shadow p-3 text-center pricing-card__head">
           <h4>Enterprise</h4>

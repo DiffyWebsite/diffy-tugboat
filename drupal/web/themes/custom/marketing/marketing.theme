@@ -64,6 +64,8 @@ function marketing_preprocess_node(&$variables)
     $variables['marketing_agency_annual2_url'] = MARKETING_APP_REGISTER_URL;
     $variables['marketing_individual_annual2_url'] = MARKETING_APP_REGISTER_URL;
 
+    $variables['marketing_payasyougo_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/diffy-pay-as-you-go-1000/20/purchase ';
+
     if ($isTeamMember || (!empty($current) && $current !== 'trial')) {
       $variables['marketing_agency_url'] = NULL;
       $variables['marketing_individual_url'] = NULL;
