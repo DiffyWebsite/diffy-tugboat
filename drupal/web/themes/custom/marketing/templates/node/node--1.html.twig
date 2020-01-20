@@ -3,23 +3,17 @@
 <section class="container-fluid max-width-1280 main-banner mt-5">
   <div class="row px-3">
 
-    <div class="col-12 col-md-5 main-banner__text pr-md-0 d-flex">
+    <div class="col-12 col-md-12 main-banner__text pr-md-0 d-flex">
       <div class="m-auto">
-        <h1 class="mb-5 text-center text-md-left"><span class="diffy">DIFFY</span> helps to find visual changes on
+        <h1 class="mb-5 text-center"><span class="diffy">DIFFY</span> helps to find visual changes on
           your website so you <span class="save">save</span> time on testing
         </h1>
-        <div class="d-flex justify-content-center">
-          <a href="https://app.diffy.website" class="button button--try-for-free">Try for free</a>
+        <div class="mt-5 mb-5">
+          <div class="d-flex justify-content-center">
+            <a href="https://app.diffy.website" class="button button--try-for-free">Try for free</a>
+          </div>
+          <p class="d-flex justify-content-center text--light text--small">14 days free trial period<br/>no credit card required</p>
         </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-7 main-banner__image pl-md-0 m-auto">
-      <div class="m-auto">
-        <img class="main-banner__illustration" src="{{ base_path ~ directory }}/images/illustration.svg" alt="illustration-banner">
-      </div>
-      <div class="d-flex justify-content-center">
-        <a href="https://app.diffy.website" class="button button--try-for-free mt-5 hidden-button-bottom">Try for free</a>
       </div>
     </div>
 
@@ -64,8 +58,11 @@
               </span>
           </a>
         </div>
-        <div class="justify-content-center screenshot-block--bottom__button">
-          <a href="https://app.diffy.website" class="button button--try-for-free">Try for free</a>
+        <div class="mt-5 mb-5">
+          <div class="d-flex justify-content-center">
+            <a href="https://app.diffy.website" class="button button--try-for-free">Try for free</a>
+          </div>
+          <span class="d-flex justify-content-center text--light text--small">14 days free trial period<br/>no credit card required</span>
         </div>
       </div>
     </div>
@@ -160,22 +157,23 @@
     <div class="d-flex justify-content-center mb-3">
       <a href="https://app.diffy.website" class="button button--try-for-free">Try for free</a>
     </div>
-    <p class="d-flex justify-content-center text--light text--small">14 days trial period</p>
+    <p class="d-flex justify-content-center text--light text--small">14 days free trial period<br/>no credit card required</p>
   </div>
 </section>
 
-<section class="container-fluid max-width-1280 block-integrations">
+<section class="container-fluid max-width-1280 block-integrations mt-5">
   <div class="row px-3">
 
     <div class="col-12 d-flex justify-content-center mb-5">
       <h2>Integrations</h2>
     </div>
 
-    <div class="col-md-6 d-flex mb-4 mb-md-0">
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
       <article class="shadow-card p-4">
-        <button class="mb-4 button-integrations" type="button"><img class="" src="{{ base_path ~ directory }}/images/pantheon_vector_logo.svg"
-                                                                    alt="button"></button>
-        <h3 class="mb-4">Pantheon</h3>
+        <button class="mb-4 button-integrations" type="button">
+          <img class="" src="{{ base_path ~ directory }}/images/pantheon_vector_logo.svg" alt="button">
+        </button>
+        <h3 class="mb-4">Pantheon - Quicksilver</h3>
         <p class="mb-3">Monitor your website for updates and if any found — create an updated site and compare it
           visually with production.
           So you can run your updates safely. <a target="_blank" href="https://github.com/DiffyWebsite/quicksilver-examples/tree/master/diffy_visualregression">Read more.</a>
@@ -183,14 +181,66 @@
       </article>
     </div>
 
-    <div class="col-md-6 d-flex mb-4 mb-md-0">
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
       <article class="shadow-card p-4">
-        <button class="mb-4 button-integrations" type="button"><img class="p-3" src="{{ base_path ~ directory }}/images/logo---blue.svg" alt="button">
+        <button class="mb-4 button-integrations" type="button">
+          <img class="p-3" src="{{ base_path ~ directory }}/images/logo---blue.svg" alt="button">
         </button>
         <h3 class="mb-3">Acquia</h3>
-        <p class="mb-3">Thanks to webhooks trigger Diffy comparison job once you did deployment.
+        <p class="mb-3">Trigger Diffy comparison job with Acquia webhooks after deployment.
           So you know exactly what changes are coming with the next release.
           <a target="_blank" href="https://github.com/DiffyWebsite/diffy-acquia">Read more.</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0 mt-4">
+      <article class="shadow-card p-4">
+        <div class="mb-3 button-integrations" style="background-color: white">
+          <img class="mt-2" style="width: 154px" src="{{ base_path ~ directory }}/images/platformsh.png">
+        </div>
+        <h3 class="mb-3">Platform.sh</h3>
+        <p class="mb-3">We test Drupal core Umami distribution with Diffy and Platform.sh.
+          Allows visual testing of patches for both anonymous and admin users.
+          <a target="_blank" href="https://medium.com/diffy/umami-distribution-testing-automation-with-platform-sh-and-diffy-91272af485b">Read more.</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
+      <article class="shadow-card p-4">
+        <div class="mb-3 button-integrations" style="background-color: white">
+          <img class="mt-1" width=154 src="{{ base_path ~ directory }}/images/github-logo.jpg">
+        </div>
+        <h3 class="mb-4">Github - checks</h3>
+        <p class="mb-3">Github app that provides a check for your pull requests. Once testing job is completed it will be posted
+          to your pull request as a check so you have all results right there, in pull request thread.
+          <a target="_blank" href="https://diffy.website/documentation/pantheon-build-tools">Read more.</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
+      <article class="shadow-card p-4">
+        <button class="mb-4 button-integrations" type="button">
+          <img class="" src="{{ base_path ~ directory }}/images/pantheon_vector_logo.svg" alt="button">
+        </button>
+        <h3 class="mb-4">Pantheon - <a href="https://pantheon.io/docs/guides/build-tools">Build Tools</a></h3>
+        <p class="mb-3">Build Tools allow to spin up Multi Dev pull request environments. We provide an easy integration to
+          compare those environments with Dev and post results back to Github.
+          <a target="_blank" href="https://diffy.website/documentation/github-integration">Read more.</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="col-md-4 d-flex mb-4 mt-4 mb-md-0">
+      <article class="shadow-card p-4">
+        <div class="mb-4 button-integrations" style="background-color: white">
+          <img class="mt-2" width="154" src="{{ base_path ~ directory }}/images/circleci-logo.png">
+        </div>
+        <h3 class="mb-4">CircleCI Orb</h3>
+        <p class="mb-3">Custom CircleCI Orb that compares pull request environments with DEV so you have less integration code to maintain as it is hidden in the orb.
+          <a target="_blank" href="https://github.com/DiffyWebsite/diffy-circleci-orb">Read more.</a>
         </p>
       </article>
     </div>
