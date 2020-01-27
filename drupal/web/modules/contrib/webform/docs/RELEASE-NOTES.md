@@ -39,6 +39,14 @@ Steps for creating a new release
     core/node_modules/.bin/eslint --no-eslintrc -c=core/.eslintrc.legacy.json --ext=.js modules/sandbox/webform > ~/webform-javascript-coding-standards.txt
     cat ~/webform-javascript-coding-standards.txt
           
+[CSS](https://www.drupal.org/node/3041002)
+
+    # Install Eslint. (One-time)
+    cd /var/www/sites/d8_webform/web/core
+    yarn install
+
+    cd /var/www/sites/d8_webform/web/core
+    yarn run lint:css ../modules/sandbox/webform/css --fix
 
 [File Permissions](https://www.drupal.org/comment/reply/2690335#comment-form)
 
@@ -176,7 +184,7 @@ References
 
 [Git Release Notes for Drush](https://www.drupal.org/project/grn)
 
-    drush release-notes --nouser 8.x-5.0-rc1 8.x-5.x
+    drush release-notes --nouser 8.x-5.3-beta3 8.x-5.x
 
 
 6. Tag and create a new release

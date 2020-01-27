@@ -42,6 +42,7 @@ class WebformLikert extends WebformElementBase {
       // Form display.
       'title_display' => '',
       'description_display' => '',
+      'help_display' => '',
       'disabled' => FALSE,
       // Form validation.
       'required' => FALSE,
@@ -64,8 +65,6 @@ class WebformLikert extends WebformElementBase {
       // Attributes.
       'wrapper_attributes' => [],
       'label_attributes' => [],
-      // iCheck settings.
-      'icheck' => '',
     ] + $this->getDefaultBaseProperties();
   }
 

@@ -4,6 +4,7 @@ namespace Drupal\webform\Commands;
 
 use Drupal\Component\Utility\Variable;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\webform\Controller\WebformResultsExportController;
@@ -361,7 +362,7 @@ class WebformCliService implements WebformCliServiceInterface {
     $file_path = ($submission_exporter->isArchive()) ? $submission_exporter->getArchiveFilePath() : $submission_exporter->getExportFilePath();
     if (isset($export_options['destination'])) {
       $this->drush_print($this->dt('Created @destination', ['@destination' => $export_options['destination']]));
-      file_unmanaged_copy($file_path, $export_options['destination'], FILE_EXISTS_REPLACE);
+      \Drupal::service('file_system')->copy($file_path, $export_options['destination'], FileSystemInterface::EXISTS_REPLACE);
     }
     else {
       $this->drush_print(file_get_contents($file_path));
@@ -604,10 +605,8 @@ class WebformCliService implements WebformCliServiceInterface {
         }
       }
 
-      $tidied_yaml = Yaml::encode($data);
-
       // Tidy and add new line to the end of the tidied file.
-      $tidied_yaml = WebformYaml::tidy($tidied_yaml) . PHP_EOL;
+      $tidied_yaml = WebformYaml::encode($data) . PHP_EOL;
       if ($tidied_yaml != $original_yaml) {
         $this->drush_print($this->dt('Tidying @file…', ['@file' => $file->filename]));
         file_put_contents($file->uri, $tidied_yaml);
@@ -839,7 +838,7 @@ class WebformCliService implements WebformCliServiceInterface {
     $this->drush_print($this->dt('Repairing webform submission storage schema…'));
     _webform_update_webform_submission_storage_schema();
 
-    $this->drush_print($this->dt('Repairing admin settings…'));
+    $this->drush_print($this->dt('Repairing admin configuration…'));
     _webform_update_admin_settings(TRUE);
 
     $this->drush_print($this->dt('Repairing webform settings…'));
@@ -853,6 +852,15 @@ class WebformCliService implements WebformCliServiceInterface {
 
     $this->drush_print($this->dt('Repairing webform submission storage schema…'));
     _webform_update_webform_submission_storage_schema();
+
+    if (\Drupal::moduleHandler()->moduleExists('webform_entity_print')) {
+      $this->drush_print($this->dt('Repairing webform entity print settings…'));
+      module_load_include('install', 'webform_entity_print');
+      webform_entity_print_install();
+    }
+
+    $this->drush_print($this->dt('Removing (unneeded) webform submission translation settings…'));
+    _webform_update_webform_submission_translation();
 
     // Validate all webform elements.
     $this->drush_print($this->dt('Validating webform elements…'));
@@ -1166,7 +1174,7 @@ class WebformCliService implements WebformCliServiceInterface {
         ],
       ];
 
-      $require->$package_name = $package_version;
+      $require->$package_name = '*';
     }
     $repositories = WebformObjectHelper::sortByProperty($repositories);
     $require = WebformObjectHelper::sortByProperty($require);
@@ -1205,7 +1213,6 @@ class WebformCliService implements WebformCliServiceInterface {
     $items = $this->webform_drush_command();
     $functions = [];
     foreach ($items as $command_key => $command_item) {
-
       // Command name.
       $functions[] = "
 /******************************************************************************/
@@ -1240,7 +1247,12 @@ function $command_hook() {
     }
 
     // Build commands.
-    $commands = Variable::export($this->webform_drush_command());
+    $drush_command = $this->webform_drush_command();
+    foreach ($drush_command as $command_key => &$command_item) {
+      $command_item += ['aliases' => []];
+      $command_item['aliases'][] = str_replace('-', ':', $command_key);
+    }
+    $commands = Variable::export($drush_command);
     // Remove [datatypes] which are only needed for Drush 9.x.
     $commands = preg_replace('/\[(boolean)\]\s+/', '', $commands);
     $commands = trim(preg_replace('/^/m', '  ', $commands));
@@ -1258,6 +1270,8 @@ function $command_hook() {
  * @see drush webform-generate-commands
  * @see \Drupal\webform\Commands\DrushCliServiceBase::generate_commands_drush8
  */
+
+require_once __DIR__ . '/webform.drush.hooks.inc';
 
 /**
  * Implements hook_drush_command().
@@ -1358,9 +1372,12 @@ $functions
           $command_annotations[] = "@usage $example_name";
           $command_annotations[] = "  $example_description";
         }
+
         // aliases.
-        if ($command_item['aliases']) {
-          $command_annotations[] = "@aliases " . implode(',', $command_item['aliases']);
+        $aliases = array_merge($command_item['aliases'] ?: [], [str_replace(':', '-', $command_name)]);
+        $aliases = array_unique($aliases);
+        if ($aliases) {
+          $command_annotations[] = "@aliases " . implode(',', $aliases);
         }
 
         $command_annotations = '   * ' . implode(PHP_EOL . '   * ', $command_annotations);

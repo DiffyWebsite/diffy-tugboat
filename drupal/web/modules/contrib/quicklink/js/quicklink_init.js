@@ -33,9 +33,11 @@
         }
 
         if (settings.quicklink.ignore_admin_paths) {
+          var adminLinkContainerPatterns = settings.quicklink.admin_link_container_patterns.join();
+
           quicklinkConfig.ignores.push(function (uri, elem) {
             var ruleName = 'Exists in admin element container.';
-            var ruleFunc = elem.matches('#block-local-tasks-block a, .block-local-tasks-block a, #drupal-off-canvas a, #toolbar-administration a');
+            var ruleFunc = elem.matches(adminLinkContainerPatterns);
 
             outputDebugInfo(ruleFunc, ruleName, uri, elem);
 
@@ -123,11 +125,11 @@
 
       function loadQuicklink() {
         var urlParams = new URLSearchParams(window.location.search);
-        var noprefetch = urlParams.get('noprefetch') !== null;
+        var noprefetch = urlParams.get('noprefetch') !== null || window.location.hash === '#noprefetch' ;
 
         if (noprefetch && debug) {
           // eslint-disable-next-line no-console
-          console.info('The "noprefetch" parameter exists in the URL querystring. Quicklink library not loaded.');
+          console.info('The "noprefetch" parameter or hash exists in the URL. Quicklink library not loaded.');
         }
 
         return window.quicklink && !noprefetch;

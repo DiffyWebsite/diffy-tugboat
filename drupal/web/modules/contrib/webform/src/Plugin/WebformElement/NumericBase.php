@@ -18,9 +18,8 @@ abstract class NumericBase extends WebformElementBase {
   public function getDefaultProperties() {
     return [
       // Form validation.
+      'readonly' => FALSE,
       'size' => '',
-      'minlength' => '',
-      'maxlength' => '',
       'placeholder' => '',
       'autocomplete' => 'on',
     ] + parent::getDefaultProperties();
