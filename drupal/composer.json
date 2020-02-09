@@ -31,6 +31,7 @@
         "drupal/quicklink": "^1.0",
         "drupal/redirect": "^1.5",
         "drupal/webform": "^5.2",
+        "drupal/webform_mailchimp": "^5.9",
         "drupal/yoast_seo": "^1.5",
         "drush/drush": "^9.0.0",
         "vlucas/phpdotenv": "^2.4",

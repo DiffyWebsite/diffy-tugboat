@@ -126,6 +126,8 @@ class ComposerStaticInit5ab99e6cc4885ad6cb68c16aee9f72b0
         'M' => 
         array (
             'Masterminds\\' => 12,
+            'Mailchimp\\http\\' => 15,
+            'Mailchimp\\' => 10,
         ),
         'L' => 
         array (
@@ -440,6 +442,14 @@ class ComposerStaticInit5ab99e6cc4885ad6cb68c16aee9f72b0
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
+        'Mailchimp\\http\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thinkshout/mailchimp-api-php/src/http',
+        ),
+        'Mailchimp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thinkshout/mailchimp-api-php/src',
+        ),
         'League\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
@@ -670,6 +680,13 @@ class ComposerStaticInit5ab99e6cc4885ad6cb68c16aee9f72b0
             'Stack' => 
             array (
                 0 => __DIR__ . '/..' . '/stack/builder/src',
+            ),
+        ),
+        'M' => 
+        array (
+            'Mailchimp' => 
+            array (
+                0 => __DIR__ . '/../..' . '/web/modules/contrib/mailchimp/src',
             ),
         ),
         'E' => 
