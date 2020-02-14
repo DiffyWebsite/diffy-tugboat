@@ -39,6 +39,11 @@
           href = href + getParameters;
           $(this).attr('href', href);
         });
+        $(context).find('a[href^="/"]').once('diffyUTMs').each(function(){
+          var href = $(this).attr('href');
+          href = href + getParameters;
+          $(this).attr('href', href);
+        });
       }
 
     }
