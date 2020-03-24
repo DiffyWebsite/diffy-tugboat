@@ -67,6 +67,11 @@ function quicklink_preprocess_html(&$variables, $hook) {
 
   // Load current configuration.
   $config = \Drupal::config('quicklink.settings');
+
+  // Ensure that configuration changes are reflected immediately, without
+  // manual clearing of caches.
+  $variables['#cache']['tags'] = $config->getCacheTags();
+
   $selector = $config->get('selector');
 
   // Get debug variable.
@@ -119,6 +124,11 @@ function quicklink_preprocess_html(&$variables, $hook) {
   if ($config->get('ignore_admin_paths') == 1) {
     $url_patterns_to_ignore[] = '/admin';
     $url_patterns_to_ignore[] = '/edit';
+
+    // If elements match these selector pattern, they will not be prefetched.
+    $admin_link_container_patterns = ['#block-local-tasks-block a', '.block-local-tasks-block a', '#drupal-off-canvas a', '#toolbar-administration a'];
+
+    $variables['#attached']['drupalSettings']['quicklink']['admin_link_container_patterns'] = $admin_link_container_patterns;
     $debug_log[] = 'Quicklink will ignore admin URL patterns.';
   }
 
@@ -151,9 +161,9 @@ function quicklink_preprocess_html(&$variables, $hook) {
 
   // Disable the library when a session is started.
   if ($config->get('no_load_when_session')) {
-    /** @var \Drupal\Core\Session\SessionManager $session */
-    $session = \Drupal::getContainer()->get('session_manager');
-    if (!empty($session) && $session->isStarted()) {
+    $variables['#cache']['contexts'][] = 'session.exists';
+    $session_configuration = \Drupal::getContainer()->get('session_configuration');
+    if ($session_configuration->hasSession(\Drupal::request())) {
       $load_library = FALSE;
       $debug_log[] = 'Library not loaded because PHP session is started.';
     }

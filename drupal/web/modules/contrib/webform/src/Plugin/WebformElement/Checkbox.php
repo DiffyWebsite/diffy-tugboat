@@ -26,10 +26,13 @@ class Checkbox extends BooleanBase {
       'title_display' => 'after',
       // Checkbox.
       'exclude_empty' => FALSE,
-      // iCheck settings.
-      'icheck' => '',
     ] + parent::getDefaultProperties();
-    unset($properties['unique'], $properties['unique_entity'], $properties['unique_user'], $properties['unique_error']);
+    unset(
+      $properties['unique'],
+      $properties['unique_entity'],
+      $properties['unique_user'],
+      $properties['unique_error']
+    );
     return $properties;
   }
 

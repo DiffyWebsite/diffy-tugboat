@@ -8,13 +8,47 @@
   </div>
 </section>
 {{ attach_library('marketing/pricing_page') }}
+
+<section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block align-center">
+  <p style="font-size: 20px;
+    text-align: center;
+    font-weight: 900;">
+    All plans come with a 2 weeks trial period<br/>(no credit card required)</p>
+</section>
+
+
 <section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block">
   <div class="price-period-switcher d-flex justify-content-center">
     <div class="switcher monthly active" data-type="monthly">Monthly</div>
     <div class="switcher annual" data-type="annual">Annual</div>
   </div>
   <div class="row px-3">
-    <div class="col-lg-4 pricing-card m-0">
+    <div class="col-lg-3 pricing-card m-0">
+      <article class="pricing-card--shadow js-hidden">
+        <div class="pricing-card--shadow p-3 text-center pricing-card__head">
+          <h4>Pay-as-you-go</h4>
+          <small class="m-0">Pay only for what you use</small>
+        </div>
+        <ul class="p-3 text-center pricing-card__body">
+          <li><strong>1000 screenshots</strong></li>
+          <li class="text--light">Real-time usage reporting</li>
+          <li class="text--light">Multiple environments</li>
+          <li class="text--light">Screenshot modification</li>
+          <li class="text--light">Automation, REST API</li>
+          <li class="text--light">Team management</li>
+        </ul>
+        <div class="border"></div>
+        <div class="p-3 text-center pricing-card__bottom">
+          <b class="payasyougo-price-text">USD 20</b>
+          <p class="text--light text--small payasyougo-price-description">(2¢ per screenshots)</p>
+          {% if marketing_payasyougo_url is not empty %}
+            <a target="_blank" href="{{ marketing_payasyougo_url }}" class="marketing-payasyougo-btn button button--select btn pt-2 diffy-register">{{ marketing_price_btn }}</a>
+          {% endif %}
+        </div>
+      </article>
+    </div>
+
+    <div class="col-lg-3 pricing-card m-0">
       <article class="pricing-card--shadow js-hidden">
         <div class="pricing-card--shadow p-3 text-center pricing-card__head">
           <h4>Individual</h4>
@@ -33,17 +67,17 @@
           <b class="indvidual-price-text">USD 50/mo</b>
           <p class="text--light text--small indvidual-price-description">(50¢ per page)</p>
           {% if marketing_individual_url is not empty %}
-            <a target="_blank" href="{{ marketing_individual_url }}" class="marketing-individual-month-btn button button--select btn pt-2">{{ marketing_price_btn }}</a>
+            <a target="_blank" href="{{ marketing_individual_url }}" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register">{{ marketing_price_btn }}</a>
           {% endif %}
 
           {% if marketing_individual_annual_url is not empty %}
-            <a target="_blank" href="{{ marketing_individual_annual_url }}" class="marketing-individual-annual-btn button button--select btn pt-2 marketing-hidden">{{ marketing_price_btn }}</a>
+            <a target="_blank" href="{{ marketing_individual_annual_url }}" class="marketing-individual-annual-btn button button--select btn pt-2 marketing-hidden diffy-register">{{ marketing_price_btn }}</a>
           {% endif %}
         </div>
       </article>
     </div>
 
-    <div class="col-lg-4 pricing-card pricing-card--popular">
+    <div class="col-lg-3 pricing-card pricing-card--popular">
       <div class="popular js-hidden">
         <img class="popular__image" src="{{ base_path ~ directory }}/images/price_person.svg" alt="popular">
         <div class="popular__text">Popular</div>
@@ -51,7 +85,7 @@
       <article class="pricing-card--shadow js-hidden">
         <div class="pricing-card--shadow p-3 text-center pricing-card__head">
           <h4 class="popular__headline">Agency</h4>
-          <small class="m-0">For organizations having 10+ projects.</small>
+          <small class="m-0">For organizations with more than 10 projects.</small>
         </div>
         <ul class="p-3 text-center pricing-card__body">
           <li><strong>1000 pages<a href="#pages">*</a></strong></li>
@@ -66,17 +100,17 @@
           <b class="agency-price-text">USD 150/mo</b>
           <p class="text--light text--small agency-price-description">(15¢ per page)</p>
           {% if marketing_agency_url is not empty %}
-            <a target="_blank" href="{{ marketing_agency_url }}" class="marketing-agency-month-btn button button--select btn pt-2">{{ marketing_price_btn }}</a>
+            <a target="_blank" href="{{ marketing_agency_url }}" class="marketing-agency-month-btn button button--select btn pt-2 diffy-register">{{ marketing_price_btn }}</a>
           {% endif %}
 
           {% if marketing_agency_annual_url is not empty %}
-            <a target="_blank" href="{{ marketing_agency_annual_url }}" class="marketing-agency-annual-btn button button--select btn pt-2 marketing-hidden">{{ marketing_price_btn }}</a>
+            <a target="_blank" href="{{ marketing_agency_annual_url }}" class="marketing-agency-annual-btn button button--select btn pt-2 marketing-hidden diffy-register">{{ marketing_price_btn }}</a>
           {% endif %}
         </div>
       </article>
     </div>
 
-    <div class="col-lg-4 pricing-card mt-5 mt-lg-0">
+    <div class="col-lg-3 pricing-card mt-5 mt-lg-0">
       <article class="pricing-card--shadow js-hidden">
         <div class="pricing-card--shadow p-3 text-center pricing-card__head">
           <h4>Enterprise</h4>
@@ -117,7 +151,7 @@
             </div>
           </div>
           <div class="col-11">
-            <h4 class="mb-4 pt-1"><a name="pages"></a>What does "100 pages" plan mean?</h4>
+            <h4 class="mb-4 pt-1"><a name="pages"></a>What does the "100 pages" plan mean?</h4>
             <p>This means that all your projects together should not exceed 100 pages.
               On average single site would have around 20-30 critical pages to check.
               But you still create really large number of screenshots as we do not
@@ -135,7 +169,7 @@
             </div>
           </div>
           <div class="col-11 pt-1">
-            <h4 class="mb-4">What forms of payment do you accept?</h4>
+            <h4 class="mb-4">What forms of payment are accepted?</h4>
             <p>We accept Visa, MasterCard by using Stripe as a payment gateway.</p>
           </div>
         </div>
@@ -149,7 +183,7 @@
             </div>
           </div>
           <div class="col-11 pt-1">
-            <h4 class="mb-4"><a name="workers"></a>What means browser do you use? What about performance?</h4>
+            <h4 class="mb-4"><a name="workers"></a>What browser is used to take screenshots? What about performance?</h4>
             <p>We are using Amazon Lambda for taking screenshots with Chrome as a browser. This allows us
               to take hundreds of screenshots within 5-10 minutes.
             </p>
@@ -165,7 +199,7 @@
             </div>
           </div>
           <div class="col-11 pt-1">
-            <h4 class="mb-4">What type of support you have?</h4>
+            <h4 class="mb-4">What about support?</h4>
             <p>We are spread between Pacific and Eastern European timezones. This allows us to cover a lot of timezones
               for reasonable response time.
             </p>

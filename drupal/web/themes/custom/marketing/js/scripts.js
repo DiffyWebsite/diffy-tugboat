@@ -20,3 +20,33 @@
     });
   })
 })(jQuery);
+
+// If there are any utm_* tags available -- pass them to the app as well.
+(function ($, Drupal) {
+
+  'use strict';
+
+  /**
+   * Check if there are any links to app.diffy.website and bypass all utm tags.
+   */
+  Drupal.behaviors.diffyUTMs = {
+    attach: function (context, settings) {
+      var currentUrl = document.location.toString();
+      if (currentUrl.indexOf('?') !== -1 && currentUrl.indexOf('utm_') !== -1) {
+        var getParameters = currentUrl.substr(currentUrl.indexOf('?'));
+        $(context).find('a[href*="app.diffy.website"]').once('diffyUTMs').each(function(){
+          var href = $(this).attr('href');
+          href = href + getParameters;
+          $(this).attr('href', href);
+        });
+        $(context).find('a[href^="/"]').once('diffyUTMs').each(function(){
+          var href = $(this).attr('href');
+          href = href + getParameters;
+          $(this).attr('href', href);
+        });
+      }
+
+    }
+  };
+
+})(jQuery, Drupal);

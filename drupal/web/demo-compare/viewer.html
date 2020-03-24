@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link href="assets/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/material-dashboard.css" rel="stylesheet" type="text/css" />
+    <link href="assets/twentytwenty.css" rel="stylesheet" type="text/css" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/material.min.js"></script>
+    <script src="assets/jquery.event.move.js"></script>
+    <script src="assets/jquery.twentytwenty.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="container-fluid">
+        <div class="wrapper">
+            <div v-if="detailedBreakpointList.length == 0" class="content">
+                <div class="container">
+                    <h1 v-if="changed == 0" class="title">{{ diffName }}</h1>
+
+                    <h2>Diff has no changes.</h2>
+                </div>
+            </div>
+            <div v-else class="content">
+                <div v-show="detailedMode == false" class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 v-if="changed > 0" class="title">
+                                {{ diffName }} ({{ changed }} of {{ total }} changed)</h1>
+                            <h1 v-if="changed == 0" class="title">
+                                {{ diffName }}</h1>
+                        </div>
+                    </div>
+
+                    <div class="nav-center">
+                        <ul class="nav nav-pills nav-pills-info nav-pills-icons" role="tablist">
+                            <li v-for="breakpoint in breakpoints">
+                                <a :href="'#'+breakpoint" role="tab" data-toggle="tab" aria-expanded="true">
+                                    <i class="material-icons">{{ deviceIcon(breakpoint) }}</i> {{ breakpoint }}px
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <div v-for="breakpoint in breakpoints" class="tab-pane" :id="breakpoint">
+                            <div class="row row-eq-height diffy-images-grid display-flex">
+                                <div v-for="(image, index) in images[breakpoint]" class="col-md-3">
+                                    <div class="card card-product">
+                                        <div class="card-content diffy-image">
+                                            <div class="diffy-image-viewer">
+                                                <router-link :to="{ name: 'diff-detail', params: { id: diffId, index: index, breakpoint: breakpoint }}" class="vertical-align: 4px;">
+                                                    <img :src="image.image" class="img" />
+                                                </router-link>
+                                            </div>
+                                            <a :href="image.url" target="_blank" class="diffy-card-url">{{ image.urlPath }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-show="detailedMode == true" class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="text-center">
+                                <router-link v-if="url(detailedIndex - 1) !== false"
+                                             :to="{ name: 'diff-detail', params: { id: diffId, index: detailedIndex - 1, breakpoint: getPrevNextBreakpoint(this.detailedIndex - 1) }}"
+                                             class="btn">
+                                    <span class="btn-label"><i class="material-icons">keyboard_arrow_left</i></span>
+                                    Previous
+                                    <div class="ripple-container"></div>
+                                </router-link>
+                                <!-- {{ url(detailedIndex) }} -->
+                                <!-- <span v-for="breakpoint in detailedBreakpointList">
+                                &nbsp;&nbsp;
+                                    <span v-if="detailedBreakpoint == breakpoint" class="diffy-material-icon-default"><i class="material-icons">{{ deviceIcon(breakpoint) }}</i> {{ breakpoint }}px</span>
+                                    <router-link v-else
+                                                 :to="{ name: 'diff-detail', params: { id: diffId, index: detailedIndex, breakpoint: breakpoint }}">
+                                        <i class="material-icons">{{ deviceIcon(breakpoint) }}</i> {{ breakpoint }}px
+                                    </router-link>
+                                </span> -->
+                                <router-link v-if="url(detailedIndex + 1) !== false"
+                                             :to="{ name: 'diff-detail', params: { id: diffId, index: detailedIndex + 1, breakpoint: getPrevNextBreakpoint(this.detailedIndex + 1) }}"
+                                             class="btn">
+                                    Next
+                                    <span class="btn-label btn-label-right">
+                                        <i class="material-icons">keyboard_arrow_right</i>
+                                    </span>
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-product">
+                                <div class="card-content diffy-image form-horizontal">
+                                    <ul v-if="pixelPerfect == false" class="nav nav-pills nav-pills-warning">
+                                        <li class="active">
+                                            <a v-on:click.stop.prevent="pixelPerfect = false" href="#" data-toggle="tab" aria-expanded="true">Custom</a>
+                                        </li>
+                                        <li class="">
+                                            <a v-on:click.stop.prevent="pixelPerfect = true" href="#" data-toggle="tab" aria-expanded="false">Pixel Perfect</a>
+                                        </li>
+                                    </ul>
+                                    <ul v-if="pixelPerfect == true" class="nav nav-pills nav-pills-warning">
+                                        <li>
+                                            <a v-on:click.stop.prevent="pixelPerfect = false" href="#" data-toggle="tab" aria-expanded="true">Custom</a>
+                                        </li>
+                                        <li class="active">
+                                            <a v-on:click.stop.prevent="pixelPerfect = true" href="#" data-toggle="tab" aria-expanded="false">Pixel Perfect</a>
+                                        </li>
+                                    </ul>
+
+
+                                    <!-- <span v-if="pixelPerfect == false">
+                                        <button class="btn btn-primary">custom highlight</button>&nbsp;
+                                        <a v-on:click.stop.prevent="pixelPerfect = true" href="#" class="btn btn-primary btn-sm">pixel perfect</a>
+                                    </span>
+
+                                    <span v-if="pixelPerfect == true">
+                                        <a v-on:click.stop.prevent="pixelPerfect = false" href="#" class="btn btn-primary">custom highlight</a>&nbsp;
+                                        <b>pixel perfect</b>
+                                    </span> -->
+
+                                    <div class="diffy-image-viewer-detailed diff" style="margin-top: 20px;">
+                                        <img v-if="pixelPerfect == false" class="img" :src="diffImageiDiff(detailedIndex, detailedBreakpoint)">
+                                        <img v-else class="img" :src="diffImageDiff(detailedIndex, detailedBreakpoint)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-product">
+                                <div class="card-content diffy-image">
+                                    <h4>Check slider and switch between Custom and Pixel Perfect comparison algorithms.</h4>
+                                    <div class="row diffy-image-viewer-detailed compare" style="margin-top: 20px;">
+                                        <div class="col-md-12">
+                                            <div class="twentytwenty-container">
+                                                <img :src="snapshot1Image" />
+                                                <img :src="snapshot2Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="pull-left">{{ labelLeft }}</div>
+                                            <div class="pull-right">{{ labelRight }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-router"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
+

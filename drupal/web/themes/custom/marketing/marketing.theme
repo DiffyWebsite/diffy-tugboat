@@ -36,6 +36,8 @@ function marketing_preprocess_menu_local_task(&$variables) {
  */
 function marketing_preprocess_node(&$variables)
 {
+  $variables['date'] = date('j F Y', $variables['node']->getCreatedTime());
+
   $variables['#cache']['contexts'][] = 'url.query_args';
 
   switch ($variables['node']->getType()) {
@@ -63,8 +65,9 @@ function marketing_preprocess_node(&$variables)
     $variables['marketing_individual_annual_url'] = MARKETING_APP_REGISTER_URL;
     $variables['marketing_agency_annual2_url'] = MARKETING_APP_REGISTER_URL;
     $variables['marketing_individual_annual2_url'] = MARKETING_APP_REGISTER_URL;
+    $variables['marketing_payasyougo_url'] = MARKETING_APP_REGISTER_URL;
 
-    if ($isTeamMember || (!empty($current) && $current !== 'trial')) {
+    if ($isTeamMember || (!empty($current) && $current !== 'trial' && $current !== 'payasyougo')) {
       $variables['marketing_agency_url'] = NULL;
       $variables['marketing_individual_url'] = NULL;
       $variables['marketing_agency_annual_url'] = NULL;
@@ -73,7 +76,9 @@ function marketing_preprocess_node(&$variables)
       $variables['marketing_individual_annual2_url'] = NULL;
       $variables['marketing_price_btn'] = t('Select');
     }
-    elseif ($current == 'trial') {
+    elseif ($current == 'trial' || $current == 'payasyougo') {
+      $variables['marketing_payasyougo_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/diffy-pay-as-you-go-1000/20/purchase ';
+
       $variables['marketing_agency_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26o8psu9Lw8sx/150/Agency';
       $variables['marketing_individual_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26n9rwm181ats/50/Individual';
 

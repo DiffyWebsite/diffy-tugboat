@@ -10,6 +10,9 @@
 a.button--try-for-free {
     text-align: center;
     padding-top: 10px;
+    width: 175px;
+    height: 50px;
+    font-size: 18px;
 }
 a.button--try-for-free:hover {
     color: white;

@@ -186,13 +186,6 @@ abstract class WebformExporterBase extends PluginBase implements WebformExporter
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public function calculateDependencies() {
-    return [];
-  }
-
-  /**
    * Get the webform whose submissions are being exported.
    *
    * @return \Drupal\webform\WebformInterface
@@ -328,6 +321,13 @@ abstract class WebformExporterBase extends PluginBase implements WebformExporter
    */
   public function getArchiveFileName() {
     return $this->getBaseFileName() . '.tar.gz';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getBatchLimit() {
+    return $this->configFactory->get('webform.settings')->get('batch.default_batch_export_size') ?: 500;
   }
 
 }
