@@ -47,7 +47,8 @@ if (file_exists($pantheon_services_file)) {
  * environment, but may be exposed if you migrate your site to
  * another environment.
  */
-$settings['file_private_path'] = 'sites/default/files/private';
+#$settings['file_private_path'] = 'sites/default/files/private';
+$settings['file_private_path'] = './../private';
 // Check to see if we are serving an installer page.
 $is_installer_url = (strpos($_SERVER['SCRIPT_NAME'], '/core/install.php') === 0);
 /**
