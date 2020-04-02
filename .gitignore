@@ -4,8 +4,6 @@
 # Vendors
 drupal/vendor
 
-# Changeable Configs
-drupal/web/sites/default/services.yml
 
 # Editor and language files.
 .idea/
