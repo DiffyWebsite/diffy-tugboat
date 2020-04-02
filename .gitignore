@@ -25,3 +25,4 @@ Vagrantfile.local
 /drupal.make.yml
 /scripts/
 drupal/private/*
+!drupal/private/.htaccess
