@@ -1,0 +1,55 @@
+global-styling:
+  version: VERSION
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js: { type: external, minified: false }
+    https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js:
+      type: external
+      minified: true
+      attributes:
+        crossorigin: anonymous
+        integrity: sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1
+    https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js:
+      type: external
+      minified: true
+      attributes:
+        crossorigin: anonymous
+        integrity: sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM
+    js/scripts.js: {}
+  css:
+    theme:
+      https://use.fontawesome.com/releases/v5.7.2/css/all.css:
+        type: external
+        minified: true
+        attributes:
+          crossorigin: anonymous
+          integrity: sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr
+      https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css:
+        type: external
+        minified: true
+        attributes:
+          crossorigin: anonymous
+          integrity: sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T
+      https://fonts.googleapis.com/css?family=Open+Sans: { type: external, minified: false }
+      css/style.css: {}
+      css/overriden.css: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/jquery.form
+    - core/drupal
+    - core/drupal.dialog.ajax
+calculator:
+  js:
+    js/calculator.js: {}
+content_navigation:
+  js:
+    js/content_navigation.js: {}
+  css:
+    theme:
+      css/content_navigation.css: {}
+pricing_page:
+  js:
+    js/pricing_page.js: {}
+  css:
+    theme:
+      css/pricing_page.css: {}

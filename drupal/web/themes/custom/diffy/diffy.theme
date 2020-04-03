@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the marketing theme.
+ */
+
+define('diffy_PAGE_PRICING_NID', 2);
+define('diffy_APP_REGISTER_URL', 'https://app.diffy.website/#/register');
+define('diffy_APP_UPDATE_PRICING_PLAN_URL', 'https://app.diffy.website/#/update/');
+
+/**
+ * Implements hook_preprocess.
+ */
+function diffy_preprocess(&$variables, $hook)
+{
+  $variables['base_path'] = base_path();
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task.
+ *
+ * @param $variables
+ */
+function diffy_preprocess_menu_local_task(&$variables) {
+  $class = array('nav-link');
+  if($variables['element']["#active"])
+  {
+    $class[] = 'active';
+  }
+  $variables['element']['#link']['url']->setOption('attributes', array('class' => $class));
+}
+
+/**
+ * Implements hook_preprocess_node.
+ */
+function diffy_preprocess_node(&$variables)
+{
+  $variables['date'] = date('j F Y', $variables['node']->getCreatedTime());
+
+  $variables['#cache']['contexts'][] = 'url.query_args';
+
+  switch ($variables['node']->getType()) {
+    case "documentation":
+      // Sets documentation menu.
+      $menu_parameters = new \Drupal\Core\Menu\MenuTreeParameters();
+      $menu_parameters->setMaxDepth(10);
+      $menu_parameters->excludeRoot();
+      $menu_name = 'documentation';
+      $menu_tree_service = \Drupal::service('menu.link_tree');
+      $tree = $menu_tree_service->load($menu_name, $menu_parameters);
+      $variables['documentation_menu'] = $menu_tree_service->build($tree);
+      break;
+  }
+
+  if ($variables['node']->id() == diffy_PAGE_PRICING_NID) {
+    // Pricing page.
+    $current = \Drupal::request()->query->get('current');
+    $isTeamMember = \Drupal::request()->query->get('isTeamMember');
+    $variables['diffy_price_btn'] = t('Start Trial');
+
+    $variables['diffy_agency_url'] = diffy_APP_REGISTER_URL;
+    $variables['diffy_individual_url'] = diffy_APP_REGISTER_URL;
+    $variables['diffy_agency_annual_url'] = diffy_APP_REGISTER_URL;
+    $variables['diffy_individual_annual_url'] = diffy_APP_REGISTER_URL;
+    $variables['diffy_agency_annual2_url'] = diffy_APP_REGISTER_URL;
+    $variables['diffy_individual_annual2_url'] = diffy_APP_REGISTER_URL;
+    $variables['diffy_payasyougo_url'] = diffy_APP_REGISTER_URL;
+
+    if ($isTeamMember || (!empty($current) && $current !== 'trial' && $current !== 'payasyougo')) {
+      $variables['diffy_agency_url'] = NULL;
+      $variables['diffy_individual_url'] = NULL;
+      $variables['diffy_agency_annual_url'] = NULL;
+      $variables['diffy_individual_annual_url'] = NULL;
+      $variables['diffy_agency_annual2_url'] = NULL;
+      $variables['diffy_individual_annual2_url'] = NULL;
+      $variables['diffy_price_btn'] = t('Select');
+    }
+    elseif ($current == 'trial' || $current == 'payasyougo') {
+      $variables['diffy_payasyougo_url'] = rtrim(diffy_APP_UPDATE_PRICING_PLAN_URL, '/') . '/diffy-pay-as-you-go-1000/20/purchase ';
+
+      $variables['diffy_agency_url'] = rtrim(diffy_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26o8psu9Lw8sx/150/Agency';
+      $variables['diffy_individual_url'] = rtrim(diffy_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26n9rwm181ats/50/Individual';
+
+      $variables['diffy_agency_annual_url'] = rtrim(diffy_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26cS1xQPY3wXL/1500/Agency';
+      $variables['diffy_individual_annual_url'] = rtrim(diffy_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26jZoaN5MkZpy/500/Individual';
+
+      $variables['diffy_agency_annual_old_url'] = rtrim(diffy_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26c9kVGMzMgxA/750/Agency';
+      $variables['diffy_individual_annual_old_url'] = rtrim(diffy_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26jxmXhZ57CF4/250/Individual';;
+      $variables['diffy_price_btn'] = t('Select');
+    }
+
+  }
+}
