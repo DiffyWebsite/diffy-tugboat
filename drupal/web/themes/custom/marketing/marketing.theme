@@ -57,6 +57,9 @@ function marketing_preprocess_node(&$variables)
     // Pricing page.
     $current = \Drupal::request()->query->get('current');
     $isTeamMember = \Drupal::request()->query->get('isTeamMember');
+    if ($isTeamMember) {
+      $isTeamMember = ($isTeamMember == '0') ? FALSE: TRUE;
+    }
     $variables['marketing_price_btn'] = t('Start Trial');
 
     $variables['marketing_agency_url'] = MARKETING_APP_REGISTER_URL;
