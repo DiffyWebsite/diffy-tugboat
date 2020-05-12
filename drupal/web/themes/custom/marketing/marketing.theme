@@ -57,6 +57,9 @@ function marketing_preprocess_node(&$variables)
     // Pricing page.
     $current = \Drupal::request()->query->get('current');
     $isTeamMember = \Drupal::request()->query->get('isTeamMember');
+    if ($isTeamMember) {
+      $isTeamMember = ($isTeamMember == '0') ? FALSE: TRUE;
+    }
     $variables['marketing_price_btn'] = t('Start Trial');
 
     $variables['marketing_agency_url'] = MARKETING_APP_REGISTER_URL;
@@ -67,7 +70,7 @@ function marketing_preprocess_node(&$variables)
     $variables['marketing_individual_annual2_url'] = MARKETING_APP_REGISTER_URL;
     $variables['marketing_payasyougo_url'] = MARKETING_APP_REGISTER_URL;
 
-    if ($isTeamMember || (!empty($current) && $current !== 'trial')) {
+    if ($isTeamMember || (!empty($current) && $current !== 'trial' && $current !== 'payasyougo')) {
       $variables['marketing_agency_url'] = NULL;
       $variables['marketing_individual_url'] = NULL;
       $variables['marketing_agency_annual_url'] = NULL;
@@ -76,7 +79,7 @@ function marketing_preprocess_node(&$variables)
       $variables['marketing_individual_annual2_url'] = NULL;
       $variables['marketing_price_btn'] = t('Select');
     }
-    elseif ($current == 'trial') {
+    elseif ($current == 'trial' || $current == 'payasyougo') {
       $variables['marketing_payasyougo_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/diffy-pay-as-you-go-1000/20/purchase ';
 
       $variables['marketing_agency_url'] = rtrim(MARKETING_APP_UPDATE_PRICING_PLAN_URL, '/') . '/plan_F26o8psu9Lw8sx/150/Agency';
