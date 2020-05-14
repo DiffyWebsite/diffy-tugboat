@@ -26,3 +26,4 @@ Vagrantfile.local
 /scripts/
 drupal/private/*
 !drupal/private/.htaccess
+ubuntu-*

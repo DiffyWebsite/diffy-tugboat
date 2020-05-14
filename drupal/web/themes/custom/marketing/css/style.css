@@ -102,6 +102,9 @@
     transition: 2s; }
     .js-navbar-block__mobile--show .navbar .navbar-toggler {
       color: white; }
+    .js-navbar-block__mobile--show .navbar .navbar-nav .nav-item-drupal .nav-link img{
+      display: none;
+    }
     .js-navbar-block__mobile--show .navbar .navbar-nav .nav-item .nav-link {
       color: white; }
       .js-navbar-block__mobile--show .navbar .navbar-nav .nav-item .nav-link:hover {
