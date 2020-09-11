@@ -20,22 +20,22 @@
         switchers.toggleClass('active');
         let prices = {
           individual: {
-            price: 'USD 50/mo',
+            price: '$50/mo',
             description: '(50¢ per page)',
           },
           agency: {
-            price: 'USD 150/mo',
+            price: '$150/mo',
             description: '(15¢ per page)'
           }
         };
         if (type == 'annual') {
           prices = {
             individual: {
-              price: 'USD 500/yr',
+              price: '$500/yr',
               description: '(41.6¢ per page)',
             },
             agency: {
-              price: 'USD 1500/yr',
+              price: '$1500/yr',
               description: '(12.5¢ per page)'
             }
           };
