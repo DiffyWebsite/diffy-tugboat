@@ -46,3 +46,10 @@ a.button--try-for-free:hover {
 html {
   scroll-behavior: smooth;
 }
+
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
