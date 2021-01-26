@@ -73,15 +73,9 @@
  */
 #}
 
-<article>
-  <div class="row">
-    <div class="col-sm-12 page-title">
-      {{ title_prefix }}
-      <h2>{{ label }}</h2>
-      {{ title_suffix }}
-      <div>
-        {{ content }}
-      </div>
-    </div>
-  </div>
+<article class="blog-teaser">
+  {{ content.field_image }}
+  <div class="read font-italic mt-2">{{ content.field_read }}</div>
+  <h3 class="mt-3 mb-2"><a class="blog-teaser-title" href="{{ url }}">{{ label }}</a></h3>
+  {{ content|without("field_image", "field_read") }}
 </article>
