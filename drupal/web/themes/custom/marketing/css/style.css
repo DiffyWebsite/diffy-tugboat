@@ -696,3 +696,7 @@ a.blog-teaser-title {
 a.blog-teaser-title:hover {
   color: blue;
 }
+
+.blog-teaser img {
+  max-width: 100%;
+}
