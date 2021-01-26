@@ -13,4 +13,10 @@ a.blog-teaser-title {
   max-width: 100%;
 }
 
+@media (max-width: 575px) {
+  .blog-teaser h3 {
+    font-size: 23px !important;
+  }
+}
+
 

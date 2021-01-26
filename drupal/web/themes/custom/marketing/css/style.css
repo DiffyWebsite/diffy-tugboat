@@ -700,3 +700,9 @@ a.blog-teaser-title:hover {
 .blog-teaser img {
   max-width: 100%;
 }
+
+@media (max-width: 575px) {
+  .blog-teaser h3 {
+    font-size: 23px !important;
+  }
+}
