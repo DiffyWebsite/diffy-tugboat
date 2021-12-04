@@ -9,6 +9,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\webform\Element\Webform as WebformElement;
+use Drupal\webform\Routing\WebformUncacheableResponse;
 use Drupal\webform\WebformInterface;
 use Drupal\webform\WebformRequestInterface;
 use Drupal\webform\WebformSubmissionInterface;
@@ -16,7 +17,7 @@ use Drupal\webform\WebformTokenManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Response;
+use Drupal\Core\Cache\CacheableResponse;
 
 /**
  * Provides route responses for Webform entity.
@@ -31,7 +32,7 @@ class WebformEntityController extends ControllerBase implements ContainerInjecti
   protected $renderer;
 
   /**
-   * Webform request handler.
+   * The webform request handler.
    *
    * @var \Drupal\webform\WebformRequestInterface
    */
@@ -103,12 +104,20 @@ class WebformEntityController extends ControllerBase implements ContainerInjecti
    * @param \Drupal\webform\WebformInterface $webform
    *   The webform.
    *
-   * @return \Symfony\Component\HttpFoundation\Response
+   * @return \Symfony\Component\HttpFoundation\Response|\Drupal\Core\Cache\CacheableResponse
    *   The response object.
    */
   public function css(Request $request, WebformInterface $webform) {
     $assets = $webform->getAssets();
-    return new Response($assets['css'], 200, ['Content-Type' => 'text/css']);
+    if ($webform->access('update')) {
+      $response = new WebformUncacheableResponse($assets['css'], 200, ['Content-Type' => 'text/css']);
+    }
+    else {
+      $response = new CacheableResponse($assets['css'], 200, ['Content-Type' => 'text/css']);
+    }
+    return $response
+      ->addCacheableDependency($webform)
+      ->addCacheableDependency($this->config('webform.settings'));
   }
 
   /**
@@ -119,12 +128,20 @@ class WebformEntityController extends ControllerBase implements ContainerInjecti
    * @param \Drupal\webform\WebformInterface $webform
    *   The webform.
    *
-   * @return \Symfony\Component\HttpFoundation\Response
+   * @return \Symfony\Component\HttpFoundation\Response|\Drupal\Core\Cache\CacheableResponse
    *   The response object.
    */
   public function javascript(Request $request, WebformInterface $webform) {
     $assets = $webform->getAssets();
-    return new Response($assets['javascript'], 200, ['Content-Type' => 'text/javascript']);
+    if ($webform->access('update')) {
+      $response = new WebformUncacheableResponse($assets['javascript'], 200, ['Content-Type' => 'text/javascript']);
+    }
+    else {
+      $response = new CacheableResponse($assets['javascript'], 200, ['Content-Type' => 'text/javascript']);
+    }
+    return $response
+      ->addCacheableDependency($webform)
+      ->addCacheableDependency($this->config('webform.settings'));
   }
 
   /**

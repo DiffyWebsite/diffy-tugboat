@@ -116,11 +116,11 @@ class DevelReinstall extends FormBase {
 
     $form['#attached']['library'][] = 'system/drupal.system.modules';
 
-    $form['actions'] = ['#type' => 'actions'];
-    $form['actions']['submit'] = [
+    $form['actions'] = array('#type' => 'actions');
+    $form['actions']['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Reinstall'),
-    ];
+    );
 
     return $form;
   }

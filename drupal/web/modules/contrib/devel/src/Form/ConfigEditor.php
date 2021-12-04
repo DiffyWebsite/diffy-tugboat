@@ -69,11 +69,11 @@ class ConfigEditor extends FormBase {
       '#required' => TRUE,
     );
 
-    $form['actions'] = ['#type' => 'actions'];
-    $form['actions']['submit'] = [
+    $form['actions'] = array('#type' => 'actions');
+    $form['actions']['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Save'),
-    ];
+    );
     $form['actions']['cancel'] = array(
       '#type' => 'link',
       '#title' => $this->t('Cancel'),

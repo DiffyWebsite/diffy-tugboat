@@ -15,7 +15,7 @@ Steps for creating a new release
     # Remove files that should never be reviewed.
     cd modules/sandbox/webform
     rm *.patch interdiff-*
-    
+
 [PHP](https://www.drupal.org/node/1587138)
 
     # Check Drupal PHP coding standards
@@ -28,17 +28,26 @@ Steps for creating a new release
     phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme,js,css,info modules/sandbox/webform > ~/webform-php-best-practice.txt
     cat ~/webform-php-best-practice.txt
 
+    # Install PHP version compatibility (One-time)
+    cd /var/www/sites/d8_webform
+    composer require --dev phpcompatibility/php-compatibility
+
+    # Check PHP version compatibility
+    cd /var/www/sites/d8_webform/web
+    phpcs --runtime-set testVersion 8.0 --standard=../vendor/phpcompatibility/php-compatibility/PHPCompatibility --extensions=php,module,inc,install,test,profile,theme modules/sandbox/webform > ~/webform-php-compatibility.txt
+    cat ~/webform-php-compatibility.txt
+
 [JavaScript](https://www.drupal.org/node/2873849)
 
     # Install Eslint. (One-time)
     cd /var/www/sites/d8_webform/web/core
     yarn install
-    
+
     # Check Drupal JavaScript (ES5) legacy coding standards.
     cd /var/www/sites/d8_webform/web
     core/node_modules/.bin/eslint --no-eslintrc -c=core/.eslintrc.legacy.json --ext=.js modules/sandbox/webform > ~/webform-javascript-coding-standards.txt
     cat ~/webform-javascript-coding-standards.txt
-          
+
 [CSS](https://www.drupal.org/node/3041002)
 
     # Install Eslint. (One-time)
@@ -59,14 +68,28 @@ Steps for creating a new release
 2. Deprecated code
 ------------------
 
-[phpstan-drupal](https://github.com/mglaman/phpstan-drupal) 
+[drupal-check](https://github.com/mglaman/drupal-check) - RECOMMENDED
+
+`drupal-check` output can not be redirected to a file.
+
+@see [Redirect output to a file #137](https://github.com/mglaman/drupal-check/issues/137)
+
+    cd /var/www/sites/d8_webform/
+    composer require mglaman/drupal-check
+    # Deprecations.
+    vendor/mglaman/drupal-check/drupal-check --no-progress -d web/modules/sandbox/webform
+    # Analysis.
+    vendor/mglaman/drupal-check/drupal-check --no-progress  -a web/modules/sandbox/webform
+
+
+[phpstan-drupal](https://github.com/mglaman/phpstan-drupal)
 [phpstan-drupal-deprecations](https://github.com/mglaman/phpstan-drupal-deprecations)
 
     cd /var/www/sites/d8_webform/
     composer require mglaman/phpstan-drupal
     composer require phpstan/phpstan-deprecation-rules
 
-Create `/var/www/sites/d8_webform/phpstan.neon` 
+Create `/var/www/sites/d8_webform/phpstan.neon`
 
     parameters:
       customRulesetUsed: true
@@ -80,14 +103,13 @@ Create `/var/www/sites/d8_webform/phpstan.neon`
     includes:
       - vendor/mglaman/phpstan-drupal/extension.neon
       - vendor/phpstan/phpstan-deprecation-rules/rules.neon
-    
+
 Run PHPStan with memory limit increased
 
     cd /var/www/sites/d8_webform/
     ./vendor/bin/phpstan --memory-limit=1024M analyse web/modules/sandbox/webform > ~/webform-deprecated.txt
     cat ~/webform-deprecated.txt
 
-    
 3. Review accessibility
 -----------------------
 
@@ -101,11 +123,11 @@ Notes
 
     # Enable accessibility examples.
     drush en -y webform_examples_accessibility
-    
+
     # Text.
-    mkdir -p /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity/text  
+    mkdir -p /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity/text
     cd /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity/text
-    pa11y http://localhost/wf/webform/example_accessibility_basic > example_accessibility_basic.txt 
+    pa11y http://localhost/wf/webform/example_accessibility_basic > example_accessibility_basic.txt
     pa11y http://localhost/wf/webform/example_accessibility_advanced > example_accessibility_advanced.txt
     pa11y http://localhost/wf/webform/example_accessibility_containers > example_accessibility_containers.txt
     pa11y http://localhost/wf/webform/example_accessibility_wizard > example_accessibility_wizard.txt
@@ -114,26 +136,26 @@ Notes
     # HTML.
     mkdir -p /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity/html
     cd /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity/html
-    pa11y --reporter html http://localhost/wf/webform/example_accessibility_basic > example_accessibility_basic.html 
+    pa11y --reporter html http://localhost/wf/webform/example_accessibility_basic > example_accessibility_basic.html
     pa11y --reporter html http://localhost/wf/webform/example_accessibility_advanced > example_accessibility_advanced.html
     pa11y --reporter html http://localhost/wf/webform/example_accessibility_containers > example_accessibility_containers.html
     pa11y --reporter html http://localhost/wf/webform/example_accessibility_wizard > example_accessibility_wizard.html
     pa11y --reporter html http://localhost/wf/webform/example_accessibility_labels > example_accessibility_labels.html
- 
+
     # Remove localhost from reports.
     cd /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity
     find . -name '*.html' -exec sed -i '' -e  's|http://localhost/wf/webform/|http://localhost/webform/|g' {} \;
- 
+
     # PDF.
     mkdir -p /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity/pdf
     cd /var/www/sites/d8_webform/web/modules/sandbox/webform/reports/accessiblity/pdf
-    wkhtmltopdf --dpi 384 ../html/example_accessibility_basic.html example_accessibility_basic.pdf 
+    wkhtmltopdf --dpi 384 ../html/example_accessibility_basic.html example_accessibility_basic.pdf
     wkhtmltopdf --dpi 384 ../html/example_accessibility_advanced.html example_accessibility_advanced.pdf
     wkhtmltopdf --dpi 384 ../html/example_accessibility_containers.html example_accessibility_containers.pdf
     wkhtmltopdf --dpi 384 ../html/example_accessibility_wizard.html example_accessibility_wizard.pdf
     wkhtmltopdf --dpi 384 ../html/example_accessibility_labels.html example_accessibility_labels.pdf
 
-    
+
 4. Run tests
 ------------
 
@@ -192,6 +214,8 @@ References
 
 [Tag a release](https://www.drupal.org/node/1066342)
 
+    git checkout 8.x-5.x
+    git up
     git tag 8.x-5.0-VERSION
     git push --tags
     git push origin tag 8.x-5.0-VERSION
@@ -216,11 +240,11 @@ References
     git tag 8.x-5.NEXT-VERSION
     git push --tags
     git push origin tag 8.x-5.NEXT-VERSION
-      
+
     # Merge hotfix release with HEAD.
     git checkout 8.x-5.x
     git merge 8.x-5.NEXT-VERSION-hotfix
-    
+
     # Delete hotfix release.
     git branch -D 8.x-5.NEXT-VERSION-hotfix
     git push origin :8.x-5.NEXT-VERSION-hotfix

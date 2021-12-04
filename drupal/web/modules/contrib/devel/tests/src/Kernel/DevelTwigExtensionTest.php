@@ -70,7 +70,7 @@ class DevelTwigExtensionTest extends KernelTestBase {
    */
   public function testTwigExtensionLoaded() {
     $twig_service = \Drupal::service('twig');
-    $extension = $twig_service->getExtension(Debug::class);
+    $extension = $twig_service->getExtension('devel_debug');
     $this->assertEquals(get_class($extension), Debug::class, 'Debug Extension loaded successfully.');
   }
 

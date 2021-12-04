@@ -165,8 +165,7 @@ class ConfigForm extends ConfigFormBase {
       '#open' => FALSE,
     ];
 
-    $form['purge']['actions'] = ['#type' => 'actions'];
-    $form['purge']['actions']['purge'] = [
+    $form['purge']['purge'] = [
       '#type' => 'submit',
       '#value' => $this->t('Purge'),
       '#submit' => [[$this, 'purge']],

@@ -108,17 +108,17 @@ class SystemStateEdit extends FormBase {
       '#rows' => 15,
     );
 
-    $form['actions'] = ['#type' => 'actions'];
-    $form['actions']['submit'] = [
+    $form['actions'] = array('#type' => 'actions');
+    $form['actions']['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Save'),
       '#disabled' => $disabled,
-    ];
-    $form['actions']['cancel'] = [
+    );
+    $form['actions']['cancel'] = array(
       '#type' => 'link',
       '#title' => $this->t('Cancel'),
       '#url' => Url::fromRoute('devel.state_system_page')
-    ];
+    );
 
     return $form;
   }

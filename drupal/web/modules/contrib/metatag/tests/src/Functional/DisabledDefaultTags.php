@@ -17,7 +17,7 @@ class DisabledDefaultTags extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     // Modules for core functionality.
     'node',
     'taxonomy',
@@ -35,6 +35,11 @@ class DisabledDefaultTags extends BrowserTestBase {
     // Use the custom route to verify the site works.
     'metatag_test_custom_route',
   ];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}

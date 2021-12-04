@@ -19,7 +19,7 @@ This module is tested on Drupal 8.6 and above.
 be hosted on Drupal.org.
 
 By default this module will load the Quicklink JavaScript library from a CDN at
-`https://unpkg.com/quicklink@1.0.0/dist/quicklink.umd.js`.
+`https://unpkg.com/quicklink@1.0.1/dist/quicklink.umd.js`.
 
 If you place a copy of this file into your local filesystem at
 `/libraries/quicklink/dist/quicklink.umd.js`, this module will serve the local
@@ -94,7 +94,7 @@ self-explanatory. However, [full documentation is available on Drupal.org](https
 ## BROWSER SUPPORT
 
 Without polyfills, Quicklink supports:
-Chrome, Firefox, and Edge.
+Chrome, Firefox, Safari, and Edge.
 
 With [Intersection Observer polyfill](https://github.com/w3c/IntersectionObserver/tree/master/polyfill):
-Safari.
+Internet Explorer 11.

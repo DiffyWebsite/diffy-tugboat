@@ -135,7 +135,7 @@ trait WebformAjaxFormTrait {
         continue;
       }
 
-      $actions =& $form[$element_key];
+      $actions = &$form[$element_key];
       foreach (Element::children($actions) as $action_key) {
         if (WebformElementHelper::isType($actions[$action_key], 'submit')) {
           $actions[$action_key]['#ajax'] = [
@@ -161,9 +161,11 @@ trait WebformAjaxFormTrait {
     $wrapper_attributes = new Attribute($wrapper_attributes);
 
     $form['#form_wrapper_id'] = $wrapper_id;
-    $form['#prefix'] = '<a id="' . $wrapper_id . '-content" tabindex="-1" aria-hidden="true"></a>';
+
+    $form += ['#prefix' => '', '#suffix' => ''];
+    $form['#prefix'] .= '<span id="' . $wrapper_id . '-content"></span>';
     $form['#prefix'] .= '<div' . $wrapper_attributes . '>';
-    $form['#suffix'] = '</div>';
+    $form['#suffix'] = '</div>' . $form['#suffix'];
 
     // Add Ajax library which contains 'Scroll to top' Ajax command and
     // Ajax callback for confirmation back to link.
@@ -199,6 +201,12 @@ trait WebformAjaxFormTrait {
 
       // Announce validation errors.
       $this->announce($this->t('Form validation errors have been found.'));
+    }
+    elseif ($form_state->getResponse() instanceof AjaxResponse) {
+      // Allow developers via form_alter hooks to set their own Ajax response.
+      // The custom Ajax response could be used to close modals and refresh
+      // selected regions and blocks on the page.
+      $response = $form_state->getResponse();
     }
     elseif ($form_state->isRebuilding()) {
       // Rebuild form.
@@ -402,12 +410,11 @@ trait WebformAjaxFormTrait {
    * @see \Drupal\webform\Form\WebformAjaxFormTrait::submitAjaxForm
    */
   protected function announce($text, $priority = 'polite') {
-    $announcements = $this->getAnnouncements();
+    $announcements =& drupal_static('webform_announcements', []);
     $announcements[] = [
       'text' => $text,
       'priority' => $priority,
     ];
-    $this->setAnnouncements($announcements);
   }
 
   /**
@@ -417,8 +424,7 @@ trait WebformAjaxFormTrait {
    *   An associative array of announcements.
    */
   protected function getAnnouncements() {
-    $session = $this->getRequest()->getSession();
-    return $session->get('announcements') ?: [];
+    return drupal_static('webform_announcements', []);
   }
 
   /**
@@ -428,18 +434,15 @@ trait WebformAjaxFormTrait {
    *   An associative array of announcements.
    */
   protected function setAnnouncements(array $announcements) {
-    $session = $this->getRequest()->getSession();
-    $session->set('announcements', $announcements);
-    $session->save();
+    $this->resetAnnouncements();
+    drupal_static('webform_announcements', $announcements);
   }
 
   /**
    * Reset announcements.
    */
   protected function resetAnnouncements() {
-    $session = $this->getRequest()->getSession();
-    $session->remove('announcements');
-    $session->save();
+    drupal_static_reset('webform_announcements');
   }
 
 }

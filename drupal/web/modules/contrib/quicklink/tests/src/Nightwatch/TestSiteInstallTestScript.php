@@ -1,8 +1,6 @@
 <?php
 
-namespace Drupal\quicklink;
-
-use Drupal\TestSite\TestSetupInterface;
+namespace Drupal\TestSite;
 
 /**
  * Setup file used by TestSiteApplicationTest.

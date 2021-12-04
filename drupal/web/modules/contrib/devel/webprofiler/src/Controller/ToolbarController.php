@@ -62,9 +62,7 @@ class ToolbarController extends ControllerBase {
    *
    * @param Profile $profile
    *
-   * @return \Symfony\Component\HttpFoundation\Response
-   *
-   * @throws \Exception
+   * @return array
    */
   public function toolbarAction(Profile $profile) {
     $this->profiler->disable();

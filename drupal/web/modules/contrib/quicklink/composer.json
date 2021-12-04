@@ -10,5 +10,5 @@
     "issues": "https://www.drupal.org/project/issues/quicklink",
     "source": "http://cgit.drupalcode.org/quicklink"
   },
-  "require": { }
+  "require": {}
 }

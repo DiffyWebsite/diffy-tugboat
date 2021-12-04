@@ -26,7 +26,7 @@ class ClassNamesMatcher extends AbstractMatcher
     public function getMatches(array $tokens, array $info = [])
     {
         $class = $this->getNamespaceAndClass($tokens);
-        if (\strlen($class) > 0 && $class[0] === '\\') {
+        if ($class !== '' && $class[0] === '\\') {
             $class = \substr($class, 1, \strlen($class));
         }
         $quotedClass = \preg_quote($class);
@@ -40,7 +40,7 @@ class ClassNamesMatcher extends AbstractMatcher
                 return \implode('\\', \array_slice($pieces, $nsPos, \count($pieces)));
             },
             \array_filter(
-                \get_declared_classes(),
+                \array_merge(\get_declared_classes(), \get_declared_interfaces()),
                 function ($className) use ($quotedClass) {
                     return AbstractMatcher::startsWith($quotedClass, $className);
                 }
@@ -53,7 +53,7 @@ class ClassNamesMatcher extends AbstractMatcher
      */
     public function hasMatched(array $tokens)
     {
-        $token     = \array_pop($tokens);
+        $token = \array_pop($tokens);
         $prevToken = \array_pop($tokens);
 
         $blacklistedTokens = [

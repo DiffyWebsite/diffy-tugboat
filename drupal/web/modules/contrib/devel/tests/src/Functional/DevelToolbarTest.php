@@ -40,6 +40,7 @@ class DevelToolbarTest extends BrowserTestBase {
     'devel.cache_clear',
     'devel.container_info.service',
     'devel.admin_settings_link',
+    'devel.execute_php',
     'devel.menu_rebuild',
     'devel.reinstall',
     'devel.route_info',
@@ -58,6 +59,7 @@ class DevelToolbarTest extends BrowserTestBase {
     $this->develUser = $this->drupalCreateUser([
       'administer site configuration',
       'access devel information',
+      'execute php code',
       'access toolbar',
     ]);
     $this->toolbarUser = $this->drupalCreateUser([
