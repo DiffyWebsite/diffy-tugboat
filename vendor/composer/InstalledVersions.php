@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'f2d9ef313310cbb0fb69ee9f17a2188d6982b1ef',
+    'reference' => '413ee328e1a6905057276fd17b9e6c17b360eb94',
     'name' => 'geerlingguy/drupal-vm',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'f2d9ef313310cbb0fb69ee9f17a2188d6982b1ef',
+      'reference' => '413ee328e1a6905057276fd17b9e6c17b360eb94',
     ),
   ),
 );
