@@ -1,10 +1,6 @@
 # OS-specific files.
 .DS_Store
 
-# Vendors
-drupal/vendor
-
-
 # Editor and language files.
 .idea/
 .project/
