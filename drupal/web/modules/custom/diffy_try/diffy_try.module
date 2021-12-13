@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains diffy_try.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function diffy_try_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the diffy_try module.
+    case 'help.page.diffy_try':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Try out Diffy screenshots') . '</p>';
+      return $output;
+
+    default:
+  }
+}

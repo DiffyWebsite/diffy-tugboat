@@ -1,0 +1,7 @@
+diffy_try.project:
+  path: 'try/{uuid}'
+  defaults:
+    _controller: '\Drupal\diffy_try\Controller\DiffyTryController::page'
+    _title: 'Diffy Try Screenshot'
+  requirements:
+   _access: 'TRUE'
