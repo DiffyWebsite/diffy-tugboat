@@ -3,6 +3,7 @@ type: theme
 description: 'Themes marketing company of a project Diffy.'
 package: Other
 core: 8.x
+core_version_requirement: ^8 || ^9
 libraries:
   - marketing/global-styling
 base theme: false

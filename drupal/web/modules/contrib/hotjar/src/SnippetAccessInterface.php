@@ -3,7 +3,7 @@
 namespace Drupal\hotjar;
 
 /**
- * Interface SnippetAccessInterface.
+ * Snippet access service interface.
  *
  * @package Drupal\hotjar
  */

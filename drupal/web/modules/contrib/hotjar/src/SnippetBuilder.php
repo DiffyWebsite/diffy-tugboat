@@ -2,17 +2,19 @@
 
 namespace Drupal\hotjar;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Asset\AssetCollectionOptimizerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class SnippetBuilder.
+ * Snippet builder service.
  *
  * @package Drupal\hotjar
  */
@@ -63,6 +65,13 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
   protected $messenger;
 
   /**
+   * The file handler under test.
+   *
+   * @var \Drupal\Core\File\FileSystemInterface
+   */
+  protected $fileSystem;
+
+  /**
    * SnippetBuilder constructor.
    *
    * @param \Drupal\Core\State\StateInterface $state
@@ -77,6 +86,8 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
    *   JS assets optimizer.
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   Messenger service.
+   * @param \Drupal\Core\File\FileSystemInterface $file_system
+   *   The file handler.
    */
   public function __construct(
     StateInterface $state,
@@ -84,7 +95,8 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
     HotjarSettingsInterface $settings,
     ModuleHandlerInterface $module_handler,
     AssetCollectionOptimizerInterface $js_collection_optimizer,
-    MessengerInterface $messenger
+    MessengerInterface $messenger,
+    FileSystemInterface $file_system
   ) {
     $this->state = $state;
     $this->configFactory = $config_factory;
@@ -92,6 +104,7 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
     $this->moduleHandler = $module_handler;
     $this->jsCollectionOptimizer = $js_collection_optimizer;
     $this->messenger = $messenger;
+    $this->fileSystem = $file_system;
   }
 
   /**
@@ -104,7 +117,8 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
       $container->get('hotjar.settings'),
       $container->get('module_handler'),
       $container->get('asset.js.collection_optimizer'),
-      $container->get('messenger')
+      $container->get('messenger'),
+      $container->get('file_system')
     );
   }
 
@@ -112,7 +126,19 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
    * {@inheritdoc}
    */
   public function pageAttachment(array &$attachments) {
-    $uri = 'public://hotjar/hotjar.script.js';
+    if ($this->settings->getSetting('attachment_mode') === HotjarSettingsInterface::ATTACHMENT_MODE_DRUPAL_SETTINGS) {
+      $this->pageAttachmentDrupalSettings($attachments);
+    }
+    else {
+      $this->pageAttachmentBuilt($attachments);
+    }
+  }
+
+  /**
+   * Add page attachments when Build mode is in use.
+   */
+  protected function pageAttachmentBuilt(array &$attachments) {
+    $uri = $this->getSnippetPath();
     $query_string = $this->state->get('system.css_js_query_string') ?: '0';
     $query_string_separator = (strpos($uri, '?') !== FALSE) ? '&' : '?';
 
@@ -128,13 +154,27 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
   }
 
   /**
+   * Add page attachments when DrupalSettings mode is in use.
+   */
+  protected function pageAttachmentDrupalSettings(array &$attachments) {
+    // Assets resolver will escape drupalSettings.
+    $clean_id = Html::escape((string) $this->settings->getSetting('account'));
+    $clean_version = Html::escape($this->settings->getSetting('snippet_version'));
+
+    $attachments['#attached']['drupalSettings']['hotjar']['account'] = $clean_id;
+    $attachments['#attached']['drupalSettings']['hotjar']['snippetVersion'] = $clean_version;
+    $attachments['#attached']['library'][] = 'hotjar/hotjar';
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function createAssets() {
+    $this->settings->getSettings(TRUE);
     $result = TRUE;
-    $directory = 'public://hotjar';
+    $directory = dirname($this->getSnippetPath());
     if (!is_dir($directory) || !is_writable($directory)) {
-      $result = file_prepare_directory($directory, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+      $result = $this->fileSystem->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
     }
     if ($result) {
       $result = $this->saveSnippets();
@@ -153,7 +193,21 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
    */
   protected function saveSnippets() {
     $snippet = $this->buildSnippet();
-    $path = file_unmanaged_save_data($snippet, 'public://hotjar/hotjar.script.js', FILE_EXISTS_REPLACE);
+    $snippet_path = $this->getSnippetPath();
+    if ($this->fileSystem->realpath($snippet_path)) {
+      $this->fileSystem->delete($snippet_path);
+    }
+
+    $dir = $this->fileSystem->realpath(dirname($snippet_path));
+    $this->fileSystem->prepareDirectory(
+      $dir,
+      FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS
+    );
+    $path = $this->fileSystem->saveData(
+      $snippet,
+      $snippet_path,
+      FileSystemInterface::EXISTS_REPLACE
+    );
 
     if ($path === FALSE) {
       $this->messenger->addMessage($this->t('An error occurred saving one or more snippet files. Please try again or contact the site administrator if it persists.'));
@@ -168,20 +222,19 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
   }
 
   /**
-   * Get Hotjar snippet code.
-   *
-   * @return mixed|string
-   *   Hotjar snippet.
+   * {@inheritdoc}
    */
-  protected function buildSnippet() {
+  public function buildSnippet() {
+    $id = $this->settings->getSetting('account');
     // Use escaped HotjarID.
-    $clean_id = $this->escapeValue($this->settings->getSetting('account'));
+    $clean_id = $this->escapeValue($id);
     $clean_version = $this->escapeValue($this->settings->getSetting('snippet_version'));
 
     // Quote from the Hotjar dashboard:
     // The Tracking Code below should be placed in the <head> tag of
     // every page you want to track on your site.
-    $script = <<<HJ
+    if ($id && $clean_id) {
+      $script = <<<HJ
 (function(h,o,t,j,a,r){
   h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
   h._hjSettings={hjid:{$clean_id},hjsv:{$clean_version}};
@@ -191,6 +244,15 @@ class SnippetBuilder implements SnippetBuilderInterface, ContainerInjectionInter
   a.appendChild(r);
 })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 HJ;
+    }
+    else {
+      $script = <<<HJ
+// Empty HotjarID.
+HJ;
+    }
+
+    // Allow other modules to modify or wrap the script.
+    $this->moduleHandler->alter('hotjar_snippet', $script);
 
     // Compact script if core aggregation or advagg module are enabled.
     if (
@@ -218,7 +280,21 @@ HJ;
    */
   protected function isJsPreprocessEnabled() {
     $config = $this->configFactory->get('system.performance');
-    return $config->get('js.preprocess', TRUE) === TRUE;
+    $configured = $config->get('js.preprocess');
+    if (!isset($configured)) {
+      $configured = TRUE;
+    }
+    return $configured === TRUE;
+  }
+
+  /**
+   * Get snippet path.
+   *
+   * @return string
+   *   Path to snippet.
+   */
+  protected function getSnippetPath() {
+    return $this->settings->getSetting('snippet_path');
   }
 
 }

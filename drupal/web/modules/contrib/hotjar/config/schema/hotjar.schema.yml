@@ -5,11 +5,19 @@ hotjar.settings:
   label: 'Hotjar settings'
   mapping:
     account:
-      type: string
+      type: label
       label: 'Hotjar ID'
+      translatable: true
     snippet_version:
       type: integer
       label: 'Hotjar version'
+    snippet_path:
+      type: label
+      label: 'Snippet path'
+      translatable: true
+    attachment_mode:
+      type: string
+      label: 'Attachment mode'
     visibility_pages:
       type: integer
       label: 'Add tracking to specific pages'

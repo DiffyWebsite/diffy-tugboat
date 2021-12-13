@@ -3,7 +3,7 @@
 namespace Drupal\hotjar;
 
 /**
- * Interface SnippetBuilderInterface.
+ * Snippet builder service interface.
  *
  * @package Drupal\hotjar
  */
@@ -21,5 +21,13 @@ interface SnippetBuilderInterface {
    * Implements hook_page_attachment().
    */
   public function pageAttachment(array &$attachments);
+
+  /**
+   * Get Hotjar snippet code.
+   *
+   * @return mixed|string
+   *   Hotjar snippet.
+   */
+  public function buildSnippet();
 
 }

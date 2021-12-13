@@ -8,11 +8,13 @@ services:
       - '@module_handler'
       - '@asset.js.collection_optimizer'
       - '@messenger'
+      - '@file_system'
 
   hotjar.settings:
     class: Drupal\hotjar\HotjarSettings
     arguments:
       - '@config.factory'
+      - '@module_handler'
 
   hotjar.access:
     class: Drupal\hotjar\SnippetAccess
@@ -21,7 +23,7 @@ services:
       - '@module_handler'
       - '@config.factory'
       - '@path.current'
-      - '@path.alias_manager'
+      - '@path_alias.manager'
       - '@path.matcher'
       - '@current_user'
       - '@request_stack'

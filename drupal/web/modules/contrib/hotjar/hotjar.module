@@ -10,45 +10,6 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
- * Define default path exclusion list to remove tracking from admin pages.
- *
- * See http://drupal.org/node/34970 for more information.
- */
-// @codingStandardsIgnoreStart
-/**
- * Default page list for admin path check.
- *
- * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
- *   Use \Drupal\hotjar\HotjarSettings::HOTJAR_PAGES instead.
- */
-define('HOTJAR_PAGES', "/admin\n/admin/*\n/batch\n/node/add*\n/node/*/*\n/user/*/*");
-
-/**
- * Access allow.
- *
- * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
- *   Use Drupal\Core\Access\AccessResult::allowed() instead.
- */
-define('HOTJAR_ACCESS_ALLOW', TRUE);
-
-/**
- * Access deny.
- *
- * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
- *   Use Drupal\Core\Access\AccessResult::forbidden() instead.
- */
-define('HOTJAR_ACCESS_DENY', FALSE);
-
-/**
- * Neutral access.
- *
- * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
- *   Use Drupal\Core\Access\AccessResult::neutral() instead.
- */
-define('HOTJAR_ACCESS_IGNORE', NULL);
-// @codingStandardsIgnoreEnd
-
-/**
  * Implements hook_help().
  */
 function hotjar_help($route_name, RouteMatchInterface $route_match) {
@@ -68,19 +29,6 @@ function hotjar_rebuild() {
 }
 
 /**
- * Get Hotjar settings.
- *
- * @deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 8.x-1.6.
- *   Use \Drupal\hotjar\HotjarSettings::getSettings() instead.
- */
-function hotjar_get_settings() {
-  @trigger_error('hotjar_get_settings() is deprecated in Hotjar 8.x-1.3 and will be removed before Hotjar 1.6.0. Use \Drupal\hotjar\HotjarSettings::getSettings() instead.', E_USER_DEPRECATED);
-  /** @var \Drupal\hotjar\HotjarSettingsInterface $service */
-  $service = \Drupal::service('hotjar.settings');
-  return $service->getSettings();
-}
-
-/**
  * Implements hook_page_attachments().
  *
  * Insert JavaScript to the <head> tag of the page.
@@ -95,4 +43,20 @@ function hotjar_page_attachments(array &$attachments) {
   /** @var \Drupal\hotjar\SnippetBuilderInterface $snippet */
   $snippet = \Drupal::service('hotjar.snippet');
   $snippet->pageAttachment($attachments);
+}
+
+/**
+ * Trim lines of pages textarea.
+ *
+ * @param string $raw_value
+ *   Raw user input.
+ *
+ * @return string
+ *   Clean version of value.
+ */
+function _hotjar_clean_pages_value($raw_value) {
+  $pages = trim($raw_value);
+  $raw_lines = preg_split('/(\r\n|\r|\n)/', $pages);
+  $lines = array_map('trim', $raw_lines);
+  return implode("\n", $lines);
 }

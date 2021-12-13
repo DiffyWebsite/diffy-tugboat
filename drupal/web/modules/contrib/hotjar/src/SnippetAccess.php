@@ -6,7 +6,7 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Path\AliasManagerInterface;
+use Drupal\path_alias\AliasManagerInterface;
 use Drupal\Core\Path\CurrentPathStack;
 use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * Class SnippetAccess.
+ * Snippet access service.
  *
  * @package Drupal\hotjar
  */
@@ -55,7 +55,7 @@ class SnippetAccess implements SnippetAccessInterface, ContainerInjectionInterfa
   /**
    * Alias manager.
    *
-   * @var \Drupal\Core\Path\AliasManagerInterface
+   * @var \Drupal\path_alias\AliasManagerInterface
    */
   protected $aliasManager;
 
@@ -98,7 +98,7 @@ class SnippetAccess implements SnippetAccessInterface, ContainerInjectionInterfa
    *   Config factory.
    * @param \Drupal\Core\Path\CurrentPathStack $current_path
    *   Current path.
-   * @param \Drupal\Core\Path\AliasManagerInterface $alias_manager
+   * @param \Drupal\path_alias\AliasManagerInterface $alias_manager
    *   Alias manager.
    * @param \Drupal\Core\Path\PathMatcherInterface $path_matcher
    *   Path matcher.
@@ -136,7 +136,7 @@ class SnippetAccess implements SnippetAccessInterface, ContainerInjectionInterfa
       $container->get('module_handler'),
       $container->get('config.factory'),
       $container->get('path.current'),
-      $container->get('path.alias_manager'),
+      $container->get('path_alias.manager'),
       $container->get('path.matcher'),
       $container->get('current_user'),
       $container->get('request_stack')
@@ -151,12 +151,11 @@ class SnippetAccess implements SnippetAccessInterface, ContainerInjectionInterfa
       return FALSE;
     }
 
-    $result = AccessResult::neutral();
-
-    $result->andIf($this->statusCheckResult());
-    $result->andIf($this->pathCheckResult());
-    $result->andIf($this->roleCheck());
-    $result->andIf($this->cookieConstentCheck());
+    $result = AccessResult::neutral()
+      ->andIf($this->statusCheckResult())
+      ->andIf($this->pathCheckResult())
+      ->andIf($this->roleCheck())
+      ->andIf($this->cookieConstentCheck());
 
     $access = [];
     foreach ($this->moduleHandler->getImplementations('hotjar_access') as $module) {
@@ -173,10 +172,10 @@ class SnippetAccess implements SnippetAccessInterface, ContainerInjectionInterfa
 
     foreach ($access as $module_result) {
       if (is_bool($module_result)) {
-        $result->andIf(AccessResult::forbiddenIf(!$module_result));
+        $result = $result->andIf(AccessResult::forbiddenIf(!$module_result));
       }
       elseif ($module_result instanceof AccessResult) {
-        $result->andIf($module_result);
+        $result = $result->andIf($module_result);
       }
     }
 
@@ -219,7 +218,7 @@ class SnippetAccess implements SnippetAccessInterface, ContainerInjectionInterfa
         return AccessResult::allowed();
       }
 
-      $pages = mb_strtolower($setting_pages);
+      $pages = _hotjar_clean_pages_value(mb_strtolower($setting_pages));
       if ($visibility < 2) {
         $path = $this->currentPath->getPath();
         $path_alias = mb_strtolower($this->aliasManager->getAliasByPath($path));
@@ -278,7 +277,10 @@ class SnippetAccess implements SnippetAccessInterface, ContainerInjectionInterfa
       $config = $this->configFactory->get('eu_cookie_compliance.settings');
       $disabled_javascripts = $config->get('disabled_javascripts');
       $disabled_javascripts = _eu_cookie_compliance_explode_multiple_lines($disabled_javascripts);
-      if (in_array('sites/default/files/hotjar/hotjar.script.js', $disabled_javascripts)) {
+
+      $snippet_path = $this->settings->getSetting('snippet_path');
+      _eu_cookie_compliance_convert_relative_uri($snippet_path);
+      if (in_array($snippet_path, $disabled_javascripts)) {
         return AccessResult::forbidden();
       }
     }

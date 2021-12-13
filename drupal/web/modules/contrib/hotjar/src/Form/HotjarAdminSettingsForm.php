@@ -5,6 +5,8 @@ namespace Drupal\hotjar\Form;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StreamWrapper\StreamWrapperManager;
+use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
 use Drupal\hotjar\HotjarSettingsInterface;
 use Drupal\hotjar\SnippetBuilderInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -15,13 +17,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class HotjarAdminSettingsForm extends ConfigFormBase {
 
   /**
-   * Hotjar settings.
-   *
-   * @var \Drupal\hotjar\HotjarSettingsInterface
-   */
-  protected $hotjarSettings;
-
-  /**
    * Snippet builder.
    *
    * @var \Drupal\hotjar\SnippetBuilderInterface
@@ -29,16 +24,23 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
   protected $snippetBuilder;
 
   /**
+   * Stream wrapper manager service.
+   *
+   * @var \Drupal\Core\StreamWrapper\StreamWrapperManagerInterface
+   */
+  protected $streamWrapperManager;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(
     ConfigFactoryInterface $config_factory,
-    HotjarSettingsInterface $hotjar_settings,
-    SnippetBuilderInterface $snippet_builder
+    SnippetBuilderInterface $snippet_builder,
+    StreamWrapperManagerInterface $stream_wrapper_manager
   ) {
     parent::__construct($config_factory);
-    $this->hotjarSettings = $hotjar_settings;
     $this->snippetBuilder = $snippet_builder;
+    $this->streamWrapperManager = $stream_wrapper_manager;
   }
 
   /**
@@ -47,8 +49,8 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
-      $container->get('hotjar.settings'),
-      $container->get('hotjar.snippet')
+      $container->get('hotjar.snippet'),
+      $container->get('stream_wrapper_manager')
     );
   }
 
@@ -70,6 +72,8 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $settings = $this->config('hotjar.settings');
+
     $form['general'] = [
       '#type' => 'details',
       '#title' => $this->t('General settings'),
@@ -77,8 +81,10 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
     ];
 
     $form['general']['hotjar_account'] = [
-      '#default_value' => $this->hotjarSettings->getSetting('account'),
-      '#description' => $this->t('Your Hotjar ID can be found in your tracking code on the line <code>h._hjSettings={hjid:<b>12345</b>,hjsv:5};</code> where <code><b>12345</b></code> is your Hotjar ID'),
+      '#default_value' => $settings->get('account'),
+      '#description' => $this->t('Your Hotjar ID can be found in your tracking code on the line <code>h._hjSettings={hjid:<b>12345</b>,hjsv::version};</code> where <code><b>12345</b></code> is your Hotjar ID', [
+        ':version' => HotjarSettingsInterface::HOTJAR_SNIPPET_VERSION,
+      ]),
       '#maxlength' => 20,
       '#required' => TRUE,
       '#size' => 15,
@@ -87,8 +93,10 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
     ];
 
     $form['general']['hotjar_snippet_version'] = [
-      '#default_value' => $this->hotjarSettings->getSetting('snippet_version'),
-      '#description' => $this->t('Your Hotjar snippet version is near your Hotjar ID<code>h._hjSettings={hjid:12345,hjsv:<b>5</b>};</code> where <code><b>5</b></code> is your Hotjar snippet version'),
+      '#default_value' => $settings->get('snippet_version'),
+      '#description' => $this->t('Your Hotjar snippet version is near your Hotjar ID<code>h._hjSettings={hjid:12345,hjsv:<b>:version</b>};</code> where <code><b>:version</b></code> is your Hotjar snippet version', [
+        ':version' => HotjarSettingsInterface::HOTJAR_SNIPPET_VERSION,
+      ]),
       '#maxlength' => 10,
       '#required' => TRUE,
       '#size' => 5,
@@ -96,8 +104,54 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
     ];
 
-    $visibility = $this->hotjarSettings->getSetting('visibility_pages');
-    $pages = $this->hotjarSettings->getSetting('pages');
+    $form['attachment'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Attachment mode'),
+      '#open' => TRUE,
+    ];
+    $asset_mode_options = [
+      HotjarSettingsInterface::ATTACHMENT_MODE_BUILD => $this->t('Build', [], ['context' => 'hotjar']),
+      HotjarSettingsInterface::ATTACHMENT_MODE_DRUPAL_SETTINGS => $this->t('Asset with Drupal settings', [], ['context' => 'hotjar']),
+    ];
+    $selected_mode = $settings->get('attachment_mode');
+    if (empty($selected_mode)) {
+      $selected_mode = HotjarSettingsInterface::ATTACHMENT_MODE_BUILD;
+    }
+    $form['attachment']['hotjar_attachment_mode'] = [
+      '#default_value' => $selected_mode,
+      '#required' => TRUE,
+      '#title' => $this->t('Attachment mode'),
+      '#type' => 'select',
+      '#options' => $asset_mode_options,
+      '#description' => $this->t(
+        '<b>:build_label</b>: your attachment will be generated when this form saved.<br/><b>:asset_label</b>: Hotjar ID and snippet version will be delivered as <code>drupalSetting</code> and attached as normal Drupal JS behaviour.',
+        [
+          ':build_label' => $asset_mode_options[HotjarSettingsInterface::ATTACHMENT_MODE_BUILD],
+          ':asset_label' => $asset_mode_options[HotjarSettingsInterface::ATTACHMENT_MODE_DRUPAL_SETTINGS],
+        ],
+        ['context' => 'hotjar']
+      ),
+    ];
+
+    $snippet_path = $settings->get('snippet_path');
+    if (!isset($snippet_path)) {
+      $snippet_path = HotjarSettingsInterface::HOTJAR_SNIPPET_PATH;
+    }
+    $form['attachment']['hotjar_snippet_path'] = [
+      '#default_value' => $snippet_path,
+      '#description' => $this->t('Path to save built JS snippet.'),
+      '#maxlength' => 150,
+      '#title' => $this->t('Hotjar snippet path'),
+      '#type' => 'textfield',
+      '#states' => [
+        'required' => [
+          ':input[name="mode"]' => ['value' => HotjarSettingsInterface::ATTACHMENT_MODE_BUILD],
+        ],
+      ],
+    ];
+
+    $visibility = $settings->get('visibility_pages');
+    $pages = $settings->get('pages');
 
     // Visibility settings.
     $form['tracking']['page_track'] = [
@@ -148,7 +202,7 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
     }
 
     // Render the role overview.
-    $visibility_roles = $this->hotjarSettings->getSetting('roles');
+    $visibility_roles = $settings->get('roles');
 
     $form['tracking']['role_track'] = [
       '#type' => 'details',
@@ -164,9 +218,9 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
         $this->t('Add to the selected roles only'),
         $this->t('Add to every role except the selected ones'),
       ],
-      '#default_value' => $this->hotjarSettings->getSetting('visibility_roles'),
+      '#default_value' => $settings->get('visibility_roles'),
     ];
-    $role_options = array_map(['\Drupal\Component\Utility\SafeMarkup', 'checkPlain'], user_role_names());
+    $role_options = array_map(['\Drupal\Component\Utility\Html', 'escape'], user_role_names());
     $form['tracking']['role_track']['hotjar_roles'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Roles'),
@@ -187,7 +241,10 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
     // Trim some text values.
     $form_state->setValue('hotjar_account', trim($form_state->getValue('hotjar_account')));
     $form_state->setValue('hotjar_snippet_version', trim($form_state->getValue('hotjar_snippet_version')));
-    $form_state->setValue('hotjar_pages', trim($form_state->getValue('hotjar_pages')));
+    $form_state->setValue('hotjar_snippet_path', trim($form_state->getValue('hotjar_snippet_path')));
+    $form_state->setValue('hotjar_attachment_mode', trim($form_state->getValue('hotjar_attachment_mode')));
+    $pages = _hotjar_clean_pages_value($form_state->getValue('hotjar_pages'));
+    $form_state->setValue('hotjar_pages', $pages);
     $form_state->setValue('hotjar_roles', array_filter($form_state->getValue('hotjar_roles')));
 
     // Verify that every path is prefixed with a slash.
@@ -204,6 +261,14 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
         }
       }
     }
+
+    $scheme = StreamWrapperManager::getScheme($form_state->getValue('hotjar_snippet_path'));
+    if (!$this->streamWrapperManager->isValidScheme($scheme)) {
+      $form_state->setErrorByName(
+        'hotjar_snippet_path',
+        $this->t('Snippet path must starts with <code>public://</code>, <code>private://</code> or any other valid file stream.')
+      );
+    }
   }
 
   /**
@@ -214,6 +279,8 @@ class HotjarAdminSettingsForm extends ConfigFormBase {
     $config
       ->set('account', $form_state->getValue('hotjar_account'))
       ->set('snippet_version', $form_state->getValue('hotjar_snippet_version'))
+      ->set('snippet_path', $form_state->getValue('hotjar_snippet_path'))
+      ->set('attachment_mode', $form_state->getValue('hotjar_attachment_mode'))
       ->set('visibility_pages', $form_state->getValue('hotjar_visibility_pages'))
       ->set('pages', $form_state->getValue('hotjar_pages'))
       ->set('visibility_roles', $form_state->getValue('hotjar_visibility_roles'))
