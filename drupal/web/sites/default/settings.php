@@ -251,7 +251,7 @@ $databases = [];
  *   );
  * @endcode
  */
-$config_directories = [];
+$settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config';
 
 /**
  * Settings:
