@@ -251,6 +251,16 @@ private static $installed = array (
       ),
       'reference' => '3fbd874921ab2c041e899d044585a2ab9795df8a',
     ),
+    'diffywebsite/diffy-php' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+        0 => '1.x-dev',
+      ),
+      'reference' => '12ba086b1077353d21f10dc80fa782365f591420',
+    ),
     'doctrine/annotations' => 
     array (
       'pretty_version' => '1.13.2',
@@ -1271,6 +1281,15 @@ private static $installed = array (
       array (
         0 => '9.3.0',
       ),
+    ),
+    'drupal/twig_tweak' => 
+    array (
+      'pretty_version' => '3.1.3',
+      'version' => '3.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3.1.3',
     ),
     'drupal/update' => 
     array (

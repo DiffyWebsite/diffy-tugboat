@@ -186,6 +186,7 @@ class ComposerStaticInitd85c138d3fb33991d08e84b08a86d57a
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
+            'Diffy\\' => 6,
             'DeepCopy\\' => 9,
         ),
         'C' => 
@@ -595,6 +596,10 @@ class ComposerStaticInitd85c138d3fb33991d08e84b08a86d57a
             1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
             3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+        ),
+        'Diffy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/diffywebsite/diffy-php/src',
         ),
         'DeepCopy\\' => 
         array (
