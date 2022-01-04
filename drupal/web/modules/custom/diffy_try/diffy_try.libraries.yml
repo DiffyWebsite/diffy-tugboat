@@ -1,0 +1,5 @@
+load_wait:
+  js:
+    js/load_wait.js: {}
+  dependencies:
+    - core/jquery

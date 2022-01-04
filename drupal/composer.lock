@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d84e315cc079d131d8c97af30b75619b",
+    "content-hash": "db470d951be2f0c80955e4c2d474f71f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1039,6 +1039,54 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/master"
             },
             "time": "2017-01-20T21:14:22+00:00"
+        },
+        {
+            "name": "diffywebsite/diffy-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DiffyWebsite/diffy-php.git",
+                "reference": "12ba086b1077353d21f10dc80fa782365f591420"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DiffyWebsite/diffy-php/zipball/12ba086b1077353d21f10dc80fa782365f591420",
+                "reference": "12ba086b1077353d21f10dc80fa782365f591420",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "php": ">=5.5.38"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Diffy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP Bindings for Diffy API",
+            "homepage": "https://diffy.website",
+            "keywords": [
+                "cli",
+                "diffy",
+                "diffy-php",
+                "drupal"
+            ],
+            "support": {
+                "issues": "https://github.com/DiffyWebsite/diffy-php/issues",
+                "source": "https://github.com/DiffyWebsite/diffy-php/tree/master"
+            },
+            "time": "2021-10-25T02:37:30+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -3111,6 +3159,62 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/twig_tweak",
+            "version": "3.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/twig_tweak.git",
+                "reference": "3.1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/twig_tweak-3.1.3.zip",
+                "reference": "3.1.3",
+                "shasum": "9f2f6813bf6d40faded73b0fd36e6c669565c7f7"
+            },
+            "require": {
+                "drupal/core": "^9.0",
+                "ext-json": "*",
+                "php": ">=7.3",
+                "symfony/polyfill-php80": "^1.17",
+                "twig/twig": "^2.12"
+            },
+            "suggest": {
+                "symfony/var-dumper": "Better dump() function for debugging Twig variables"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.3",
+                    "datestamp": "1635338145",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Chi",
+                    "homepage": "https://www.drupal.org/user/556138"
+                }
+            ],
+            "description": "A Twig extension with some useful functions and filters for Drupal development.",
+            "homepage": "https://www.drupal.org/project/twig_tweak",
+            "keywords": [
+                "Drupal",
+                "Twig"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/twig_tweak",
+                "issues": "https://www.drupal.org/project/issues/twig_tweak"
             }
         },
         {
@@ -11745,6 +11849,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "diffywebsite/diffy-php": 20,
         "drupal/ctools": 20,
         "drupal/entity_reference_revisions": 20,
         "drupal/facebook_pixel": 15

@@ -22,3 +22,15 @@ function diffy_try_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function diffy_try_theme($existing, $type, $theme, $path) {
+  return [
+    'diffy_try_collect_url' => [
+      'render element' => 'form',
+      'template' => 'diffy-try-collect-url-form',
+    ],
+  ];
+}

@@ -1,7 +1,22 @@
+diffy_try.admin_settings:
+  path: '/admin/config/development/diffy-try'
+  defaults:
+    _form: '\Drupal\diffy_try\Form\SettingsForm'
+    _title: 'Diffy settings'
+  requirements:
+    _permission: 'administer site configuration'
+
 diffy_try.project:
   path: 'try/{uuid}'
   defaults:
     _controller: '\Drupal\diffy_try\Controller\DiffyTryController::page'
     _title: 'Diffy Try Screenshot'
+  requirements:
+   _access: 'TRUE'
+
+diffy_try.load_project:
+  path: 'try-load/{uuid}'
+  defaults:
+    _controller: '\Drupal\diffy_try\Controller\DiffyTryController::loadResults'
   requirements:
    _access: 'TRUE'
