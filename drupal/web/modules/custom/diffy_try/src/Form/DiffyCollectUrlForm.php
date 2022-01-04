@@ -2,11 +2,13 @@
 
 namespace Drupal\diffy_try\Form;
 
-use Drupal\Component\Gettext\PoItem;
+use Diffy\Diffy;
+use Diffy\Screenshot;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element;
-use Drupal\locale\SourceString;
+use Drupal\diffy_try\Entity\Project;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Defines a Diffy try form.
@@ -22,19 +24,40 @@ class DiffyCollectUrlForm extends FormBase {
     return 'diffy_collect_url_form';
   }
 
+  protected $diffyApiKey;
+
+  /**
+   * DiffyCollectUrlForm constructor.
+   * @param ConfigFactoryInterface $config_factory
+   */
+  public function __construct(ConfigFactoryInterface $config_factory) {
+    $this->diffyApiKey = $config_factory->get('diffy_try.settings')->get('api_key');
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('config.factory')
+    );
+  }
+
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['url'] = [
+      '#attributes' => ['placeholder' => t('Enter URL of your site')],
       '#type' => 'url',
     ];
 
-    $form['actions'] = ['#type' => 'actions'];
-    $form['actions']['submit'] = [
+    $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Take Screenshot'),
+      '#value' => $this->t('Take Screenshots'),
     ];
+
+    $form['#theme'] = 'diffy_try_collect_url';
 
     return $form;
   }
@@ -50,9 +73,26 @@ class DiffyCollectUrlForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Create project and start the job.
+    $url = $form_state->getValue('url');
+
+    try {
+      Diffy::setApiKey($this->diffyApiKey);
+      $project_id = \Diffy\Project::create($url, [$url]);
+
+      $screenshot_id = Screenshot::create($project_id, 'production');
+
+      $project = Project::create([
+        'prod_url' => $url,
+        'screenshot_id' => $screenshot_id,
+      ]);
+      $project->save();
+    }
+    catch (\Exception $e) {
+
+    }
+
     $form_state->setRedirect('diffy_try.project', [
-      'uuid' => '123',
+      'uuid' => $project->get('uuid')->value,
     ]);
   }
 

@@ -3,6 +3,7 @@
 namespace Drupal\diffy_try\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
+use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 
@@ -65,7 +66,11 @@ class Project extends ContentEntityBase {
       ])
       ->setDisplayConfigurable('form', TRUE);
 
-    $fields['settings'] = BaseFieldDefinition::create('text_long')
+    $fields['screenshot_id'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Screenshot ID'))
+      ->setSetting('unsigned', TRUE);
+
+    $fields['settings'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Settings'))
       ->setDisplayOptions('view', [
         'label' => 'hidden',
@@ -82,6 +87,31 @@ class Project extends ContentEntityBase {
       ->setDescription(t('Time the entity was created'));
 
     return $fields;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function preCreate(EntityStorageInterface $storage, array &$values) {
+    parent::preCreate($storage, $values);
+
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preSave(EntityStorageInterface $storage) {
+    parent::preSave($storage);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function postSave(EntityStorageInterface $storage, $update = TRUE) {
+    parent::postSave($storage, $update);
+
+//    $base_url = $this->get('prod_url')->value;
+//    $project_id = \Diffy\Project::create($base_url, ['/']);
   }
 
 }

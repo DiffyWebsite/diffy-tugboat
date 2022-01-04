@@ -30,3 +30,7 @@ html {
 .float-right {
   float: right;
 }
+
+.diffy-collect-url-form .form-control {
+  width: auto;
+}
