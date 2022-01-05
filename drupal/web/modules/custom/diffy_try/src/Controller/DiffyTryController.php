@@ -34,15 +34,15 @@ class DiffyTryController extends ControllerBase {
 
     if (count($results) != 3) {
       $build['text'] = [
-        '#markup' => '<div id="diffy-try-text"><p class="progress-text">' . t('Our workers are taking screenshots from your page <a href="@page" target="_blank">@page</a>. We are checking status every 5 seconds and display results below.', ['@page' => $project->get('prod_url')->value])
-          . '</p><p class="completed-text hidden">' . $completed_text . '</p></div><div id="diffy-try-results">' . implode('', $results) . '</div>',
+        '#markup' => '<div id="diffy-try-text" class="mt-5"><p class="progress-text">' . t('Our workers are taking screenshots from your page <a href="@page" target="_blank">@page</a>. We are checking status every 5 seconds and display results below.', ['@page' => $project->get('prod_url')->value])
+          . '</p><p class="completed-text hidden">' . $completed_text . '</p></div><div class="container"><div id="diffy-try-results" class="row">' . implode('', $results) . '</div></div>',
         '#cache' => ['max-age' => 0],
       ];
       $build['#attached']['library'][] = 'diffy_try/load_wait';
     }
     else {
       $build['text'] = [
-        '#markup' => '<div id="diffy-try-text"><p>' . $completed_text . '</p></div><div id="diffy-try-results">' . implode('', $results) . '</div>',
+        '#markup' => '<div id="diffy-try-text" class="mt-5 pt-5"><p>' . $completed_text . '</p></div><div class="container"><div id="diffy-try-results" class="row">' . implode('', $results) . '</div></div>',
         '#cache' => ['max-age' => 0],
       ];
     }
@@ -75,7 +75,7 @@ class DiffyTryController extends ControllerBase {
       $screenshots = reset($screenshot->data['screenshots']);
       if (is_array($screenshots)) {
         foreach ($screenshots as $breakpoint => $screenshot_image) {
-          $rendered[] = '<div class="col-4 mb-4" style="height: 200px; overflow: scroll;">' . $breakpoint . 'px<br/><a href="' . $screenshot_image['full'] . '" target="_blank"><img src="' . $screenshot_image['thumbnail'] . '"/></a></div>';
+          $rendered[] = '<div class="col-4 mb-4 screenshot-preview">' . $breakpoint . 'px<br/><a href="' . $screenshot_image['full'] . '" target="_blank"><img src="' . $screenshot_image['thumbnail'] . '"/></a></div>';
         }
       }
 
