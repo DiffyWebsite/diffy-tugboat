@@ -11,13 +11,14 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0",
     "gulp-autoprefixer": "^6.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-stylelint": "^8.0.0",
-    "stylelint": "^9.10.1",
-    "stylelint-config-standard-scss": "^1.0.1",
+    "gulp-stylelint": "^13.0.0",
+    "sass": "^1.49.9",
+    "stylelint": "^14.6.0",
+    "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-scss": "^3.5.4"
   },
   "dependencies": {

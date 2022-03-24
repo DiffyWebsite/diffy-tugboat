@@ -29,7 +29,7 @@ global-styling:
         attributes:
           crossorigin: anonymous
           integrity: sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T
-      https://fonts.googleapis.com/css?family=Open+Sans: { type: external, minified: false }
+      https://fonts.googleapis.com/css?family=Montserrat: { type: external, minified: false }
       css/style.css: {}
       css/overriden.css: {}
   dependencies:

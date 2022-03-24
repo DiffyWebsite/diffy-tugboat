@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
@@ -30,7 +30,7 @@ function scssToCss() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({
-      browsers: ['last 2 versions']
+      cascade: false
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('css'))
