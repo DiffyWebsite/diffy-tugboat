@@ -54,7 +54,7 @@ class DiffyCollectUrlForm extends FormBase {
 
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Take Screenshots'),
+      '#value' => $this->t('Start'),
     ];
 
     $form['#theme'] = 'diffy_try_collect_url';
