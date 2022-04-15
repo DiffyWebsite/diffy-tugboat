@@ -1005,12 +1005,12 @@
     ),
     'drupal/metatag' => 
     array (
-      'pretty_version' => '1.16.0',
-      'version' => '1.16.0.0',
+      'pretty_version' => '1.19.0',
+      'version' => '1.19.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8.x-1.16',
+      'reference' => '8.x-1.19',
     ),
     'drupal/migrate' => 
     array (
