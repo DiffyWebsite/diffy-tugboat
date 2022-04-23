@@ -18,6 +18,25 @@ function marketing_preprocess(&$variables, $hook)
 }
 
 /**
+ * Implements hook_preprocess_image.
+ */
+function marketing_preprocess_image(&$variables) {
+  if (isset($variables['width'])) {
+    unset($variables['width']);
+  }
+  if (isset($variables['attributes']['width'])) {
+    unset($variables['attributes']['width']);
+  }
+  if (isset($variables['height'])) {
+    unset($variables['height']);
+  }
+  if (isset($variables['attributes']['height'])) {
+    unset($variables['attributes']['height']);
+  }
+  $variables['attributes']['class'][] = 'width-100';
+}
+
+/**
  * Implements hook_preprocess_menu_local_task.
  *
  * @param $variables

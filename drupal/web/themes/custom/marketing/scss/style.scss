@@ -107,6 +107,10 @@ p {
   }
 }
 
+.width-100 {
+  width: 100%;
+}
+
 // Imports styles for entity type pages.
 @import "./page/documentation";
 
