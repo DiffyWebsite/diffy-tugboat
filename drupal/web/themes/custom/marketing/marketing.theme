@@ -33,7 +33,7 @@ function marketing_preprocess_image(&$variables) {
   if (isset($variables['attributes']['height'])) {
     unset($variables['attributes']['height']);
   }
-  $variables['attributes']['class'][] = 'width-100';
+  $variables['attributes']['class'][] = 'width-100 mt-5 mb-5';
 }
 
 /**
