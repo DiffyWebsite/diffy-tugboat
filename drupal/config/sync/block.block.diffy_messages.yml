@@ -1,6 +1,6 @@
 uuid: b37094b8-8069-478d-b2d5-2cd170194751
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,13 +10,13 @@ _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
 id: diffy_messages
 theme: diffy
-region: highlighted
+region: primary_menu
 weight: 0
 provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
   label: 'Status messages'
-  provider: system
   label_display: '0'
+  provider: system
 visibility: {  }
