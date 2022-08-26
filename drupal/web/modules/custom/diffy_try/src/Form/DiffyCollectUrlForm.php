@@ -86,14 +86,16 @@ class DiffyCollectUrlForm extends FormBase {
         'screenshot_id' => $screenshot_id,
       ]);
       $project->save();
+
+      $form_state->setRedirect('diffy_try.project', [
+        'uuid' => $project->get('uuid')->value,
+      ]);
     }
     catch (\Exception $e) {
-
+      \Drupal::messenger()->addError('Something went wrong. Please reach out to info@diffy.website');
     }
 
-    $form_state->setRedirect('diffy_try.project', [
-      'uuid' => $project->get('uuid')->value,
-    ]);
+
   }
 
 }

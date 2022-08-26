@@ -80,7 +80,7 @@ EOT
             $requires[$require] = array($link);
         }
 
-        $installedRepo = new InstalledRepository(array($installedRepo, new RootPackageRepository($composer->getPackage())));
+        $installedRepo = new InstalledRepository(array($installedRepo, new RootPackageRepository(clone $composer->getPackage())));
         foreach ($installedRepo->getPackages() as $package) {
             if (in_array($package->getName(), $removePackages, true)) {
                 continue;
@@ -173,7 +173,7 @@ EOT
     }
 
     /**
-     * @param array[] $results
+     * @param mixed[] $results
      *
      * @return void
      */
