@@ -775,6 +775,7 @@ $settings['entity_update_batch_size'] = 50;
  *      the site settings remain consistent.
  */
 include __DIR__ . "/settings.pantheon.php";
+$settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config';
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
    include $app_root . '/' . $site_path . '/settings.local.php';
