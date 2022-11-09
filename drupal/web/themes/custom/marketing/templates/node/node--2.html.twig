@@ -13,8 +13,8 @@
 
 <section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block">
   <div class="price-period-switcher d-flex justify-content-center">
-    <div class="switcher monthly active" data-type="monthly">Monthly</div>
-    <div class="switcher annual" data-type="annual">Annual</div>
+    <div class="switcher monthly " data-type="monthly">Monthly</div>
+    <div class="switcher annual active" data-type="annual">Annual</div>
   </div>
   <div class="row px-3">
 {#    <div class="col-lg-3 pricing-card m-0">#}
@@ -51,22 +51,14 @@
         <ul class="p-3 text-center pricing-card__body">
           <li><strong>100 pages<a href="#pages">*</a></strong></li>
           <li class="text--light">Unlimited screenshots and diffs</li>
-          <li class="text--light">Multiple environments</li>
-          <li class="text--light">Screenshot modification</li>
-          <li class="text--light">Automation, REST API</li>
-          <li class="text--light">Team management</li>
+          <li class="text--light">Screenshot modifications</li>
+          <li class="text--light">Prod, Stage environments</li>
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
-          <b class="indvidual-price-text">$50/mo</b>
-          <p class="text--light text--small indvidual-price-description">(50¢ per page)</p>
-          {% if marketing_individual_url is not empty %}
-            <a target="_blank" href="{{ marketing_individual_url }}" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register">{{ marketing_price_btn }}</a>
-          {% endif %}
-
-          {% if marketing_individual_annual_url is not empty %}
-            <a target="_blank" href="{{ marketing_individual_annual_url }}" class="marketing-individual-annual-btn button button--select btn pt-2 marketing-hidden diffy-register">{{ marketing_price_btn }}</a>
-          {% endif %}
+          <b class="indvidual-price-text">$64</b> <small>/ month</small>
+          <p class="text--light text--small indvidual-price-description">billed annually</p>
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register">Start Trial</a>
         </div>
       </article>
     </div>
@@ -84,22 +76,16 @@
         <ul class="p-3 text-center pricing-card__body">
           <li><strong>1000 pages<a href="#pages">*</a></strong></li>
           <li class="text--light">Unlimited screenshots and diffs</li>
-          <li class="text--light">Multiple environments</li>
           <li class="text--light">Screenshot modification</li>
+          <li class="text--light">Prod, Stage, Dev + custom environments</li>
           <li class="text--light">Automation, REST API</li>
           <li class="text--light">Team management</li>
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
-          <b class="agency-price-text">$150/mo</b>
-          <p class="text--light text--small agency-price-description">(15¢ per page)</p>
-          {% if marketing_agency_url is not empty %}
-            <a target="_blank" href="{{ marketing_agency_url }}" class="marketing-agency-month-btn button button--select btn pt-2 diffy-register">{{ marketing_price_btn }}</a>
-          {% endif %}
-
-          {% if marketing_agency_annual_url is not empty %}
-            <a target="_blank" href="{{ marketing_agency_annual_url }}" class="marketing-agency-annual-btn button button--select btn pt-2 marketing-hidden diffy-register">{{ marketing_price_btn }}</a>
-          {% endif %}
+          <b class="agency-price-text">$190</b> <small>/ month</small>
+          <p class="text--light text--small indvidual-price-description">billed annually</p>
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register">Start Trial</a>
         </div>
       </article>
     </div>
@@ -108,21 +94,23 @@
       <article class="pricing-card--shadow js-hidden">
         <div class="pricing-card--shadow p-3 text-center pricing-card__head">
           <h4>Enterprise</h4>
-          <small class="m-0">Dedicated environment for your team with maximum performance.</small>
+          <small class="m-0">Set up for your team with maximum performance.</small>
         </div>
         <ul class="p-3 text-center pricing-card__body">
-          <li><strong>Any number of pages<a href="#pages">*</a></strong></li>
+          <li><strong>5000 pages<a href="#pages">*</a></strong></li>
           <li class="text--light">Unlimited screenshots and diffs</li>
-          <li class="text--light">Multiple environments</li>
           <li class="text--light">Screenshot modification</li>
+          <li class="text--light">Prod, Stage, Dev + custom environments</li>
           <li class="text--light">Automation, REST API</li>
           <li class="text--light">Team management</li>
+          <li class="text--light">Priority support</li>
+          <li class="text--light">Corporate VPN connection</li>
         </ul>
         <div class="border"></div>
         <div class="p-3 text-center pricing-card__bottom">
-          <b>Talk to us</b>
-          <p class="text--light text--small">(lowest price per page)</p>
-          <a href="mailto:info@diffy.website" class="button button--select btn pt-2">{{ marketing_price_btn }}</a>
+          <b class="enterprise-price-text">$784</b> <small>/ month</small>
+          <p class="text--light text--small enterprise-price-description">billed annually</p>
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-enterprise-month-btn button button--select btn pt-2 diffy-register">Start Trial</a>
         </div>
       </article>
     </div>
