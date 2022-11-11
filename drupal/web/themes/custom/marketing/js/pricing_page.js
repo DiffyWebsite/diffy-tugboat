@@ -24,30 +24,30 @@
         switchers.toggleClass('active');
         let prices = {
           individual: {
-            price: '$78',
+            price: '$79',
             description: 'billed month-to-month',
           },
           agency: {
-            price: '$241',
+            price: '$239',
             description: 'billed month-to-month'
           },
           enterprise: {
-            price: '$953',
+            price: '$949',
             description: 'billed month-to-month'
           }
         };
         if (type == 'annual') {
           prices = {
             individual: {
-              price: '$64',
+              price: '$59',
               description: 'billed annually',
             },
             agency: {
-              price: '$190',
+              price: '$179',
               description: 'billed annually'
             },
             enterprise: {
-              price: '$784',
+              price: '$749',
               description: 'billed annually'
             }
           };
