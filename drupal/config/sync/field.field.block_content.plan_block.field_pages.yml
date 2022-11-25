@@ -1,0 +1,25 @@
+uuid: 7dcdfef9-9c66-4a7e-af9a-4349726986b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.plan_block
+    - field.storage.block_content.field_pages
+id: block_content.plan_block.field_pages
+field_name: field_pages
+entity_type: block_content
+bundle: plan_block
+label: Pages
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 100
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: pages
+field_type: integer

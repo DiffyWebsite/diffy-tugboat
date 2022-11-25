@@ -1,0 +1,32 @@
+uuid: 875b8154-cf81-4bdb-84e9-c6dd5b95e192
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - double_field
+id: block_content.field_prices
+field_name: field_prices
+entity_type: block_content
+type: double_field
+settings:
+  storage:
+    first:
+      type: integer
+      maxlength: 255
+      precision: 10
+      scale: 2
+      datetime_type: datetime
+    second:
+      type: integer
+      maxlength: 255
+      precision: 10
+      scale: 2
+      datetime_type: datetime
+module: double_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

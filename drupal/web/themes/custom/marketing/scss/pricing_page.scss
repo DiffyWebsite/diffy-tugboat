@@ -10,11 +10,11 @@
 
   .switcher {
     padding: 12px 92px;
-    border-bottom: solid 1px #03A1B5;
+    border-bottom: solid 1px #03a1b5;
     cursor: pointer;
 
     &.active {
-      background-color: #03A1B5;
+      background-color: #03a1b5;
       color: white;
     }
   }
@@ -93,6 +93,8 @@
   }
 }
 
+// FAQ
+
 .question-headline {
   margin-top: 80px;
 }
@@ -122,8 +124,10 @@
   }
 }
 
+// END FAQ
+
 .marketing-hidden {
-  display: none!important;
+  display: none !important;
 }
 
 @media (max-width: $lg) {

@@ -1,0 +1,39 @@
+uuid: 2271ee92-883a-4aa9-8ac0-dcb74c5f5726
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.plan_block
+    - field.storage.block_content.field_prices
+  module:
+    - double_field
+id: block_content.plan_block.field_prices
+field_name: field_prices
+entity_type: block_content
+bundle: plan_block
+label: Prices
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    label: 'Annualy (monthly price)'
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    label: Monthly
+    list: false
+    allowed_values: {  }
+    max: null
+    min: 0
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

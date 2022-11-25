@@ -1,0 +1,8 @@
+uuid: fff6e385-eee7-4d27-a4dd-93cc34ec998d
+langcode: en
+status: true
+dependencies: {  }
+id: plans_block
+label: 'Plans Block'
+revision: 0
+description: 'Block which includes single item plan blocks'
