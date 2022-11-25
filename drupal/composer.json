@@ -26,6 +26,7 @@
         "drupal/core-recommended": "^9",
         "drupal/ctools": "3.x-dev",
         "drupal/devel": "^4.1",
+        "drupal/double_field": "^4.1",
         "drupal/entity_reference_revisions": "1.x-dev",
         "drupal/facebook_pixel": "^1.0@alpha",
         "drupal/google_analytics": "^4.0",
