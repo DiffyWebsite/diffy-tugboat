@@ -1,0 +1,23 @@
+uuid: ea2e218b-d53d-477e-bcaf-590c37e2aa25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.layout_page
+  module:
+    - text
+id: node.layout_page.body
+field_name: body
+entity_type: node
+bundle: layout_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

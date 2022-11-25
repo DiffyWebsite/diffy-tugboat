@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3bf4b07701750bbd379c4ae79d3458020ec6cc93',
+        'reference' => '15f31358e96bfad43d97bcdd786c7a7ee43aa13d',
         'name' => 'drupal-composer/drupal-project',
         'dev' => true,
     ),
@@ -348,7 +348,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3bf4b07701750bbd379c4ae79d3458020ec6cc93',
+            'reference' => '15f31358e96bfad43d97bcdd786c7a7ee43aa13d',
             'dev_requirement' => false,
         ),
         'drupal/admin_toolbar' => array(
@@ -638,6 +638,15 @@
             'install_path' => __DIR__ . '/../../web/modules/contrib/hotjar',
             'aliases' => array(),
             'reference' => '8.x-2.2',
+            'dev_requirement' => false,
+        ),
+        'drupal/layout_builder_restrictions' => array(
+            'pretty_version' => '2.17.0',
+            'version' => '2.17.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/layout_builder_restrictions',
+            'aliases' => array(),
+            'reference' => '8.x-2.17',
             'dev_requirement' => false,
         ),
         'drupal/mailchimp' => array(
