@@ -40,48 +40,5 @@
 #}
 
 {% for item in items %}
-<div class="col-lg pricing-card m-0 pricing-card--{{ item.content.field_plan_title.0|render|lower }}">
-  <article class="pricing-card--container js-hidden">
-
-    <div class="pricing-card__head">
-      <h4>{{ item.content.field_plan_title.0 }}</h4>
-      <small class="m-0">{{ item.content.body.0 }}</small>
-    </div>
-
-    <div class="pricing-card__price">
-      <div class="price-data">
-        {{ item.content.field_prices.0 }}
-      </div>
-      <div class="price-wrapper">
-        <span>
-          <p class="{{ item.content.field_plan_title.0|render|lower }}-price-text price-text m-0">${{ item.content.field_prices.0['#item'].first }}</p> <small>/ month</small>
-        </span>
-        <p class="m-0 text--light text--small {{ item.content.field_plan_title.0|render|lower }}-price-description price-description">billed annually</p>
-      </div>
-    </div>
-
-    <div class="border"></div>
-
-    <ul class="pricing-card__body">
-      <li><strong>{{ item.content.field_pages.0 }} pages<a href="#pages">*</a></strong></li>
-      {{ item.content.field_keys }}
-    </ul>
-
-    <div class="pricing-card__bottom">
-      <a target="_blank" href="https://app.diffy.website/#register" class="{{ item.content.field_button_class.0|render|lower }} button button--select btn pt-2 diffy-register">Start Trial</a>
-    </div>
-
-  </article>
-</div>
+  <li{{ item.attributes }}>{{ item.content }}</li>
 {% endfor %}
-
-
-
-{#<div>
-  {% for item in items %}
-    <div>{{ item.content }}</div>
-  {% endfor %}
-</div>#}
-
-{#{{ dd(items.0.content.field_prices) }}#}
-

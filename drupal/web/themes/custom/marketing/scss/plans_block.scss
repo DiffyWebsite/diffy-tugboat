@@ -110,3 +110,29 @@
   opacity: 0.25;
   border: 0.5px solid $lightgray-color !important;
 }
+
+.pricing-card__body {
+  font-size: 14px;
+  line-height: 22px;
+  color: $font-color;
+  padding-left: 20px;
+  margin-bottom: 0;
+
+  a {
+    color: $font-color;
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-image: url("../images/check.svg");
+    padding-inline-start: 10px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.pricing-card__bottom {
+  margin-top: 30px;
+}
