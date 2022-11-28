@@ -54,9 +54,9 @@
       </div>
       <div class="price-wrapper">
         <span>
-          <b class="{{ item.content.field_plan_title.0|render|lower }}-price-text">${{ item.content.field_prices.0['#item'].first }}</b> <small>/ month</small>
+          <p class="{{ item.content.field_plan_title.0|render|lower }}-price-text price-text m-0">${{ item.content.field_prices.0['#item'].first }}</p> <small>/ month</small>
         </span>
-        <p class="m-0 text--light text--small {{ item.content.field_plan_title.0|render|lower }}-price-description">billed annually</p>
+        <p class="m-0 text--light text--small {{ item.content.field_plan_title.0|render|lower }}-price-description price-description">billed annually</p>
       </div>
     </div>
 
