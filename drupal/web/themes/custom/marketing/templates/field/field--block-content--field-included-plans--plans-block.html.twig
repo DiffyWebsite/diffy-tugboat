@@ -41,14 +41,14 @@
 
 {% for item in items %}
 <div class="col-lg pricing-card m-0 pricing-card--{{ item.content.field_plan_title.0|render|lower }}">
-  <article class="pricing-card--shadow js-hidden">
+  <article class="pricing-card--container js-hidden">
 
-    <div class="pricing-card--shadow p-3 text-center pricing-card__head">
+    <div class="pricing-card__head">
       <h4>{{ item.content.field_plan_title.0 }}</h4>
       <small class="m-0">{{ item.content.body.0 }}</small>
     </div>
 
-    <ul class="p-3 text-center pricing-card__body">
+    <ul class="pricing-card__body">
       <li><strong>{{ item.content.field_pages.0 }} pages<a href="#pages">*</a></strong></li>
       <li class="text--light">Unlimited screenshots and diffs</li>
       <li class="text--light">Screenshot modifications</li>
@@ -58,7 +58,7 @@
 
     <div class="border"></div>
 
-    <div class="p-3 text-center pricing-card__bottom">
+    <div class="pricing-card__bottom">
       {{ item.content.field_prices.0 }}
       <b class="indvidual-price-text">$59</b> <small>/ month</small>
       <p class="text--light text--small indvidual-price-description">billed annually</p>

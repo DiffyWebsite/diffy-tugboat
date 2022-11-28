@@ -24,3 +24,34 @@
     }
   }
 }
+
+// Price Period Switcher
+.price-period-switcher {
+  height: 30px;
+  margin-bottom: 30px;
+}
+
+// Pricing Card
+.pricing-card {
+  padding: 30px 40px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card__head {
+  margin-bottom: 14px;
+
+  h4 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: $font-color;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: $font-color;
+    margin: 0;
+  }
+}
