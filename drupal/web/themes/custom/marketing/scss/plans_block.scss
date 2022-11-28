@@ -1,0 +1,26 @@
+@import "variables";
+
+// Block Title
+.pricing-card-title {
+  padding: 40px 20px 20px 20px;
+
+  h2 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 46px;
+    color: $font-color;
+    text-align: center;
+    margin: 0;
+  }
+
+  @media (max-width: $lg) {
+    padding: 90px 20px 40px 20px;
+
+    h2 {
+      font-size: 28px !important;
+      line-height: 34px;
+    }
+  }
+}

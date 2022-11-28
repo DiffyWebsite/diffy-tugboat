@@ -58,4 +58,5 @@ plans_block:
     js/pricing_page.js: {}
   css:
     theme:
-      css/pricing_page.css: {}
+      #css/pricing_page.css: {}
+      css/plans_block.css: {}
