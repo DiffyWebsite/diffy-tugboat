@@ -135,4 +135,28 @@
 
 .pricing-card__bottom {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a.btn {
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    box-shadow: 0px 2px 5px rgba(144, 54, 170, 0.35);
+    border-radius: 5px;
+  }
+
+  .diffy-register-description {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $lightgray-color;
+  }
 }
