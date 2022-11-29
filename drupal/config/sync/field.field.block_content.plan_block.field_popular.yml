@@ -1,0 +1,23 @@
+uuid: 2fefe016-63fe-4419-b040-0f36fb5a0a59
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.plan_block
+    - field.storage.block_content.field_popular
+  module:
+    - options
+id: block_content.plan_block.field_popular
+field_name: field_popular
+entity_type: block_content
+bundle: plan_block
+label: Popular
+description: 'Choose "Popular" for a card that should be different.'
+required: true
+translatable: false
+default_value:
+  -
+    value: regular
+default_value_callback: ''
+settings: {  }
+field_type: list_string

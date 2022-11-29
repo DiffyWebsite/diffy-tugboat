@@ -10,6 +10,7 @@ dependencies:
     - field.field.block_content.plan_block.field_keys
     - field.field.block_content.plan_block.field_pages
     - field.field.block_content.plan_block.field_plan_title
+    - field.field.block_content.plan_block.field_popular
     - field.field.block_content.plan_block.field_prices
   module:
     - double_field
@@ -73,3 +74,4 @@ content:
 hidden:
   field_button_class: true
   field_plan_title: true
+  field_popular: true

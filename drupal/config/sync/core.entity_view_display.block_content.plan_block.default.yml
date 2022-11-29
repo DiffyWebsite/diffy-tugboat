@@ -9,9 +9,11 @@ dependencies:
     - field.field.block_content.plan_block.field_keys
     - field.field.block_content.plan_block.field_pages
     - field.field.block_content.plan_block.field_plan_title
+    - field.field.block_content.plan_block.field_popular
     - field.field.block_content.plan_block.field_prices
   module:
     - double_field
+    - options
     - text
 id: block_content.plan_block.default
 targetEntityType: block_content
@@ -23,7 +25,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_button_class:
     type: string
@@ -31,7 +33,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   field_keys:
     type: string
@@ -39,7 +41,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   field_pages:
     type: number_integer
@@ -48,13 +50,20 @@ content:
       thousand_separator: ' '
       prefix_suffix: false
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_plan_title:
     type: string
     label: hidden
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_popular:
+    type: list_key
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
@@ -78,6 +87,6 @@ content:
         scale: 2
       inline: false
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
 hidden: {  }

@@ -9,6 +9,7 @@ dependencies:
     - field.field.block_content.plan_block.field_keys
     - field.field.block_content.plan_block.field_pages
     - field.field.block_content.plan_block.field_plan_title
+    - field.field.block_content.plan_block.field_popular
     - field.field.block_content.plan_block.field_prices
   module:
     - double_field
@@ -20,7 +21,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 9
@@ -30,7 +31,7 @@ content:
     third_party_settings: {  }
   field_button_class:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60
@@ -38,7 +39,7 @@ content:
     third_party_settings: {  }
   field_keys:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60
@@ -46,22 +47,28 @@ content:
     third_party_settings: {  }
   field_pages:
     type: number
-    weight: 4
+    weight: 5
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_plan_title:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_popular:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prices:
     type: double_field
-    weight: 3
+    weight: 4
     region: content
     settings:
       first:
