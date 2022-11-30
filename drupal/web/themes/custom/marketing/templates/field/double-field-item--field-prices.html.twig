@@ -2,11 +2,11 @@
   {% if subitem -%}
     {% if subfield == 'first' %}
       <div class="billed-annually-price d-none">
-        {{- subitem -}}
+        ${{- subitem -}}
       </div>
     {% else %}
       <div class="billed-month-price d-none">
-        {{- subitem -}}
+        ${{- subitem -}}
       </div>
     {% endif %}
   {% endif %}
