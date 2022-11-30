@@ -1,0 +1,31 @@
+uuid: c0551719-ae64-4c26-9308-b6a61a7fc853
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_block_custom_bg
+    - field.field.block_content.text_block_custom_bg.body
+    - field.field.block_content.text_block_custom_bg.field_bg_color
+  module:
+    - options
+    - text
+id: block_content.text_block_custom_bg.default
+targetEntityType: block_content
+bundle: text_block_custom_bg
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_bg_color:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

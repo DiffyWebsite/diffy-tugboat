@@ -65,3 +65,7 @@ accordion_block:
   css:
     theme:
       css/accordion_block.css: {}
+text_block_custom_bg_block:
+  css:
+    theme:
+      css/text_block_custom_bg_block.css: {}

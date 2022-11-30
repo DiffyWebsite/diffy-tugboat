@@ -1,0 +1,8 @@
+uuid: f89c30bd-a376-4cce-9061-9770fa5d262e
+langcode: en
+status: true
+dependencies: {  }
+id: text_block_custom_bg
+label: 'Text Block with Custom BG'
+revision: 0
+description: 'Text Block with custom Background'
