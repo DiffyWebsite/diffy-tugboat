@@ -3,10 +3,12 @@
 {{ attach_library('marketing/accordion_block') }}
 {{ attach_library('marketing/text_block_custom_bg_block') }}
 
+
 {# Title #}
 <section class="container-fluid max-width-1280 pricing-card-title d-flex justify-content-center">
   <h2>All plans come with a 2 weeks trial period</h2>
 </section>
+
 
 {# Pricing Card #}
 <section class="container-fluid max-width-1280 pricing-card-block">
@@ -145,7 +147,64 @@
 </section>
 
 
+{# FAQ Block #}
+<div class="container-fluid accordion-block">
 
+  <div class="accordion-block-title"><h2>Frequently asked questions</h2></div>
+
+  <ul class="accordion accordion-block-content">
+
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What does the "100 pages" plan mean?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
+      </div>
+      <div class="accordion__content">
+        This means that all your projects together should not exceed 100 pages. On average single site would have around 20-30 critical pages to check. But you still create really large number of screenshots as we do not limit how many times you can take them.
+      </div>
+    </li>
+
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What forms of payment are accepted?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
+      </div>
+      <div class="accordion__content">
+        We accept Visa, MasterCard by using Stripe as a payment gateway.
+      </div>
+    </li>
+
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What browser is used to take screenshots? What about performance?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
+      </div>
+      <div class="accordion__content">
+        We are using Amazon Lambda for taking screenshots with Chrome as a browser. This allows us to take hundreds of screenshots within 5-10 minutes.
+      </div>
+    </li>
+
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What about support?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
+      </div>
+      <div class="accordion__content">
+        We are spread between Pacific and Eastern European timezones. This allows us to cover a lot of timezones for reasonable response time.
+      </div>
+    </li>
+
+  </ul>
+
+</div>
 
 
 
