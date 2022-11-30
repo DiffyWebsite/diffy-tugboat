@@ -1,0 +1,39 @@
+uuid: 1a4573b7-9715-4b1d-b2a7-01e1140d68b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion_block
+    - field.storage.block_content.field_accordion_card
+  module:
+    - double_field
+id: block_content.accordion_block.field_accordion_card
+field_name: field_accordion_card
+entity_type: block_content
+bundle: accordion_block
+label: 'Accordion Card'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    label: Title
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    label: Text
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    required: true
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

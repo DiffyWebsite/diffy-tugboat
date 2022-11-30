@@ -1,5 +1,5 @@
 (function ($, Drupal) {
-  Drupal.behaviors.pricingPageBehavior = {
+  Drupal.behaviors.plansBlockBehavior = {
     attach: function (context, settings) {
       var switchers = $('.price-period-switcher .switcher:not(.processed)').once('processed');
       if (switchers.length == 0) {

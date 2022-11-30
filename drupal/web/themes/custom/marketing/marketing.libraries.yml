@@ -59,3 +59,9 @@ plans_block:
   css:
     theme:
       css/plans_block.css: {}
+accordion_block:
+  js:
+    js/accordion_block.js: {}
+  css:
+    theme:
+      css/accordion_block.css: {}
