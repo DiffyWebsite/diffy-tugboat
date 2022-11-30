@@ -1,0 +1,264 @@
+{# Pricing Page #}
+{{ attach_library('marketing/plans_block') }}
+{{ attach_library('marketing/accordion_block') }}
+{{ attach_library('marketing/text_block_custom_bg_block') }}
+
+{# Title #}
+<section class="container-fluid max-width-1280 pricing-card-title d-flex justify-content-center">
+  <h2>All plans come with a 2 weeks trial period</h2>
+</section>
+
+{# Pricing Card #}
+<section class="container-fluid max-width-1280 pricing-card-block">
+
+  <div class="price-period-switcher d-flex justify-content-center">
+    <div class="switcher annual active" data-type="annual">Annually<span>Save upto 25%</span></div>
+    <div class="toggle">
+      <input type="checkbox" id="check-switcher"/>
+      <label for="check-switcher"></label>
+    </div>
+    <div class="switcher monthly " data-type="monthly">Monthly</div>
+  </div>
+
+  <div class="row justify-content-center pricing-card--wrapper">
+
+    <div class="col-lg pricing-card pricing-card--individual pricing-card--regular">
+      <article class="pricing-card--container js-hidden">
+
+        <div class="pricing-card__top">
+
+          <div class="pricing-card__head">
+            <h4>Individual</h4>
+            <small class="m-0">Great start for freelancers to test 2-5 projects.</small>
+          </div>
+
+          <div class="pricing-card__price">
+            <div class="price-wrapper">
+              <span>
+                <p class="individual-price-text price-text m-0">$59</p> <small>/ month</small>
+              </span>
+              <p class="m-0 text--light text--small individual-price-description price-description">billed annually</p>
+            </div>
+          </div>
+
+          <div class="border"></div>
+
+          <ul class="pricing-card__body">
+            <li><strong>100 pages<a href="#pages">*</a></strong></li>
+            <li>Unlimited screenshots and diffs</li>
+            <li>Screenshot modifications</li>
+            <li>Prod, Stage environments</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card__bottom">
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register"><span>Start Free Trial</span></a>
+          <span class="diffy-register-description">no credit card required</span>
+        </div>
+
+      </article>
+    </div>
+
+    <div class="col-lg pricing-card pricing-card--agency pricing-card--popular">
+      <article class="pricing-card--container js-hidden">
+
+        <div class="pricing-card__top">
+          <div class="pricing-card__popular-text">Popular</div>
+
+          <div class="pricing-card__head">
+            <h4>Agency</h4>
+            <small class="m-0">For organizations with more than 10 projects.</small>
+          </div>
+
+          <div class="pricing-card__price">
+            <div class="price-wrapper">
+              <span>
+                <p class="agency-price-text price-text m-0">$179</p> <small>/ month</small>
+              </span>
+              <p class="m-0 text--light text--small agency-price-description price-description">billed annually</p>
+            </div>
+          </div>
+
+          <div class="border"></div>
+
+          <ul class="pricing-card__body">
+            <li><strong>1 000 pages<a href="#pages">*</a></strong></li>
+            <li>Unlimited screenshots and diffs</li>
+            <li>Screenshot modifications</li>
+            <li>Prod, Stage environments + custom environments</li>
+            <li>Automation, REST API</li>
+            <li>Team management</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card__bottom">
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register"><span>Start Free Trial</span></a>
+          <span class="diffy-register-description">no credit card required</span>
+        </div>
+
+      </article>
+    </div>
+
+    <div class="col-lg pricing-card pricing-card--enterprise pricing-card--regular">
+      <article class="pricing-card--container js-hidden">
+
+        <div class="pricing-card__top">
+
+          <div class="pricing-card__head">
+            <h4>Enterprise</h4>
+            <small class="m-0">Set up for your team with maximum performance.</small>
+          </div>
+
+          <div class="pricing-card__price">
+            <div class="price-wrapper">
+              <span>
+                <p class="enterprise-price-text price-text m-0">$749</p> <small>/ month</small>
+              </span>
+              <p class="m-0 text--light text--small enterprise-price-description price-description">billed annually</p>
+            </div>
+          </div>
+
+          <div class="border"></div>
+
+          <ul class="pricing-card__body">
+            <li><strong>5 000 pages<a href="#pages">*</a></strong></li>
+            <li>Unlimited screenshots and diffs</li>
+            <li>Screenshot modifications</li>
+            <li>Prod, Stage environments + custom environments</li>
+            <li>Automation, REST API</li>
+            <li>Team management</li>
+            <li>Priority support</li>
+            <li>Corporate VPN connection</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card__bottom">
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-enterprise-month-btn button button--select btn pt-2 diffy-register"><span>Start Free Trial</span></a>
+          <span class="diffy-register-description">no credit card required</span>
+        </div>
+
+      </article>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+{############################}
+{############################}
+{############################}
+<h2 class="text-center question-headline">Frequently asked questions</h2>
+
+<div class="question-block">
+  <h2 class="text-center question-headline--hidden">Frequently asked questions</h2>
+  <section class="container-fluid max-width-1280">
+    <div class="row px-3">
+
+      <div class="col-md-6 my-4">
+        <div class="row">
+          <div class="col-1 p-0 text-right">
+            <div>
+              <em class="fas fa-question"></em>
+            </div>
+          </div>
+          <div class="col-11">
+            <h4 class="mb-4 pt-1"><a name="pages"></a>What does the "100 pages" plan mean?</h4>
+            <p>This means that all your projects together should not exceed 100 pages.
+              On average single site would have around 20-30 critical pages to check.
+              But you still create really large number of screenshots as we do not
+              limit how many times you can take them.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <div class="row">
+          <div class="col-1 p-0 text-right">
+            <div>
+              <em class="fas fa-question"></em>
+            </div>
+          </div>
+          <div class="col-11 pt-1">
+            <h4 class="mb-4">What forms of payment are accepted?</h4>
+            <p>We accept Visa, MasterCard by using Stripe as a payment gateway.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <div class="row">
+          <div class="col-1 p-0 text-right">
+            <div>
+              <em class="fas fa-question"></em>
+            </div>
+          </div>
+          <div class="col-11 pt-1">
+            <h4 class="mb-4"><a name="workers"></a>What browser is used to take screenshots? What about performance?</h4>
+            <p>We are using Amazon Lambda for taking screenshots with Chrome as a browser. This allows us
+              to take hundreds of screenshots within 5-10 minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <div class="row">
+          <div class="col-1 p-0 text-right">
+            <div>
+              <em class="fas fa-question"></em>
+            </div>
+          </div>
+          <div class="col-11 pt-1">
+            <h4 class="mb-4">What about support?</h4>
+            <p>We are spread between Pacific and Eastern European timezones. This allows us to cover a lot of timezones
+              for reasonable response time.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<section class="container-fluid max-width-1280">
+  <div class="row px-3">
+    <div class="col-md-10 container headline--margin-top px-5">
+      <h2 class="text-center mb-5">What is Automation testing?</h2>
+      <p>When developing any type of digital product, most of the QA processes will require professionals to engage in some manual work.</p>
+
+      <p>However, depending on the type of tests you’re running, you can save a lot of time and money by automating a few of the components.</p>
+
+      <p>This is where automation testing comes in. And it’s especially valuable when it comes to testing components of a product that will vary depending on factors such as the OS, screen-size, and devices of the end-users.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid max-width-1280">
+  <div class="row px-3">
+    <div class="col-md-10 container headline--margin-top px-5">
+      <h2 class="text-center mb-5">Benefits of Automation Testing & Visual Regression Tools</h2>
+      <p>As noted above, automation testing is especially important for running non functional tests, because:
+      <ul>
+        <li>Most non functional tests can be automated (think of usability tests, load tests, and volume tests)</li>
+        <li>Most functional test can’t be automated or are very expensive to automate (think integration testing, unit testing, or acceptance testing)</li>
+        <li>Errors in functionality are easier to catch manually, while many non functional errors need pixel-perfect algorithms to be found.</li>
+        <li>Non functional errors often show up depending on the end-users’ environment, making it impossible to recreate manually (or at the very least, extremely time consuming)</li>
+      </ul>
+      </p>
+
+      <p>If you want to automate your visual regression testing, you don’t need to look any further -- you’ve found the ideal solution.</p>
+
+      <p>Diffy has a hybrid model of pixel-perfect comparison and a custom solution to understand vertical shifts.</p>
+
+    </div>
+  </div>
+</section>
