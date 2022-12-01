@@ -53,19 +53,4 @@ pricing_page:
   css:
     theme:
       css/pricing_page.css: {}
-plans_block:
-  js:
-    js/plans_block.js: {}
-  css:
-    theme:
-      css/plans_block.css: {}
-accordion_block:
-  js:
-    js/accordion_block.js: {}
-  css:
-    theme:
-      css/accordion_block.css: {}
-text_block_custom_bg_block:
-  css:
-    theme:
-      css/text_block_custom_bg_block.css: {}
+

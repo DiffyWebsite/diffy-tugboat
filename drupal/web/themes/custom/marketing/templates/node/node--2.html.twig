@@ -1,215 +1,223 @@
-{#<h2 class="text-center pricing__headline px-4 px-md-0">#}
-  {#Manage your team and clients effectively#}
-{#</h2>#}
+{# Pricing Page #}
 {{ attach_library('marketing/pricing_page') }}
 
-<section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block align-center">
-  <p style="font-size: 20px;
-    text-align: center;
-    font-weight: 900;">
-    All plans come with a 2 weeks trial period<br/>(no credit card required)</p>
+{# Title #}
+<section class="container-fluid max-width-1280 pricing-card-title d-flex justify-content-center">
+  <h2>All plans come with a 2 weeks trial period</h2>
 </section>
 
 
-<section class="container-fluid max-width-1280 mt-5 px-3 px-md-5 pricing-card-block">
+{# Pricing Card #}
+<section class="container-fluid max-width-1280 pricing-card-block">
+
   <div class="price-period-switcher d-flex justify-content-center">
+    <div class="switcher annual active" data-type="annual">Annually<span>Save upto 25%</span></div>
+    <div class="toggle">
+      <input type="checkbox" id="check-switcher"/>
+      <label for="check-switcher"></label>
+    </div>
     <div class="switcher monthly " data-type="monthly">Monthly</div>
-    <div class="switcher annual active" data-type="annual">Annual</div>
   </div>
-  <div class="row px-3">
-{#    <div class="col-lg-3 pricing-card m-0">#}
-{#      <article class="pricing-card--shadow js-hidden">#}
-{#        <div class="pricing-card--shadow p-3 text-center pricing-card__head">#}
-{#          <h4>Pay-as-you-go</h4>#}
-{#          <small class="m-0">Pay only for what you use</small>#}
-{#        </div>#}
-{#        <ul class="p-3 text-center pricing-card__body">#}
-{#          <li><strong>1000 screenshots</strong></li>#}
-{#          <li class="text--light">Real-time usage reporting</li>#}
-{#          <li class="text--light">Multiple environments</li>#}
-{#          <li class="text--light">Screenshot modification</li>#}
-{#          <li class="text--light">Automation, REST API</li>#}
-{#          <li class="text--light">Team management</li>#}
-{#        </ul>#}
-{#        <div class="border"></div>#}
-{#        <div class="p-3 text-center pricing-card__bottom">#}
-{#          <b class="payasyougo-price-text">$20</b>#}
-{#          <p class="text--light text--small payasyougo-price-description">(2¢ per screenshots)</p>#}
-{#          {% if marketing_payasyougo_url is not empty %}#}
-{#            <a target="_blank" href="{{ marketing_payasyougo_url }}" class="marketing-payasyougo-btn button button--select btn pt-2 diffy-register">{{ marketing_price_btn }}</a>#}
-{#          {% endif %}#}
-{#        </div>#}
-{#      </article>#}
-{#    </div>#}
 
-    <div class="col-lg-4 pricing-card m-0">
-      <article class="pricing-card--shadow js-hidden">
-        <div class="pricing-card--shadow p-3 text-center pricing-card__head">
-          <h4>Individual</h4>
-          <small class="m-0">Great start for freelancers to test 2-5 projects.</small>
+  <div class="row justify-content-center pricing-card--wrapper">
+
+    <div class="col-lg pricing-card pricing-card--individual pricing-card--regular">
+      <article class="pricing-card--container js-hidden">
+
+        <div class="pricing-card__top">
+
+          <div class="pricing-card__head">
+            <h4>Individual</h4>
+            <small class="m-0">Great start for freelancers to test 2-5 projects.</small>
+          </div>
+
+          <div class="pricing-card__price">
+            <div class="price-wrapper">
+              <span>
+                <p class="individual-price-text price-text m-0">$59</p> <small>/ month</small>
+              </span>
+              <p class="m-0 text--light text--small individual-price-description price-description">billed annually</p>
+            </div>
+          </div>
+
+          <div class="border"></div>
+
+          <ul class="pricing-card__body">
+            <li><strong>100 pages<a href="#pages">*</a></strong></li>
+            <li>Unlimited screenshots and diffs</li>
+            <li>Screenshot modifications</li>
+            <li>Prod, Stage environments</li>
+          </ul>
         </div>
-        <ul class="p-3 text-center pricing-card__body">
-          <li><strong>100 pages<a href="#pages">*</a></strong></li>
-          <li class="text--light">Unlimited screenshots and diffs</li>
-          <li class="text--light">Screenshot modifications</li>
-          <li class="text--light">Prod, Stage environments</li>
-        </ul>
-        <div class="border"></div>
-        <div class="p-3 text-center pricing-card__bottom">
-          <b class="indvidual-price-text">$59</b> <small>/ month</small>
-          <p class="text--light text--small indvidual-price-description">billed annually</p>
-          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register">Start Trial</a>
+
+        <div class="pricing-card__bottom">
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register"><span>Start Free Trial</span></a>
+          <span class="diffy-register-description">no credit card required</span>
         </div>
+
       </article>
     </div>
 
-    <div class="col-lg-4 pricing-card pricing-card--popular">
-      <div class="popular js-hidden">
-        <img class="popular__image" src="{{ base_path ~ directory }}/images/price_person.svg" alt="popular">
-        <div class="popular__text">Popular</div>
-      </div>
-      <article class="pricing-card--shadow js-hidden">
-        <div class="pricing-card--shadow p-3 text-center pricing-card__head">
-          <h4 class="popular__headline">Agency</h4>
-          <small class="m-0">For organizations with more than 10 projects.</small>
+    <div class="col-lg pricing-card pricing-card--agency pricing-card--popular">
+      <article class="pricing-card--container js-hidden">
+
+        <div class="pricing-card__top">
+          <div class="pricing-card__popular-text">Popular</div>
+
+          <div class="pricing-card__head">
+            <h4>Agency</h4>
+            <small class="m-0">For organizations with more than 10 projects.</small>
+          </div>
+
+          <div class="pricing-card__price">
+            <div class="price-wrapper">
+              <span>
+                <p class="agency-price-text price-text m-0">$179</p> <small>/ month</small>
+              </span>
+              <p class="m-0 text--light text--small agency-price-description price-description">billed annually</p>
+            </div>
+          </div>
+
+          <div class="border"></div>
+
+          <ul class="pricing-card__body">
+            <li><strong>1 000 pages<a href="#pages">*</a></strong></li>
+            <li>Unlimited screenshots and diffs</li>
+            <li>Screenshot modifications</li>
+            <li>Prod, Stage environments + custom environments</li>
+            <li>Automation, REST API</li>
+            <li>Team management</li>
+          </ul>
         </div>
-        <ul class="p-3 text-center pricing-card__body">
-          <li><strong>1000 pages<a href="#pages">*</a></strong></li>
-          <li class="text--light">Unlimited screenshots and diffs</li>
-          <li class="text--light">Screenshot modification</li>
-          <li class="text--light">Prod, Stage, Dev + custom environments</li>
-          <li class="text--light">Automation, REST API</li>
-          <li class="text--light">Team management</li>
-        </ul>
-        <div class="border"></div>
-        <div class="p-3 text-center pricing-card__bottom">
-          <b class="agency-price-text">$179</b> <small>/ month</small>
-          <p class="text--light text--small indvidual-price-description">billed annually</p>
-          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register">Start Trial</a>
+
+        <div class="pricing-card__bottom">
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-individual-month-btn button button--select btn pt-2 diffy-register"><span>Start Free Trial</span></a>
+          <span class="diffy-register-description">no credit card required</span>
         </div>
+
       </article>
     </div>
 
-    <div class="col-lg-4 pricing-card mt-5 mt-lg-0">
-      <article class="pricing-card--shadow js-hidden">
-        <div class="pricing-card--shadow p-3 text-center pricing-card__head">
-          <h4>Enterprise</h4>
-          <small class="m-0">Set up for your team with maximum performance.</small>
+    <div class="col-lg pricing-card pricing-card--enterprise pricing-card--regular">
+      <article class="pricing-card--container js-hidden">
+
+        <div class="pricing-card__top">
+
+          <div class="pricing-card__head">
+            <h4>Enterprise</h4>
+            <small class="m-0">Set up for your team with maximum performance.</small>
+          </div>
+
+          <div class="pricing-card__price">
+            <div class="price-wrapper">
+              <span>
+                <p class="enterprise-price-text price-text m-0">$749</p> <small>/ month</small>
+              </span>
+              <p class="m-0 text--light text--small enterprise-price-description price-description">billed annually</p>
+            </div>
+          </div>
+
+          <div class="border"></div>
+
+          <ul class="pricing-card__body">
+            <li><strong>5 000 pages<a href="#pages">*</a></strong></li>
+            <li>Unlimited screenshots and diffs</li>
+            <li>Screenshot modifications</li>
+            <li>Prod, Stage environments + custom environments</li>
+            <li>Automation, REST API</li>
+            <li>Team management</li>
+            <li>Priority support</li>
+            <li>Corporate VPN connection</li>
+          </ul>
         </div>
-        <ul class="p-3 text-center pricing-card__body">
-          <li><strong>5000 pages<a href="#pages">*</a></strong></li>
-          <li class="text--light">Unlimited screenshots and diffs</li>
-          <li class="text--light">Screenshot modification</li>
-          <li class="text--light">Prod, Stage, Dev + custom environments</li>
-          <li class="text--light">Automation, REST API</li>
-          <li class="text--light">Team management</li>
-          <li class="text--light">Priority support</li>
-          <li class="text--light">Corporate VPN connection</li>
-        </ul>
-        <div class="border"></div>
-        <div class="p-3 text-center pricing-card__bottom">
-          <b class="enterprise-price-text">$749</b> <small>/ month</small>
-          <p class="text--light text--small enterprise-price-description">billed annually</p>
-          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-enterprise-month-btn button button--select btn pt-2 diffy-register">Start Trial</a>
+
+        <div class="pricing-card__bottom">
+          <a target="_blank" href="https://app.diffy.website/#register" class="marketing-enterprise-month-btn button button--select btn pt-2 diffy-register"><span>Start Free Trial</span></a>
+          <span class="diffy-register-description">no credit card required</span>
         </div>
+
       </article>
     </div>
 
   </div>
+
 </section>
 
-<h2 class="text-center question-headline">Frequently asked questions</h2>
 
-<div class="question-block">
-  <h2 class="text-center question-headline--hidden">Frequently asked questions</h2>
-  <section class="container-fluid max-width-1280">
-    <div class="row px-3">
+{# FAQ Block #}
+<div class="container-fluid accordion-block">
 
-      <div class="col-md-6 my-4">
-        <div class="row">
-          <div class="col-1 p-0 text-right">
-            <div>
-              <em class="fas fa-question"></em>
-            </div>
-          </div>
-          <div class="col-11">
-            <h4 class="mb-4 pt-1"><a name="pages"></a>What does the "100 pages" plan mean?</h4>
-            <p>This means that all your projects together should not exceed 100 pages.
-              On average single site would have around 20-30 critical pages to check.
-              But you still create really large number of screenshots as we do not
-              limit how many times you can take them.
-            </p>
-          </div>
-        </div>
+  <div class="accordion-block-title"><h2>Frequently asked questions</h2></div>
+
+  <ul class="accordion accordion-block-content">
+
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What does the "100 pages" plan mean?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
       </div>
-
-      <div class="col-md-6 my-4">
-        <div class="row">
-          <div class="col-1 p-0 text-right">
-            <div>
-              <em class="fas fa-question"></em>
-            </div>
-          </div>
-          <div class="col-11 pt-1">
-            <h4 class="mb-4">What forms of payment are accepted?</h4>
-            <p>We accept Visa, MasterCard by using Stripe as a payment gateway.</p>
-          </div>
-        </div>
+      <div class="accordion__content">
+        This means that all your projects together should not exceed 100 pages. On average single site would have around 20-30 critical pages to check. But you still create really large number of screenshots as we do not limit how many times you can take them.
       </div>
+    </li>
 
-      <div class="col-md-6 my-4">
-        <div class="row">
-          <div class="col-1 p-0 text-right">
-            <div>
-              <em class="fas fa-question"></em>
-            </div>
-          </div>
-          <div class="col-11 pt-1">
-            <h4 class="mb-4"><a name="workers"></a>What browser is used to take screenshots? What about performance?</h4>
-            <p>We are using Amazon Lambda for taking screenshots with Chrome as a browser. This allows us
-              to take hundreds of screenshots within 5-10 minutes.
-            </p>
-          </div>
-        </div>
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What forms of payment are accepted?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
       </div>
-
-      <div class="col-md-6 my-4">
-        <div class="row">
-          <div class="col-1 p-0 text-right">
-            <div>
-              <em class="fas fa-question"></em>
-            </div>
-          </div>
-          <div class="col-11 pt-1">
-            <h4 class="mb-4">What about support?</h4>
-            <p>We are spread between Pacific and Eastern European timezones. This allows us to cover a lot of timezones
-              for reasonable response time.
-            </p>
-          </div>
-        </div>
+      <div class="accordion__content">
+        We accept Visa, MasterCard by using Stripe as a payment gateway.
       </div>
+    </li>
 
-    </div>
-  </section>
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What browser is used to take screenshots? What about performance?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
+      </div>
+      <div class="accordion__content">
+        We are using Amazon Lambda for taking screenshots with Chrome as a browser. This allows us to take hundreds of screenshots within 5-10 minutes.
+      </div>
+    </li>
+
+    <li class="accordion__item">
+      <div class="accordion__trigger">
+        <p class="accordion__title">What about support?</p>
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5 10C20.5 10.8654 19.7788 11.5865 18.9615 11.5865H12.0385V18.5096C12.0385 19.3269 11.3173 20 10.5 20C9.63462 20 8.96154 19.3269 8.96154 18.5096V11.5865H2.03846C1.17308 11.5865 0.5 10.8654 0.5 10C0.5 9.18269 1.17308 8.50962 2.03846 8.50962H8.96154V1.58654C8.96154 0.721154 9.63462 0 10.5 0C11.3173 0 12.0385 0.721154 12.0385 1.58654V8.50962H18.9615C19.7788 8.46154 20.5 9.18269 20.5 10Z" fill="#53BAD1"/>
+          </svg>
+      </div>
+      <div class="accordion__content">
+        We are spread between Pacific and Eastern European timezones. This allows us to cover a lot of timezones for reasonable response time.
+      </div>
+    </li>
+
+  </ul>
+
 </div>
 
-<section class="container-fluid max-width-1280">
-  <div class="row px-3">
-    <div class="col-md-10 container headline--margin-top px-5">
-      <h2 class="text-center mb-5">What is Automation testing?</h2>
+
+{# Automatic Testing Block #}
+<div class="text-block-custom-bg light-purple--bg">
+  <div class="container-fluid text-block-custom-bg--container">
+    <div class="text-block-custom-bg--title"><h2>What is Automation testing?</h2></div>
+    <div class="text-block-custom-bg--content">
+
       <p>When developing any type of digital product, most of the QA processes will require professionals to engage in some manual work.</p>
 
       <p>However, depending on the type of tests you’re running, you can save a lot of time and money by automating a few of the components.</p>
 
       <p>This is where automation testing comes in. And it’s especially valuable when it comes to testing components of a product that will vary depending on factors such as the OS, screen-size, and devices of the end-users.</p>
-    </div>
-  </div>
-</section>
 
-<section class="container-fluid max-width-1280">
-  <div class="row px-3">
-    <div class="col-md-10 container headline--margin-top px-5">
-      <h2 class="text-center mb-5">Benefits of Automation Testing & Visual Regression Tools</h2>
+      <h2>Benefits of Automation Testing & Visual Regression Tools</h2>
+
       <p>As noted above, automation testing is especially important for running non functional tests, because:
       <ul>
         <li>Most non functional tests can be automated (think of usability tests, load tests, and volume tests)</li>
@@ -225,4 +233,4 @@
 
     </div>
   </div>
-</section>
+</div>
