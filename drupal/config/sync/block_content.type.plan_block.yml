@@ -1,8 +1,0 @@
-uuid: ae83bc56-efa6-4c67-b01f-59da243686cb
-langcode: en
-status: true
-dependencies: {  }
-id: plan_block
-label: 'Plan Block'
-revision: 0
-description: 'Single Item in Plans'

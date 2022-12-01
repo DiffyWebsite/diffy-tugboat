@@ -1,8 +1,0 @@
-uuid: 83cb78de-5bbb-439e-9352-f24f3a809dab
-langcode: en
-status: true
-dependencies: {  }
-id: accordion_block
-label: 'Accordion Block'
-revision: 0
-description: 'Accordion Block, reusable, custom.'
