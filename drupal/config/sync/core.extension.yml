@@ -21,7 +21,6 @@ module:
   dblog: 0
   devel: 0
   diffy_try: 0
-  double_field: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
@@ -35,9 +34,6 @@ module:
   history: 0
   hotjar: 0
   image: 0
-  layout_builder: 0
-  layout_builder_restrictions: 0
-  layout_discovery: 0
   link: 0
   mailchimp: 0
   media: 0
