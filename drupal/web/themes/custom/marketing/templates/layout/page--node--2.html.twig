@@ -60,9 +60,15 @@
     </nav>
   </div>
 </div>
+
 <div class="container-fluid">
   {{ page.content }}
 </div>
+
+<div class="container-fluid max-width-1280">
+  {{ drupal_view('blog_block', 'block_1') }}
+</div>
+
 <footer>
   <div class="container-fluid max-width-1280">
     <div class="row px-3">
