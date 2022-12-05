@@ -19,4 +19,32 @@ a.blog-teaser-title {
   }
 }
 
+// Blog Block
+.blog-block {
+  padding: 60px 0;
 
+  .blog-block-title {
+    h2 {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 34px;
+      color: $font-color;
+      margin: 0;
+      text-align: center;
+    }
+
+    @media (max-width: $lg) {
+      h2 {
+        font-size: 22px !important;
+        line-height: 30px;
+      }
+    }
+    @media (max-width: $md) {
+      h2 {
+        text-align: left;
+      }
+    }
+  }
+}
