@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.blog_block
   module:
+    - system
     - views
   theme:
     - marketing
@@ -21,4 +22,8 @@ settings:
   provider: views
   views_label: ''
   items_per_page: none
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/blog\r\n/user\r\n/user/*\r\n/documentation\r\n/documentation/*"
