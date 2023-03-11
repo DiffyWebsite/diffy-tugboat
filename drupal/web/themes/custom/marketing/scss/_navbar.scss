@@ -1,9 +1,16 @@
 .navbar {
+  padding: 0;
+
+  @media (max-width: $xl) {
+    padding: 24px 0;
+  }
+
   .navbar-brand {
     font-size: 22px;
     font-weight: 900;
     color: $purple-color;
     text-transform: uppercase;
+    margin-right: 80px;
 
     &:hover {
       color: $green-color;
@@ -195,5 +202,265 @@
   .js-mobile-menu {
     background-color: transparent;
     height: 100%;
+  }
+}
+
+//New menu
+#block-mainnavigation {
+  @media (min-width: $xl) {
+    width: 100%;
+  }
+
+  @media (max-width: $xl) {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+
+    #superfish-main-accordion {
+      &.sf-expanded {
+        position: absolute;
+        min-height: 500px;
+        padding: 20px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+        background: #fff;
+        min-width: 300px;
+        top: 85px !important;
+        right: 0 !important;
+
+        li {
+          background-color: #fff;
+
+          a {
+            padding: 16px 0;
+            text-align: left;
+
+            &:focus,
+            &:visited {
+              color: inherit;
+              background-color: inherit;
+            }
+          }
+
+          &.sf-depth-1 {
+            &+li {
+              border-top: 1px solid rgba($color: #C3C3C3, $alpha:0.3);
+            }
+          }
+        }
+
+        .action-links {
+          display: inline-block;
+          border-top: 1px solid rgba($color: #C3C3C3, $alpha:0.3);
+          width: 100%;
+          height: 100%;
+
+          .sign-in {
+            margin-right: 0;
+            width: 100%;
+            text-align: left;
+            padding: 16px 0;
+          }
+
+          .diffy-register {
+            margin-left: 0;
+          }
+
+          .diffy-register,
+          .view-demo {
+            width: fit-content;
+            display: inline-block;
+            margin-top: 200px;
+            float: left;
+          }
+        }
+      }
+    }
+  }
+
+  #superfish-main-toggle {
+    display: block;
+    background: #fff;
+    border: unset;
+    padding: 0;
+    position: relative;
+
+    span {
+      font-size: 0;
+    }
+
+    &::after {
+      color: $default-color;
+    }
+  }
+}
+
+.sf-main {
+  li {
+    background-color: #FFFFFF;
+
+    a.is-active {
+      color: #FF585B !important;
+    }
+
+    &.sf-depth-1 {
+      a {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: $default-color;
+        padding: 24px 0;
+
+        &:hover {
+          background-color: #FFFFFF;
+        }
+      }
+
+      &.sfHover {
+        .sf-sub-indicator {
+          transform: rotate(-180deg)
+        }
+      }
+
+      ul {
+        li {
+          &.sf-depth-2 {
+            a {
+              font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 30px;
+              padding: 10px 16px;
+              color: $default-color;
+              text-decoration: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sf-sub-indicator {
+    right: 0;
+    top: 48%;
+    opacity: unset;
+    color: #53BAD1;
+  }
+
+  .action-links {
+    .sign-in {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      background-color: #FFFFFF;
+      color: $default-color;
+    }
+
+    .diffy-register {
+      display: block;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      background: #9036AA;
+      box-shadow: 0px 2px 5px rgba(144, 54, 170, 0.35);
+      border-radius: 5px;
+      color: #fff;
+      margin-left: 30px;
+    }
+
+    .view-demo {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      background: #FFFFFF;
+      border: 1px solid #E2E2E2;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+      color: $default-color;
+      margin-left: 10px;
+    }
+  }
+}
+
+.navbar-block {
+  background: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.07);
+
+  .container-fluid {
+    padding: 0 30px;
+  }
+}
+
+#superfish-main {
+  width: 100%;
+  float: unset;
+  margin-bottom: 0;
+
+  li {
+    background-color: #FFFFFF;
+
+    a {
+
+      &:focus,
+      &:visited {
+        color: inherit;
+        background-color: inherit;
+      }
+    }
+
+    &.sf-depth-1 {
+      &.menuparent {
+        a {
+          padding-right: 18px;
+        }
+      }
+
+      +& {
+        margin-left: 30px;
+      }
+
+      ul {
+        background: #FFFFFF;
+        border: 1px solid #EBEBEB;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        padding: 12px 5px;
+
+        li {
+          &.sf-depth-2 {
+            a {
+              &:hover {
+                background: rgba($color: #53BAD1, $alpha:0.1);
+                border-radius: 4px;
+                color: #53BAD1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sf-sub-indicator {
+    right: 0;
+    top: 48%;
+    opacity: unset;
+    color: #53BAD1;
+  }
+
+  .action-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
   }
 }
