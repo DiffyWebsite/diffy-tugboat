@@ -1,6 +1,5 @@
 footer {
-  border-top: 1px solid $purple-color;
-  padding-top: 16px;
+  padding: 66px 0 36px 0;
 
   .site-logo-footer {
     width: 93px;
@@ -8,22 +7,132 @@ footer {
     fill: $purple-color;
   }
 
-  .footer-nav {
+  .row {
+    margin: 0;
+  }
+
+  .footer-nav,
+  .diffy-first-menu,
+  .copyrights--menu {
     list-style: none;
-    font-size: 14px;
 
     li {
       padding-bottom: 10px;
 
       a {
-        color: $font-color;
-        font-size: 14px;
         display: block;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+        color: $default-color;
 
         &:hover {
           color: $purple-color;
           text-decoration: underline;
         }
+      }
+    }
+  }
+
+  .diffy-first-menu {
+    margin-top: 16px;
+  }
+
+  h3.menu-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.1em;
+    color: $default-color;
+    margin-bottom: 16px;
+  }
+
+  .bottom-footer--region {
+    @media (max-width: $md) {
+      justify-content: center;
+    }
+
+    .copyrights-block {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 28px;
+      color: #8F8F8F;
+
+      @media (max-width: $md) {
+        text-align: center;
+        order: 3;
+      }
+    }
+
+    .copyrights--menu {
+      display: flex;
+      flex-wrap: wrap;
+      color: #8F8F8F;
+      margin: 0 0 0 90px;
+      padding: 0;
+
+      li {
+        &+li {
+          margin-left: 36px;
+        }
+      }
+
+      a {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 28px;
+        color: #8F8F8F;
+      }
+
+      @media (max-width: $md) {
+        margin: 0;
+        order: 2;
+        justify-content: center;
+        width: 100%;
+
+        li {
+          &+li {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+
+    .youtube-button {
+      @media (max-width: $md) {
+        order: 1;
+      }
+
+      @media (min-width: $md) {
+        margin-left: auto;
+      }
+
+      a {
+        display: block;
+        width: fit-content;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 28px;
+        text-decoration: unset;
+        color: $default-color;
+
+        &:hover {
+          text-decoration: underline
+        }
+      }
+
+      img {
+        margin-right: 10px;
       }
     }
   }
