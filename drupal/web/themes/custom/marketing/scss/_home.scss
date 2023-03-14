@@ -772,7 +772,7 @@
     }
 
     .demo-video {
-      a {
+      button {
         display: block;
         font-family: 'Montserrat';
         font-style: normal;
@@ -780,10 +780,13 @@
         font-size: 16px;
         line-height: 18px;
         color: #fff;
-        text-decoration: unset;
+        border: unset;
+        background: unset;
 
-        &:hover {
+        &:hover,
+        &:focus {
           text-decoration: underline;
+          outline: none;
         }
       }
 
@@ -983,7 +986,7 @@
       }
 
       .demo-video {
-        a {
+        button {
           display: block;
           font-family: 'Montserrat';
           font-style: normal;
@@ -991,10 +994,13 @@
           font-size: 16px;
           line-height: 18px;
           color: $default-color;
-          text-decoration: unset;
+          border: unset;
+          background: unset;
 
-          &:hover {
+          &:hover,
+          &:focus {
             text-decoration: underline;
+            outline: none;
           }
         }
       }

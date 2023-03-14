@@ -38,6 +38,8 @@ footer {
 
   .diffy-first-menu {
     margin-top: 16px;
+    margin-bottom: 0;
+    padding: 0;
   }
 
   h3.menu-title {
@@ -108,6 +110,7 @@ footer {
 
     .youtube-button {
       @media (max-width: $md) {
+        margin-bottom: 32px;
         order: 1;
       }
 
