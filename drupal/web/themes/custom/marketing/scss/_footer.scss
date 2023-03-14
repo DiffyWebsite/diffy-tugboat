@@ -1,5 +1,6 @@
 footer {
   padding: 66px 0 36px 0;
+  border: 1px solid rgba($color: #C3C3C3, $alpha: 0.3);
 
   .site-logo-footer {
     width: 93px;
@@ -131,6 +132,10 @@ footer {
 
         &:hover {
           text-decoration: underline
+        }
+
+        &.is-active {
+          color: #FF585B !important;
         }
       }
 
