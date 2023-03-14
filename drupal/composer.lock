@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17f7c118922f017d7b91909c1ec4a670",
+    "content-hash": "2c17635f8cccf180d288e93a10b2f1ff",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1042,6 +1042,62 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/master"
             },
             "time": "2017-01-20T21:14:22+00:00"
+        },
+        {
+            "name": "diffy-website/diffy-cli",
+            "version": "0.1.26",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DiffyWebsite/diffy-cli.git",
+                "reference": "77b32cad596e15c4db36ab9087191ef05649683d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DiffyWebsite/diffy-cli/zipball/77b32cad596e15c4db36ab9087191ef05649683d",
+                "reference": "77b32cad596e15c4db36ab9087191ef05649683d",
+                "shasum": ""
+            },
+            "require": {
+                "consolidation/robo": "^3",
+                "diffywebsite/diffy-php": "1.x-dev",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.5",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "g1a/composer-test-scenarios": "^2",
+                "php-http/guzzle6-adapter": "^1.1",
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "bin": [
+                "diffy"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DiffyCli\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yuriy Gerasimov",
+                    "email": "yuri.gerasimov@gmail.com"
+                }
+            ],
+            "description": "Diffy CLI tool.",
+            "support": {
+                "source": "https://github.com/DiffyWebsite/diffy-cli/tree/0.1.26"
+            },
+            "time": "2023-02-20T21:44:30+00:00"
         },
         {
             "name": "diffywebsite/diffy-php",
@@ -12138,5 +12194,5 @@
         "php": ">=5.6"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

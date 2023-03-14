@@ -19,6 +19,7 @@
         "php": ">=5.6",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.6.5",
+        "diffy-website/diffy-cli": "^0.1.26",
         "diffywebsite/diffy-php": "1.x-dev",
         "drupal/admin_toolbar": "^3.0",
         "drupal/core-composer-scaffold": "^9",
@@ -54,7 +55,15 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "zaporylie/composer-drupal-optimizations": true
+        }
     },
     "autoload": {
         "classmap": [
