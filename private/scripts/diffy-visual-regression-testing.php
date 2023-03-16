@@ -1,11 +1,11 @@
 <?php
 
-// Get the environment; we will post a new comment to Asana each time
-// a commit appears on a new branch on Pantheon.
+// Get the environment; we will trigger visual testing
+// for test environment comparing it with production
 $env = $_ENV['PANTHEON_ENVIRONMENT'];
 
-// Do not watch test or live, though.
-if (($env == 'live') || ($env == 'test')) {
+// Run testing on test environment only.
+if ($env != 'test') {
   exit(0);
 }
 
