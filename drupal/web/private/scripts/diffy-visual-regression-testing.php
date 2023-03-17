@@ -29,7 +29,7 @@ exec($command, $output);
 print_r($output);
 
 $output = null;
-$command = 'php /code/drupal/vendor/bin/diffy project:compare ' . $diffy_project_id . ' production staging';
+$command = 'php /code/drupal/vendor/bin/diffy project:compare ' . $diffy_project_id . ' prod stage';
 print_r($command);
 exec($command, $output);
 print_r($output);
