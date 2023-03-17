@@ -20,16 +20,18 @@ if (empty($diffy_token) || empty($diffy_project_id)) {
 print_r('All secrets in place. Running the job.');
 
 // Run actual commands: authenticate and compare.
+
 $output = null;
-exec('ls /code/drupal/vendor/bin', $output);
+
+$command = 'php /code/drupal/vendor/bin/diffy auth:login ' . $diffy_token;
+print_r($command);
+exec($command, $output);
 print_r($output);
 
 $output = null;
-exec('php /code/drupal/vendor/bin/diffy auth:login ' . $diffy_token, $output);
-print_r($output);
-
-$output = null;
-exec('php /code/drupal/vendor/bin/diffy project:compare ' . $diffy_project_id . ' production staging', $output);
+$command = 'php /code/drupal/vendor/bin/diffy project:compare ' . $diffy_project_id . ' production staging';
+print_r($command);
+exec($command, $output);
 print_r($output);
 
 /**
