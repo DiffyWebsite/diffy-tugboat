@@ -17,9 +17,15 @@ if (empty($diffy_token) || empty($diffy_project_id)) {
     die('No Diffy token or project id found in secrets file. Aborting!');
 }
 
+print_r('All secrets in place. Running the job.');
+
 // Run actual commands: authenticate and compare.
-passthru('./vendor/bin/diffy auth:login ' . $diffy_token);
-passthru('./vendor/bin/diffy compare ' . $diffy_project_id . ' production staging');
+$output = null;
+exec('pwd && ls', $output);
+print_r($output);
+exec('./vendor/bin/diffy auth:login ' . $diffy_token, $output);
+print_r($output);
+exec('./vendor/bin/diffy compare ' . $diffy_project_id . ' production staging');
 
 /**
  * Get secrets from secrets file.
