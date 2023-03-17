@@ -9,8 +9,9 @@ if ($env != 'test') {
   exit(0);
 }
 
-$diffy_token = _get_secrets(array('diffy_token'), '');
-$diffy_project_id = _get_secrets(array('diffy_project_id'), '');
+$secrets = _get_secrets(array('diffy_token', 'diffy_project_id'), []);
+$diffy_token = $secrets['diffy_token'];
+$diffy_project_id = $secrets['diffy_project_id'];
 
 if (empty($diffy_token) || empty($diffy_project_id)) {
     die('No Diffy token or project id found in secrets file. Aborting!');
