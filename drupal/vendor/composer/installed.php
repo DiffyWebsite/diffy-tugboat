@@ -703,6 +703,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/views_infinite_scroll' => array(
+            'pretty_version' => '2.0.1',
+            'version' => '2.0.1.0',
+            'reference' => '2.0.1',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/views_infinite_scroll',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/webform' => array(
             'pretty_version' => '6.1.3',
             'version' => '6.1.3.0',
