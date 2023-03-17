@@ -2,25 +2,43 @@
 
 // Block Title
 .pricing-card-title {
-  padding: 40px 20px 20px 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 90px 20px 50px 20px;
 
   h2 {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 38px;
     line-height: 46px;
     color: $font-color;
     text-align: center;
+    margin: 0 0 12px 0;
+  }
+
+  h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: $font-color;
     margin: 0;
   }
 
   @media (max-width: $lg) {
-    padding: 90px 20px 40px 20px;
+    padding: 40px 20px 20px 20px;
 
     h2 {
-      font-size: 28px !important;
-      line-height: 34px;
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 30px;
     }
   }
 }
@@ -32,6 +50,8 @@
   align-items: center;
 
   .switcher {
+    font-family: 'Montserrat';
+    font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
@@ -39,7 +59,7 @@
     opacity: 0.5;
 
     span {
-      color: #53bad1;
+      color: #74B31B;
       margin-left: 5px;
     }
 
@@ -50,6 +70,7 @@
     @media (max-width: $sm) {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
   }
 
@@ -94,7 +115,7 @@
         content: "";
         width: 50px;
         height: 30px;
-        background: #53bad1;
+        background: #74B31B;
         position: relative;
         display: inline-block;
         border-radius: 18px;
@@ -150,8 +171,9 @@
     margin-top: -40px;
     margin-bottom: -40px;
     padding: 40px 40px 67px 40px;
-    border: 3px solid #d585ec;
+    border: 3px solid #D585EC;
     box-shadow: 0px 0px 20px rgba(213, 133, 236, 0.5);
+    border-radius: 10px;
 
     @media (max-width: $lg) {
       margin: 0;
@@ -173,24 +195,28 @@
   line-height: 16px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #9036aa;
+  color: #74B31B;
   margin-bottom: 13px;
 }
 
 .pricing-card__head {
   h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 22px;
+    line-height: 30px;
     color: $font-color;
   }
 
+  small,
   p {
+    font-family: 'Montserrat';
+    font-style: normal;
     font-weight: 400;
-    font-size: 14px !important;
+    font-size: 14px;
     line-height: 24px;
     color: $font-color;
-    margin: 0;
   }
 }
 
@@ -229,6 +255,7 @@
     }
 
     .price-description {
+      color: #8F8F8F !important;
       font-size: 12px !important;
       line-height: 16px;
       max-width: 100px;
@@ -271,8 +298,8 @@
   align-items: center;
 
   a.btn {
-    width: 180px;
-    height: 50px;
+    width: fit-content;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,6 +308,7 @@
     line-height: 20px;
     box-shadow: 0px 2px 5px rgba(144, 54, 170, 0.35);
     border-radius: 5px;
+    padding: 15px 16px;
   }
 
   .diffy-register-description {
@@ -290,6 +318,19 @@
     line-height: 16px;
     color: $lightgray-color;
   }
+
+  &.contact-us--btn {
+    a.btn {
+      background: #53BAD1;
+      box-shadow: 0px 2px 5px rgba(83, 186, 209, 0.35);
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #9c27b0;
+        box-shadow: 0px 2px 5px rgba(144, 54, 170, 0.35);
+      }
+    }
+  }
 }
 
 // Accordion
@@ -298,7 +339,7 @@
   border-radius: 20px;
   max-width: 1280px;
   margin: 80px auto 40px auto;
-  padding: 100px;
+  padding: 60px 100px 100px;
 
   @media (max-width: $lg) {
     max-width: 100%;
@@ -341,11 +382,11 @@
   .accordion__item {
     position: relative;
     padding: 24px 0;
-    border-top: 1px solid #e4e9eb;
+    border-top: 1px solid #53BAD1;
     cursor: pointer;
 
     &:last-child {
-      border-bottom: 1px solid #e4e9eb;
+      border-bottom: 1px solid #53BAD1;
     }
 
     // active item
@@ -380,21 +421,22 @@
 
     &:hover {
       .accordion__title {
-        color: #9036aa;
+        color: #53BAD1;
       }
 
       svg path {
-        fill: #9036aa;
+        fill: #53BAD1;
       }
     }
   }
 
   .accordion__title {
+    font-family: 'Montserrat';
+    font-style: normal;
     font-weight: 600;
-    font-size: 16px !important;
-    line-height: 24px;
-    color: $font-color;
-    margin: 0;
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 0;
   }
 
   .accordion__content {
@@ -402,6 +444,8 @@
     opacity: 0;
     overflow: hidden;
     transition: all 0.4s ease-in-out;
+    font-family: 'Montserrat';
+    font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -498,7 +542,7 @@
       font-weight: 600;
       font-size: 18px;
       line-height: 26px;
-      color: $default-color;
+      color: $font-color;
       margin-bottom: 12px;
     }
   }

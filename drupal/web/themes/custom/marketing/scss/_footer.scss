@@ -27,7 +27,7 @@ footer {
         font-weight: 400;
         font-size: 14px;
         line-height: 28px;
-        color: $default-color;
+        color: $font-color;
 
         &:hover {
           color: $purple-color;
@@ -50,7 +50,7 @@ footer {
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.1em;
-    color: $default-color;
+    color: $font-color;
     margin-bottom: 16px;
   }
 
@@ -128,7 +128,7 @@ footer {
         font-size: 12px;
         line-height: 28px;
         text-decoration: unset;
-        color: $default-color;
+        color: $font-color;
 
         &:hover {
           text-decoration: underline

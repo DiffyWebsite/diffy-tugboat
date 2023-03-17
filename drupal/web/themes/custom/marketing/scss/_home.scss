@@ -288,7 +288,7 @@
       font-size: 38px;
       line-height: 46px;
       text-align: center;
-      color: $default-color;
+      color: $font-color;
     }
 
     .block-subtitle {
@@ -298,7 +298,7 @@
       font-size: 28px;
       line-height: 40px;
       text-align: center;
-      color: $default-color;
+      color: $font-color;
 
       span {
         color: $purple-color;
@@ -355,7 +355,7 @@
       font-size: 14px;
       line-height: 17px;
       border: 1px solid #E2E2E2;
-      color: $default-color;
+      color: $font-color;
       padding: 12px 16px;
       border-radius: 4px;
 
@@ -403,7 +403,7 @@
       font-weight: 600;
       font-size: 18px;
       line-height: 26px;
-      color: $default-color;
+      color: $font-color;
       margin-bottom: 0;
     }
   }
@@ -457,7 +457,7 @@
       font-weight: 700;
       font-size: 28px;
       line-height: 36px;
-      color: $default-color;
+      color: $font-color;
       margin-bottom: 20px;
     }
 
@@ -467,7 +467,7 @@
       font-weight: 400;
       font-size: 18px;
       line-height: 30px;
-      color: $default-color;
+      color: $font-color;
       margin-top: 22px;
       margin: 0;
 
@@ -550,7 +550,7 @@
       font-weight: 700;
       font-size: 28px;
       line-height: 36px;
-      color: $default-color;
+      color: $font-color;
       margin-bottom: 12px;
 
       span {
@@ -567,7 +567,7 @@
         font-weight: 400;
         font-size: 18px;
         line-height: 26px;
-        color: $default-color;
+        color: $font-color;
 
         span {
           color: $purple-color;
@@ -595,7 +595,7 @@
         font-size: 14px;
         line-height: 17px;
         border: 1px solid #E2E2E2;
-        color: $default-color;
+        color: $font-color;
         padding: 12px 16px;
         border-radius: 4px;
 
@@ -642,12 +642,12 @@
     line-height: 17px;
     background: #FFFFFF;
     border-radius: 10px;
-    color: $default-color;
+    color: $font-color;
     padding: 14px;
     height: auto;
 
     &::placeholder {
-      color: $default-color;
+      color: $font-color;
     }
   }
 
@@ -746,7 +746,7 @@
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
-        color: $default-color;
+        color: $font-color;
         background: #F0D500;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
@@ -837,7 +837,7 @@
       font-size: 38px;
       line-height: 46px;
       text-align: center;
-      color: $default-color;
+      color: $font-color;
     }
 
     .achievements-text {
@@ -846,7 +846,7 @@
       font-weight: 400;
       font-size: 18px;
       line-height: 26px;
-      color: $default-color;
+      color: $font-color;
     }
 
     .achievements-link {
@@ -915,7 +915,7 @@
       font-weight: 700;
       font-size: 38px;
       line-height: 46px;
-      color: $default-color;
+      color: $font-color;
       margin-bottom: 14px;
     }
 
@@ -925,7 +925,7 @@
       font-weight: 400;
       font-size: 22px;
       line-height: 30px;
-      color: $default-color;
+      color: $font-color;
       margin-bottom: 40px;
     }
 
@@ -991,7 +991,7 @@
           font-weight: 700;
           font-size: 16px;
           line-height: 18px;
-          color: $default-color;
+          color: $font-color;
           border: unset;
           background: unset;
 
