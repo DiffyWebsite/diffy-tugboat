@@ -3,16 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.article_important
     - core.entity_view_mode.node.teaser
     - field.storage.node.body
     - field.storage.node.field_image
     - image.style.medium
+    - node.type.article
     - node.type.blog
   module:
     - image
     - node
     - text
     - user
+    - views_infinite_scroll
 id: blog
 label: Blog
 module: views
@@ -292,14 +295,14 @@ display:
       style:
         type: default
         options:
-          row_class: 'mt-5 pl-3 pr-3 col-md-4 col-sm-6 col-12'
+          row_class: ''
           default_row_class: true
           uses_fields: false
       row:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: article_important
       query:
         type: views_query
         options:
@@ -309,6 +312,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header:
         area_text_custom:
           id: area_text_custom
@@ -333,12 +337,208 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_image'
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
+    position: 1
+    display_options:
+      title: Blog
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 2
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            article: article
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_important_value:
+          id: field_important_value
+          table: node__field_important
+          field: field_important_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: article_important
+      defaults:
+        title: false
+        css_class: false
+        use_ajax: false
+        pager: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+        header: false
+      css_class: articles-important--content
+      use_ajax: false
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: false
+          content: "<div class=\"page-blog--title\">\r\n<h1>The Diffy Blog</h1>\r\n<p class=\"blog-subtitle\">News, Insights about Visual Regression Testing from Diffy's team</p>\r\n</div>"
+          tokenize: false
+      display_extenders: {  }
+      block_description: 'Top articles'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_image'
   page_1:
     id: page_1
     display_title: Page
     display_plugin: page
     position: 1
     display_options:
+      pager:
+        type: infinite_scroll
+        options:
+          offset: 0
+          items_per_page: 3
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load more articles'
+            automatically_load_content: false
+            initially_load_all_pages: false
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
+      defaults:
+        pager: false
+        style: false
+        row: false
+        header: false
+      header: {  }
       display_extenders: {  }
       path: blog
     cache_metadata:
@@ -346,6 +546,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
