@@ -21,15 +21,15 @@ print_r('All secrets in place. Running the job.');
 
 // Run actual commands: authenticate and compare.
 $output = null;
-exec('pwd && ls', $output);
+exec('ls /code/drupal/vendor/bin', $output);
 print_r($output);
 
 $output = null;
-exec('/code/drupal/vendor/bin/diffy auth:login ' . $diffy_token, $output);
+exec('php /code/drupal/vendor/bin/diffy auth:login ' . $diffy_token, $output);
 print_r($output);
 
 $output = null;
-exec('/code/drupal//bin/diffy compare ' . $diffy_project_id . ' production staging', $output);
+exec('php /code/drupal/vendor/bin/diffy compare ' . $diffy_project_id . ' production staging', $output);
 print_r($output);
 
 /**
