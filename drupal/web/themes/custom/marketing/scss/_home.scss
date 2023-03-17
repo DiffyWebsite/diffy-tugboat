@@ -433,8 +433,6 @@
 
   .screenshot-block__image {
     img {
-      min-width: 100%;
-
       @media (max-width: $md) {
         max-height: 390px;
       }
@@ -1007,5 +1005,4 @@
     }
   }
 
-  @media (min-width: $xl) {}
 }
