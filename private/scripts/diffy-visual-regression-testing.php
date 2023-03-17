@@ -3,7 +3,7 @@
 // Get the environment; we will trigger visual testing
 // for test environment comparing it with production
 $env = $_ENV['PANTHEON_ENVIRONMENT'];
-
+print_r('Starting Diffy job ' . $env);
 // Run testing on test environment only.
 if ($env != 'test') {
   exit(0);
