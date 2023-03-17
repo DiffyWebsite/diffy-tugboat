@@ -29,7 +29,7 @@ exec('php /code/drupal/vendor/bin/diffy auth:login ' . $diffy_token, $output);
 print_r($output);
 
 $output = null;
-exec('php /code/drupal/vendor/bin/diffy compare ' . $diffy_project_id . ' production staging', $output);
+exec('php /code/drupal/vendor/bin/diffy project:compare ' . $diffy_project_id . ' production staging', $output);
 print_r($output);
 
 /**
