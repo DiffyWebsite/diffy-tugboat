@@ -23,9 +23,14 @@ print_r('All secrets in place. Running the job.');
 $output = null;
 exec('pwd && ls', $output);
 print_r($output);
-exec('./vendor/bin/diffy auth:login ' . $diffy_token, $output);
+
+$output = null;
+exec('/code/drupal/vendor/bin/diffy auth:login ' . $diffy_token, $output);
 print_r($output);
-exec('./vendor/bin/diffy compare ' . $diffy_project_id . ' production staging');
+
+$output = null;
+exec('/code/drupal//bin/diffy compare ' . $diffy_project_id . ' production staging', $output);
+print_r($output);
 
 /**
  * Get secrets from secrets file.
