@@ -22,7 +22,18 @@ print_r('All secrets in place. Running the job.');
 // Run actual commands: authenticate and compare.
 
 $output = null;
+$command = 'php -v';
+print_r($command);
+exec($command, $output);
+print_r($output);
 
+$output = null;
+$command = 'ls /code/drupal/vendor/bin';
+print_r($command);
+exec($command, $output);
+print_r($output);
+
+$output = null;
 $command = 'php /code/drupal/vendor/bin/diffy auth:login ' . $diffy_token;
 print_r($command);
 exec($command, $output);
