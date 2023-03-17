@@ -17,8 +17,8 @@ if (empty($diffy_token) || empty($diffy_project_id)) {
 }
 
 // Run actual commands: authenticate and compare.
-passthru('./drupal/vendor/bin/diffy auth:login ' . $diffy_token);
-passthru('./drupal/vendor/bin/diffy compare ' . $diffy_project_id . ' production staging');
+passthru('./vendor/bin/diffy auth:login ' . $diffy_token);
+passthru('./vendor/bin/diffy compare ' . $diffy_project_id . ' production staging');
 
 /**
  * Get secrets from secrets file.
