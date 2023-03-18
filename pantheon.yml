@@ -5,3 +5,10 @@ enforce_https: full
 drush_version: 10
 database:
   version: 10.4
+workflows:
+  deploy:
+    after:
+      - type: webphp
+        description: Trigger Diffy Testing
+        # This is (obviously) the path to the script.
+        script: private/scripts/diffy-visual-regression-testing.php

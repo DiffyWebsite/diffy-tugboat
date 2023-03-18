@@ -1778,6 +1778,65 @@
             "install-path": "../dflydev/dot-access-data"
         },
         {
+            "name": "diffy-website/diffy-cli",
+            "version": "0.1.26",
+            "version_normalized": "0.1.26.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DiffyWebsite/diffy-cli.git",
+                "reference": "77b32cad596e15c4db36ab9087191ef05649683d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DiffyWebsite/diffy-cli/zipball/77b32cad596e15c4db36ab9087191ef05649683d",
+                "reference": "77b32cad596e15c4db36ab9087191ef05649683d",
+                "shasum": ""
+            },
+            "require": {
+                "consolidation/robo": "^3",
+                "diffywebsite/diffy-php": "1.x-dev",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.5",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "g1a/composer-test-scenarios": "^2",
+                "php-http/guzzle6-adapter": "^1.1",
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "time": "2023-02-20T21:44:30+00:00",
+            "bin": [
+                "diffy"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "DiffyCli\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yuriy Gerasimov",
+                    "email": "yuri.gerasimov@gmail.com"
+                }
+            ],
+            "description": "Diffy CLI tool.",
+            "support": {
+                "source": "https://github.com/DiffyWebsite/diffy-cli/tree/0.1.26"
+            },
+            "install-path": "../diffy-website/diffy-cli"
+        },
+        {
             "name": "diffywebsite/diffy-php",
             "version": "dev-master",
             "version_normalized": "dev-master",

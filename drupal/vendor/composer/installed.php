@@ -232,6 +232,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'diffy-website/diffy-cli' => array(
+            'pretty_version' => '0.1.26',
+            'version' => '0.1.26.0',
+            'reference' => '77b32cad596e15c4db36ab9087191ef05649683d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../diffy-website/diffy-cli',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'diffywebsite/diffy-php' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',

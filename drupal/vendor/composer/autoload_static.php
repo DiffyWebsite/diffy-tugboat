@@ -190,6 +190,7 @@ class ComposerStaticInitd85c138d3fb33991d08e84b08a86d57a
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
             'Diffy\\' => 6,
+            'DiffyCli\\' => 9,
             'DeepCopy\\' => 9,
             'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 55,
         ),
@@ -616,6 +617,10 @@ class ComposerStaticInitd85c138d3fb33991d08e84b08a86d57a
         'Diffy\\' => 
         array (
             0 => __DIR__ . '/..' . '/diffywebsite/diffy-php/src',
+        ),
+        'DiffyCli\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/diffy-website/diffy-cli/src',
         ),
         'DeepCopy\\' => 
         array (
