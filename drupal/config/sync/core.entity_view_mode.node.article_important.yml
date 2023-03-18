@@ -1,0 +1,10 @@
+uuid: 80cfc031-5157-434f-b9e6-e723824a75de
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.article_important
+label: 'Article important'
+targetEntityType: node
+cache: true

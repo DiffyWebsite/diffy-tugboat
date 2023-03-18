@@ -1,6 +1,6 @@
 uuid: b0d25212-e038-4fa0-b409-fb4a65c134fc
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main
@@ -22,6 +22,6 @@ settings:
   label_display: '0'
   provider: system
   level: 1
-  depth: 1
+  depth: 0
   expand_all_items: false
 visibility: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: hubspot
 theme: marketing
 region: hidden
-weight: -9
+weight: -8
 provider: null
 plugin: 'block_content:351e9e43-807b-44ca-9948-959447b28322'
 settings:

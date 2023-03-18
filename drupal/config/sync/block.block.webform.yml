@@ -11,7 +11,7 @@ dependencies:
 id: webform
 theme: marketing
 region: hidden
-weight: -8
+weight: -7
 provider: null
 plugin: webform_block
 settings:

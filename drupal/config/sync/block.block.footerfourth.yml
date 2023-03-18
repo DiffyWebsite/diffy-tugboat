@@ -10,8 +10,8 @@ dependencies:
     - marketing
 id: footerfourth
 theme: marketing
-region: footer_fourth
-weight: 0
+region: hidden
+weight: -9
 provider: null
 plugin: 'system_menu_block:footer-fourth'
 settings:

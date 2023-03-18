@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.blog.body
     - field.field.node.blog.field_image
+    - field.field.node.blog.field_important
     - field.field.node.blog.field_meta_tags
     - field.field.node.blog.field_read
     - image.style.large
@@ -42,6 +43,13 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: large
+    third_party_settings: {  }
+  field_important:
+    type: boolean_checkbox
+    weight: 28
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose

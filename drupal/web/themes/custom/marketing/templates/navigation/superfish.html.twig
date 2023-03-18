@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default theme implementation of the Superfish menus.
+ *
+ * Available variables:
+ * - id: Unique menu identifier.
+ * - menu_classes: Menu classes.
+ * - menu_items: Menu tree.
+ *
+ * @see template_preprocess_superfish()
+ *
+ * @ingroup themeable
+ */
+#}
+<ul id="{{ id }}" class="{{ menu_classes }} navbar-nav text-center text-lg-left">
+  {{ menu_items }}
+  <div class="action-links">
+    <a class="sign-in" href="https://app.diffy.website/#">Sign In</a>
+    <a class="diffy-register" href="https://app.diffy.website/#/register">Try For Free</a>
+
+    <button type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/watch?v=cbU1VqFnGaI" data-target="#myModal">
+      View Demo
+    </button>
+  </div>
+</ul>
