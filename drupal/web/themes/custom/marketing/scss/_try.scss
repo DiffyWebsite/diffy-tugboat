@@ -1,0 +1,80 @@
+.screenshots--wrap {
+  .try-page--title {
+    margin-top: 90px;
+    margin-bottom: 42px;
+
+    .page--tilte {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 46px;
+      text-align: center;
+      color: $font-color;
+      margin-bottom: 12px;
+    }
+
+    .page--subtitle {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 30px;
+      color: $font-color;
+      text-align: center;
+      margin-bottom: 0;
+
+      a {
+        color: #53BAD1;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.progress-screen {
+    .diffy-try-text {
+      padding: 140px 0;
+    }
+
+    .progress-text {
+      position: relative;
+      min-height: 150px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        background: url("../images/phone.svg") center no-repeat;
+        width: 62px;
+        height: 100px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .top--text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      bottom: 0;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #8F8F8F;
+      margin-bottom: 0;
+    }
+  }
+}

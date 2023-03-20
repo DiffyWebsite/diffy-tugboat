@@ -30,12 +30,19 @@ class DiffyTryController extends ControllerBase {
 
     $results = $this->loadResultsRaw($uuid);
 
-    $completed_text = t('Screenshots of the page <a href="@page" target="_blank">@page</a> completed.', ['@page' => $project->get('prod_url')->value]);
+    $header_text = '<header class="try-page--title">
+    <h1 class="page--tilte">'.t('How we take screenshots')
+    .'</h1><p class="page--subtitle">'
+    . t('Your page <a href="@page" target="_blank">@page</a></p>',
+     ['@page' => $project->get('prod_url')->value]).'</header>';
+
+     $completed_text = t('Screenshots of the page <a href="@page" target="_blank">@page</a> completed.', ['@page' => $project->get('prod_url')->value]);
 
     if (count($results) != 3) {
       $build['text'] = [
-        '#markup' => '<div id="diffy-try-text" class="mt-5"><p class="progress-text">' . t('Our workers are taking screenshots from your page <a href="@page" target="_blank">@page</a>. We are checking status every 5 seconds and display results below.', ['@page' => $project->get('prod_url')->value])
-          . '</p><p class="completed-text hidden">' . $completed_text . '</p></div><div class="container"><div id="diffy-try-results" class="row">' . implode('', $results) . '</div></div>',
+        '#markup' => $header_text.'<div id="diffy-try-text"><div class="progress-text"><p class="top--text">'
+        . t('Screenshot for mobile is preparing.').'</p></div>'
+        .'<p class="subtitle">' . t('It takes a few seconds...') . '</p></div>',
         '#cache' => ['max-age' => 0],
       ];
       $build['#attached']['library'][] = 'diffy_try/load_wait';
