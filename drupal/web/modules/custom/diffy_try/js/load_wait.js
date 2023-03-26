@@ -8,8 +8,7 @@
           $.get(url, function (data) {
             if (data.length == 3) {
               clearInterval(interval);
-              $('#diffy-try-text p.progress-text').toggleClass('hidden');
-              $('#diffy-try-text p.completed-text').toggleClass('hidden');
+              $('#diffy-try-text div.progress-text').toggleClass('hidden');
               $('.screenshots--wrap').addClass('completed-screen');
               $('.screenshots--wrap').removeClass('progress-screen');
             }
