@@ -1,6 +1,6 @@
 uuid: 5eb8dd39-f52b-42c8-9205-4c455c07d1d7
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.article_important
