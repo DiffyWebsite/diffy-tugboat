@@ -18,34 +18,65 @@ class DiffyTryController extends ControllerBase {
    */
   public function page($uuid) {
     $result = $this->entityTypeManager()->getStorage('project')->loadByProperties(['uuid' => $uuid]);
+
     if (empty($result)) {
-      $build['text'] = [
-        '#markup' => t('Something went wrong. We can not find a job you are requesting.'),
+      return [
+        '#markup' => $this->t('Something went wrong. We can not find a job you are requesting.'),
         '#cache' => ['max-age' => 0],
       ];
-      return $build;
     }
 
     $project = reset($result);
-
     $results = $this->loadResultsRaw($uuid);
+    $prod_url = $project->get('prod_url')->value;
 
-    $completed_text = t('Screenshots of the page <a href="@page" target="_blank">@page</a> completed.', ['@page' => $project->get('prod_url')->value]);
+    $header_text = "
+      <header class='try-page--title'>
+        <h1 class='page--tilte'>" . $this->t('How we take screenshots') . "</h1>
+        <p class='page--subtitle'>" . $this->t('Your page <a href="@page" target="_blank">@page</a></p>', ['@page' => $prod_url])
+      . "</header>";
 
-    if (count($results) != 3) {
-      $build['text'] = [
-        '#markup' => '<div id="diffy-try-text" class="mt-5"><p class="progress-text">' . t('Our workers are taking screenshots from your page <a href="@page" target="_blank">@page</a>. We are checking status every 5 seconds and display results below.', ['@page' => $project->get('prod_url')->value])
-          . '</p><p class="completed-text hidden">' . $completed_text . '</p></div><div class="container"><div id="diffy-try-results" class="row">' . implode('', $results) . '</div></div>',
-        '#cache' => ['max-age' => 0],
-      ];
-      $build['#attached']['library'][] = 'diffy_try/load_wait';
-    }
-    else {
-      $build['text'] = [
-        '#markup' => '<div id="diffy-try-text" class="mt-5 pt-5"><p>' . $completed_text . '</p></div><div class="container"><div id="diffy-try-results" class="row">' . implode('', $results) . '</div></div>',
-        '#cache' => ['max-age' => 0],
-      ];
-    }
+    $build['text'] = [
+      '#markup' => $header_text . (
+        count($results) != 3
+          ? "<div id='diffy-try-text'>
+               <div class='progress-text'>
+                  <div class='top-progress-text'>
+                    <p class='top--text'>" . $this->t('Screenshot for mobile is preparing.') . "</p>
+                  </div>
+                  <p class='subtitle'>" . $this->t('It takes a few seconds...') . "</p>
+               </div>
+             </div>"
+          : "<div class='container'>
+               <div id='diffy-try-results' class='results--wrap'>
+                 <div id='diffy-try--carousel' class='carousel slide' data-ride='carousel'>
+                   <ol class='carousel-indicators'>
+                     <li data-target='#diffy-try--carousel' data-slide-to='0' class='active'>
+                       <a href='carousel-item-640' class='carousel-item-640' data-toggle='tab'>640px</a>
+                     </li>
+                     <li data-target='#diffy-try--carousel' data-slide-to='1'>
+                       <a href='carousel-item-1000' class='carousel-item-1000' data-toggle='tab'>1000px</a>
+                     </li>
+                     <li data-target='#diffy-try--carousel' data-slide-to='2'>
+                       <a href='carousel-item-1024' class='carousel-item-1024' data-toggle='tab'>1024px</a>
+                     </li>
+                   </ol>
+                   <div class='carousel-inner'>"
+                      . implode('', $results) .
+                   "</div>
+                   <a class='carousel-control-prev' href='#diffy-try--carousel' role='button' data-slide='prev'>
+                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                     <span class='sr-only'>Previous</span>
+                   </a>
+                   <a class='carousel-control-next' href='#diffy-try--carousel' role='button' data-slide='next'>
+                     <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                     <span class='sr-only'>Next</span>
+                   </a>
+                 </div>
+               </div>
+             </div>"
+      ), '#cache' => ['max-age' => 0],
+    ];
 
     return $build;
   }
@@ -73,9 +104,24 @@ class DiffyTryController extends ControllerBase {
     if (isset($screenshot->data['screenshots']) && is_array($screenshot->data['screenshots'])) {
       $rendered = [];
       $screenshots = reset($screenshot->data['screenshots']);
+
       if (is_array($screenshots)) {
+
         foreach ($screenshots as $breakpoint => $screenshot_image) {
-          $rendered[] = '<div class="col-4 mb-4 screenshot-preview">' . $breakpoint . 'px<br/><a href="' . $screenshot_image['full'] . '" target="_blank"><img src="' . $screenshot_image['thumbnail'] . '"/></a></div>';
+          $active = '';
+          $id = 'carousel-item-' . $breakpoint;
+          if ($breakpoint === key($screenshots)) {
+            $active = 'active';
+          }
+          $rendered[] = '
+          <div class="carousel-item tab-pane ' . $active . '" id="' . $id . '">
+            <a href="'
+              . $screenshot_image['full']
+              . '" target="_blank"><img src="'
+              . $screenshot_image['thumbnail']
+              . '"/>
+            </a>
+          </div>';
         }
       }
 

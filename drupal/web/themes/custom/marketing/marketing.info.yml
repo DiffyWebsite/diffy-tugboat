@@ -9,10 +9,12 @@ libraries:
 base theme: false
 regions:
   primary_menu: 'Primary menu'
+  content_above: 'Content above'
+  sidebar_first: 'Sidebar First'
   content: 'Content'
+  sidebar_second: 'Sidebar Second'
   footer_first: 'Footer first'
   footer_second: 'Footer second'
   footer_third: 'Footer third'
   footer_fourth: 'Footer fourth'
   hidden: 'hidden'
-

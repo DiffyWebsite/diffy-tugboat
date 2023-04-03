@@ -1,0 +1,10 @@
+uuid: b0398e12-a8d6-408b-ada1-c912870d2f4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.news_display
+label: 'News display'
+targetEntityType: node
+cache: true

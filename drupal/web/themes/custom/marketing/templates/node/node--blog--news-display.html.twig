@@ -77,8 +77,10 @@
   ]
 %}
 <article{{attributes.addClass(classes)}}>
-  {{ content.field_image }}
-  <h2 class="article-title">
-    <a class="blog-teaser-title" href="{{ url }}">{{ label }}</a>
-  </h2>
+  <div class="node--content">
+    <h2 class="article-title">
+      <a class="blog-teaser-title" href="{{ url }}">{{ label.0 }}</a>
+    </h2>
+    <div class="post-date">{{ node.getCreatedTime|format_date('blog_date') }}</div>
+  </div>
 </article>

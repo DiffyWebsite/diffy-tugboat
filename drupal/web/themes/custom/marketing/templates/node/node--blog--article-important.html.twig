@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to display a node.
+ * Theme override to display a node.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -15,7 +15,7 @@
  *   Calling other methods, such as node.delete(), will result in an exception.
  *   See \Drupal\node\Entity\Node for a full list of public properties and
  *   methods for the node object.
- * - label: (optional) The title of the node.
+ * - label: The title of the node.
  * - content: All node items. Use {{ content }} to print them all,
  *   or print a subset such as {{ content.field_example }}. Use
  *   {{ content|without('field_example') }} to temporarily suppress the printing
@@ -23,8 +23,8 @@
  * - author_picture: The node author user entity, rendered using the "compact"
  *   view mode.
  * - metadata: Metadata for this node.
- * - date: (optional) Themed creation date field.
- * - author_name: (optional) Themed author name field.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
  * - url: Direct URL of the current node.
  * - display_submitted: Whether submission information should be displayed.
  * - attributes: HTML attributes for the containing element.
@@ -64,22 +64,28 @@
  *   is an administrator.
  *
  * @see template_preprocess_node()
- *
- * @todo Remove the id attribute (or make it a class), because if that gets
- *   rendered twice on a page this is invalid CSS for example: two lists
- *   in different view modes.
- *
- * @ingroup themeable
  */
 #}
-
-<article class="blog-teaser">
-  <h3 class="mt-3 mb-2">
-    <a class="blog-teaser-title" href="{{ url }}">{{ label.0 }}</a>
-  </h3>
-  {{ content|without("field_image", "field_read") }}
-  <div class="read">
-    {{ content.field_read.0  }}
-    read
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{attributes.addClass(classes)}} style="background-image: url('{{ file_url(content.field_image['#items'].entity.uri.value) }}');">
+  <div class="node--content">
+    {% if content.field_read.0 %}
+    <div class="time-to--read">
+      Featured-
+      {{ content.field_read.0 }}
+      read</div>
+    {% endif %}
+    <h2 class="article-title">
+      <a class="blog-teaser-title" href="{{ url }}">{{ label.0 }}</a>
+    </h2>
   </div>
 </article>

@@ -24,8 +24,8 @@
               <p>no credit card required</p>
             </div>
             <div class="demo-video">
-              <button type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/watch?v=jfKfPfyJRdk" data-target="#myModal">
-                <img alt="CTA" src="{{ base_path ~ directory }}/images/play_blue.svg">
+              <button type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/cbU1VqFnGaI" data-target="#myModal">
+                <span class="play-img"></span>
                 View Demo
               </button>
 
@@ -69,9 +69,9 @@
   </div>
 </section>
 
-<section class="container-fluid p-0 screenshot-block mt-5">
+<section class="container-fluid screenshot-block">
   <div class="row align-items-center">
-    <div class="screenshot-block__background col-md-6 p-0">
+    <div class="screenshot-block__background p-0">
       <div class="screenshot-block__image ml-lg-auto">
         <img alt="Custom diff algorithm" src="{{ base_path ~ directory }}/images/home_screenshot_1.jpg" alt="screenshot">
       </div>
@@ -89,11 +89,6 @@
 
 <section class="container-fluid p-0 mt-5 screenshot-block">
   <div class="row align-items-center justify-content-end">
-    <div class="p-0 screenshot-block__background second-item col-md-6">
-      <div class="screenshot-block__image ml-lg-auto">
-        <img alt="Stackoverflow screenshot original" src="{{ base_path ~ directory }}/images/home_screenshot_2.jpg" alt="screenshot">
-      </div>
-    </div>
     <div class="screenshot-block__text">
       <h3>Adjust Page Content for Insanely Accurate Visual Testing</h3>
       <p>Stickler for accuracy? So are we.</p>
@@ -102,12 +97,17 @@
         <span>adjust your pages before taking screenshots</span>
         for non functional testing.</p>
     </div>
+    <div class="screenshot-block__background image-right">
+      <div class="screenshot-block__image">
+        <img alt="Stackoverflow screenshot original" src="{{ base_path ~ directory }}/images/home_screenshot_2.jpg" alt="screenshot">
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="container-fluid p-0 mt-5 screenshot-block">
   <div class="row align-items-center">
-    <div class="screenshot-block__background p-0 col-md-6">
+    <div class="screenshot-block__background">
       <div class="screenshot-block__image">
         <img alt="Shedule monitoring" src="{{ base_path ~ directory }}/images/home_screenshot_3.jpg" alt="screenshot">
       </div>
@@ -213,7 +213,6 @@
     <a href="#">See all integrations</a>
   </div>
 </section>
-
 <section class="container-fluid p-0">
   <div class="use-case--block">
     <h2 class="block--title">Use Cases</h2>
@@ -256,7 +255,6 @@
     </div>
   </div>
 </section>
-
 <section class="achievements-block container-fluid max-width-1280 d-flex justify-content-center">
   <div class="achievements-wrap d-flex">
     <div class="achievements-title">5 years</div>
@@ -272,7 +270,6 @@
     <div class="achievements-text">screenshots taken</div>
   </div>
 </section>
-
 <section class="container-fluid p-0 cta-block">
   <div class="background-image"><img alt="CTA" src="{{ base_path ~ directory }}/images/cta_back.png"></div>
   <div class="centered-logo"><img alt="CTA" src="{{ base_path ~ directory }}/images/cta_icon.png"></div>
@@ -291,8 +288,8 @@
         <p>no credit card required</p>
       </div>
       <div class="demo-video">
-        <button type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/watch?v=jfKfPfyJRdk" data-target="#myModal">
-          <img alt="CTA" src="{{ base_path ~ directory }}/images/play.svg">
+        <button type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/cbU1VqFnGaI" data-target="#myModal">
+          <span class="play-img"></span>
           View Demo
         </button>
       </div>

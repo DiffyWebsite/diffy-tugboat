@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Marketing theme override to display a blog page.
+ * Theme override to display a single page.
  *
  * The doctype, html, head and body tags are not in this template. Instead they
  * can be found in the html.html.twig template in this directory.
@@ -59,24 +59,11 @@
     </nav>
   </div>
 </section>
-
-<div class="container-fluid blog-page--content">
-  {{ page.content_above }}
-  <div class="row content-main">
-    <div class="col-md-3">
-      {{ page.sidebar_first }}
-    </div>
-    <div class="col-md-6">
-      {{ page.content }}
-    </div>
-    <div class="col-md-3">
-      <div class="right-sidebar--blog">
-        <h2>Diffy help your QA team to ensure that websites don't get visual bugs</h2>
-        <a href="https://app.diffy.website/#/register" class="button btn-blog-page">Try for free</a>
-      </div>
-    </div>
+<section class="screenshots--wrap progress-screen">
+  <div class="container-fluid max-width-1280">
+    {{ page.content }}
   </div>
-</div>
+</section>
 
 <footer>
   <div class="container-fluid max-width-1280">
