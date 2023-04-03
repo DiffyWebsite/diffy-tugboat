@@ -20,6 +20,5 @@ Vagrantfile.local
 /docker-compose.yml
 /drupal.make.yml
 /scripts/
-drupal/private/*
-!drupal/private/.htaccess
+!drupal/web/private/.htaccess
 ubuntu-*
