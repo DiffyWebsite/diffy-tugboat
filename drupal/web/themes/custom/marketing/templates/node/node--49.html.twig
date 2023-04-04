@@ -6,29 +6,42 @@
       <div class="right-image p-0 screenshot-block__background col-12 col-xl-7">
         <div class="screenshot-block__image ml-lg-auto">
           <div class="bg-image">
-            <img alt="Hero background" src="{{ base_path ~ directory }}/images/top-hero-bg.png" alt="bg-image">
+            <img alt="Hero background"
+              src="{{ base_path }}{{ directory }}/images/top-hero-bg.png"
+              alt="bg-image" />
           </div>
-          <img class="float-right top-image" alt="Hero image" src="{{ base_path ~ directory }}/images/top-hero-image.png" alt="hero-img">
+          <img class="float-right top-image"
+            alt="Hero image"
+            src="{{ base_path }}{{ directory }}/images/top-hero-image.png"
+            alt="hero-img" />
         </div>
       </div>
 
       <div class="left-info col-12 col-xl-5 screenshot-block__text p-0">
         <div class="text--wrap">
-          <h1>Visual Regression Testing For Drupal And WordPress</h1>
-          <h3>Save devs hours of QA through our insanely accurate visual testing tool</h3>
+          <h1>
+            Visual Regression Testing For Drupal And WordPress
+          </h1>
+          <h3>
+            Save devs hours of QA through our insanely accurate visual testing
+            tool
+          </h3>
           <div class="action-link-wrap">
             <div class="try-link">
-              <a href="https://app.diffy.website/#/register">
-                Try For Free
-              </a>
-              <p>no credit card required</p>
+              <a href="https://app.diffy.website/#/register">Try For Free</a>
+              <p>
+                no credit card required
+              </p>
             </div>
             <div class="demo-video">
-              <button type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/cbU1VqFnGaI" data-target="#myModal">
+              <button type="button"
+                class="video-btn"
+                data-toggle="modal"
+                data-src="https://www.youtube.com/embed/cbU1VqFnGaI"
+                data-target="#myModal">
                 <span class="play-img"></span>
                 View Demo
               </button>
-
             </div>
           </div>
         </div>
@@ -40,83 +53,129 @@
 <section class="mt-4 customers-block container-fluid max-width-1280">
   <div class="row">
     <div class="customer-block--title d-flex align-items-center">
-      <h2>Our Customers</h2>
+      <h2>
+        Our Customers
+      </h2>
     </div>
 
-    <div class="customers-logo col-sm-6 col-md-3">
-      <img class="m-auto" alt="WelcomeLA logo" src="{{ base_path ~ directory }}/images/losangeles_colored.png" alt="los_angeles">
+    <div class="customers-logo col-6 col-sm-6 col-md-3">
+      <img class="m-auto"
+        alt="WelcomeLA logo"
+        src="{{ base_path }}{{ directory }}/images/losangeles_colored.png"
+        alt="los_angeles" />
     </div>
 
-    <div class="customers-logo col-sm-6 col-md-3">
-      <img class="m-auto" alt="MD Systems logo" src="{{ base_path ~ directory }}/images/mdsystems_colored.png" alt="md systems" style="width: 115px;">
+    <div class="customers-logo col-6 col-sm-6 col-md-3">
+      <img class="m-auto"
+        alt="MD Systems logo"
+        src="{{ base_path }}{{ directory }}/images/mdsystems_colored.png"
+        alt="md systems"
+        style="width: 115px;" />
     </div>
 
-    <div class="customers-logo col-sm-6 col-md-3">
-      <img class="m-auto" alt="Connely logo" src="{{ base_path ~ directory }}/images/connely_colored.png" alt="connely">
+    <div class="customers-logo  col-6 col-sm-6 col-md-3">
+      <img class="m-auto"
+        alt="Connely logo"
+        src="{{ base_path }}{{ directory }}/images/connely_colored.png"
+        alt="connely" />
     </div>
 
-    <div class="customers-logo col-sm-6 col-md-3">
-      <img class="m-auto pr-4 pr-md-0" alt="352 logo" src="{{ base_path ~ directory }}/images/352_colored.png" alt="352">
+    <div class="customers-logo col-6 col-sm-6 col-md-3">
+      <img class="m-auto pr-4 pr-md-0"
+        alt="352 logo"
+        src="{{ base_path }}{{ directory }}/images/352_colored.png"
+        alt="352" />
     </div>
 
-    <div class="customers-logo col-sm-6 col-md-3">
-      <img class="m-auto" alt="FivePaths logo" src="{{ base_path ~ directory }}/images/fivepaths_colored.png" alt="five">
+    <div class="customers-logo col-6 col-sm-6 col-md-3">
+      <img class="m-auto"
+        alt="FivePaths logo"
+        src="{{ base_path }}{{ directory }}/images/fivepaths_colored.png"
+        alt="five" />
     </div>
 
-    <div class="customers-logo col-sm-6 col-md-3">
-      <img class="m-auto" alt="Door3 logo" src="{{ base_path ~ directory }}/images/door3_colored.png" alt="door3">
+    <div class="customers-logo col-6 col-sm-6 col-md-3">
+      <img class="m-auto"
+        alt="Door3 logo"
+        src="{{ base_path }}{{ directory }}/images/door3_colored.png"
+        alt="door3" />
     </div>
   </div>
 </section>
 
-<section class="container-fluid screenshot-block">
-  <div class="row align-items-center">
+<section class="container-fluid max-width-1280 xl-max-width-1600 screenshot-block">
+  <div class="row align-items-center mr-auto">
     <div class="screenshot-block__background p-0">
       <div class="screenshot-block__image ml-lg-auto">
-        <img alt="Custom diff algorithm" src="{{ base_path ~ directory }}/images/home_screenshot_1.jpg" alt="screenshot">
+        <img alt="Custom diff algorithm"
+          src="{{ base_path }}{{ directory }}/images/home_screenshot_1.jpg"
+          alt="screenshot" />
       </div>
     </div>
 
     <div class="screenshot-block__text">
-      <h3>Avoid False Positives through our Comparison Algorithm</h3>
-      <p>If you’ve done non functional testing before, you know that the tiniest vertical shifts due to browser rendering can lead to false positives.</p>
-      <p>Our algorithm detects these shifts and provides
-        <span>much better results than pixel perfect comparison algorithms.</span>
-        Welcome to complete accuracy in visual regression testing.</p>
+      <h3>
+        Avoid False Positives through our Comparison Algorithm
+      </h3>
+      <p>
+        If you’ve done non functional testing before, you know that the tiniest
+        vertical shifts due to browser rendering can lead to false positives.
+      </p>
+      <p>
+        Our algorithm detects these shifts and provides
+        <span>
+          much better results than pixel perfect comparison algorithms.
+        </span>
+        Welcome to complete accuracy in visual regression testing.
+      </p>
     </div>
   </div>
 </section>
 
-<section class="container-fluid p-0 mt-5 screenshot-block">
-  <div class="row align-items-center justify-content-end">
-    <div class="screenshot-block__text">
-      <h3>Adjust Page Content for Insanely Accurate Visual Testing</h3>
-      <p>Stickler for accuracy? So are we.</p>
+<section class="container-fluid p-0 mt-5 max-width-1280 xl-max-width-1600 screenshot-block">
+  <div class="row align-items-center justify-content-end ml-0">
+    <div class="screenshot-block__text position-left">
+      <h3>
+        Adjust Page Content for Insanely Accurate Visual Testing
+      </h3>
+      <p>
+        Stickler for accuracy? So are we.
+      </p>
       <p>
         Use our rich toolset to
         <span>adjust your pages before taking screenshots</span>
-        for non functional testing.</p>
+        for non functional testing.
+      </p>
     </div>
     <div class="screenshot-block__background image-right">
       <div class="screenshot-block__image">
-        <img alt="Stackoverflow screenshot original" src="{{ base_path ~ directory }}/images/home_screenshot_2.jpg" alt="screenshot">
+        <img alt="Stackoverflow screenshot original"
+          src="{{ base_path }}{{ directory }}/images/home_screenshot_2.jpg"
+          alt="screenshot" />
       </div>
     </div>
   </div>
 </section>
 
-<section class="container-fluid p-0 mt-5 screenshot-block">
-  <div class="row align-items-center">
+<section class="container-fluid p-0 mt-5 max-width-1280 xl-max-width-1600 screenshot-block">
+  <div class="row align-items-center mr-auto">
     <div class="screenshot-block__background">
       <div class="screenshot-block__image">
-        <img alt="Shedule monitoring" src="{{ base_path ~ directory }}/images/home_screenshot_3.jpg" alt="screenshot">
+        <img alt="Shedule monitoring"
+          src="{{ base_path }}{{ directory }}/images/home_screenshot_3.jpg"
+          alt="screenshot" />
       </div>
     </div>
     <div class="screenshot-block__text">
-      <h3>Automate Your Testing –
-        <br>Save Your Time</h3>
-      <p>Take screenshots in different extensions and browsers with a single button. Or set up
-        <span>automatic monitoring on a schedule</span>.</p>
+      <h3>
+        Automate Your Testing –
+        <br />Save Your Time
+      </h3>
+      <p>
+        Take screenshots in different extensions and browsers with a single
+        button. Or set up
+        <span>automatic monitoring on a schedule</span>.
+      </p>
     </div>
   </div>
 </section>
@@ -124,11 +183,13 @@
 <section class="container-fluid max-width-1280 block-integrations mt-4">
   <div class="row px-3">
     <div class="block-title--wrap">
-      <h2 class="block-title">Diffy has everything you need for non functional testing</h2>
+      <h2 class="block-title">
+        Diffy has everything you need for non functional testing
+      </h2>
       <div class="block-subtitle">
         From three
         <span>different staging environments</span>,
-        <br>to
+        <br />to
         <span>page content alteration</span>, to
         <span>multiple integrations</span>
       </div>
@@ -136,73 +197,93 @@
     <div class="col-md-12 text-center row">
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/automation-acquia-cloud-hooks">
-          <img alt="Acquia logo" src="{{ base_path ~ directory }}/images/acquia_colored.png" alt="button">
+          <img alt="Acquia logo"
+            src="{{ base_path }}{{ directory }}/images/acquia_colored.png"
+            alt="button" />
           <span class="integration--title">Acquia</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/pantheon-build-tools">
-          <img alt="Pantheon logo" src="{{ base_path ~ directory }}/images/pantheon_colored.png" alt="button">
+          <img alt="Pantheon logo"
+            src="{{ base_path }}{{ directory }}/images/pantheon_colored.png"
+            alt="button" />
           <span class="integration--title">Pantheon</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="https://platform.sh/blog/2019/umami-distribution-testing-automation-diffy-platformsh/">
-          <img alt="Platform.sh logo" src="{{ base_path ~ directory }}/images/platformsh_colored.png">
+          <img alt="Platform.sh logo"
+            src="{{ base_path }}{{
+            directory
+            }}/images/platformsh_colored.png" />
           <span class="integration--title">Platform.sh</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/gitlab-integration">
-          <img alt="Gitlab logo" src="{{ base_path ~ directory }}/images/gitlab_colored.png">
+          <img alt="Gitlab logo"
+            src="{{ base_path }}{{ directory }}/images/gitlab_colored.png" />
           <span class="integration--title">GitLab</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/github-integration">
-          <img alt="Github logo" src="{{ base_path ~ directory }}/images/github_colored.png">
+          <img alt="Github logo"
+            src="{{ base_path }}{{ directory }}/images/github_colored.png" />
           <span class="integration--title">GitHub</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/circleci">
-          <img alt="CircleCI logo" src="{{ base_path ~ directory }}/images/circeci_colored.png">
+          <img alt="CircleCI logo"
+            src="{{ base_path }}{{ directory }}/images/circeci_colored.png" />
           <span class="integration--title">Circleci</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/bitbucket-integration">
-          <img alt="Bitbucket logo" src="{{ base_path ~ directory }}/images/bitbucket_colored.png">
+          <img alt="Bitbucket logo"
+            src="{{ base_path }}{{ directory }}/images/bitbucket_colored.png" />
           <span class="integration--title">Bitbucket</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/browserstack-integration">
-          <img alt="Browserstack logo" src="{{ base_path ~ directory }}/images/browserstack-colored.png">
+          <img alt="Browserstack logo"
+            src="{{ base_path }}{{
+            directory
+            }}/images/browserstack-colored.png" />
           <span class="integration--title">Browserstack</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="https://docs.tugboat.qa/starter-configs/code-snippets/diffy-integration/">
-          <img alt="Tugboat logo" src="{{ base_path ~ directory }}/images/bugboat_colored.png">
+          <img alt="Tugboat logo"
+            src="{{ base_path }}{{ directory }}/images/bugboat_colored.png" />
           <span class="integration--title">Bugboat</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/wordpress-plugin">
-          <img alt="Wordpress logo" src="{{ base_path ~ directory }}/images/wordpress_colored.png">
+          <img alt="Wordpress logo"
+            src="{{ base_path }}{{ directory }}/images/wordpress_colored.png" />
           <span class="integration--title">Wordpress</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/behat">
-          <img alt="Behat logo" src="{{ base_path ~ directory }}/images/behat_colored.png">
+          <img alt="Behat logo"
+            src="{{ base_path }}{{ directory }}/images/behat_colored.png" />
           <span class="integration--title">Behat</span>
         </a>
       </div>
       <div class="col-md-2 col-6 mt-3 logo-wrap">
         <a href="/documentation/lambdatest">
-          <img alt="LabdaTest logo" src="{{ base_path ~ directory }}/images/lambdatest_colored.png">
+          <img alt="LabdaTest logo"
+            src="{{ base_path }}{{
+            directory
+            }}/images/lambdatest_colored.png" />
           <span class="integration--title">Lambdatest</span>
         </a>
       </div>
@@ -215,80 +296,115 @@
 </section>
 <section class="container-fluid p-0">
   <div class="use-case--block">
-    <h2 class="block--title">Use Cases</h2>
+    <h2 class="block--title">
+      Use Cases
+    </h2>
     <div class="cases--wraps d-flex align-items-stretch">
       <div class="case--wrap d-flex align-items-start justify-content-between">
         <div class="case--info">
-          <h2 class="case--name">Visual Testing for
+          <h2 class="case--name">
+            Visual Testing for
             <span>Drupal</span>
           </h2>
           <div class="case-description">
-            <p>Run Drupal tests through our cloud visual testing platform</p>
+            <p>
+              Run Drupal tests through our cloud visual testing platform
+            </p>
           </div>
           <div class="case-action--link">
             <a href="#">More information</a>
           </div>
         </div>
-        <img alt="Drupal logo" src="{{ base_path ~ directory }}/images/drupal_logo_90_90.svg">
+        <img alt="Drupal logo"
+          src="{{ base_path }}{{ directory }}/images/drupal_logo_90_90.svg" />
       </div>
 
       <div class="case--wrap d-flex align-items-start justify-content-between">
         <div class="case--info">
-          <h2 class="case--name">Visual Testing for
+          <h2 class="case--name">
+            Visual Testing for
             <span>WordPress</span>
           </h2>
           <div class="case-description">
-            <p>CSS Testing Made Easy. Never miss a visual bug again.</p>
+            <p>
+              CSS Testing Made Easy. Never miss a visual bug again.
+            </p>
           </div>
           <div class="case-action--link">
             <a href="#">More information</a>
           </div>
         </div>
-        <img alt="Wordpress logo" src="{{ base_path ~ directory }}/images/wordpress-logo_90_90.svg">
+        <img alt="Wordpress logo"
+          src="{{ base_path }}{{
+          directory
+          }}/images/wordpress-logo_90_90.svg" />
       </div>
     </div>
 
     <div class="block-try-diffy d-flex align-items-center">
-      <img alt="Calculator icon" src="{{ base_path ~ directory }}/images/calculator.svg">
-      <h2 class="try-block--title">See how we take screenshots</h2>
+      <img alt="Calculator icon"
+        src="{{ base_path }}{{ directory }}/images/calculator.svg" />
+      <h2 class="try-block--title">
+        See how we take screenshots
+      </h2>
       {{ drupal_block('diffy_try') }}
     </div>
   </div>
 </section>
 <section class="achievements-block container-fluid max-width-1280 d-flex justify-content-center">
   <div class="achievements-wrap d-flex">
-    <div class="achievements-title">5 years</div>
-    <div class="achievements-text">on the market</div>
-    <div class="achievements-link">about us</div>
+    <div class="achievements-title">
+      5 years
+    </div>
+    <div class="achievements-text">
+      on the market
+    </div>
+    <div class="achievements-link">
+      about us
+    </div>
   </div>
   <div class="achievements-wrap">
-    <div class="achievements-title">1 000+</div>
-    <div class="achievements-text">websites tested</div>
+    <div class="achievements-title">
+      1 000+
+    </div>
+    <div class="achievements-text">
+      websites tested
+    </div>
   </div>
   <div class="achievements-wrap">
-    <div class="achievements-title">2 million</div>
-    <div class="achievements-text">screenshots taken</div>
+    <div class="achievements-title">
+      2 million
+    </div>
+    <div class="achievements-text">
+      screenshots taken
+    </div>
   </div>
 </section>
 <section class="container-fluid p-0 cta-block">
-  <div class="background-image"><img alt="CTA" src="{{ base_path ~ directory }}/images/cta_back.png"></div>
-  <div class="centered-logo"><img alt="CTA" src="{{ base_path ~ directory }}/images/cta_icon.png"></div>
+  <div class="background-image">
+    <img alt="CTA" src="{{ base_path }}{{ directory }}/images/cta_back.png" />
+  </div>
+  <div class="centered-logo">
+    <img alt="CTA" src="{{ base_path }}{{ directory }}/images/cta_icon.png" />
+  </div>
   <div class="content-wrap">
     <div class="diffy-message">
-      <span>
-        Diffy help your QA team
-      </span><br>
+      <span>Diffy help your QA team</span><br />
       to ensure that websites don't get visual bugs
     </div>
     <div class="action-link-wrap">
       <div class="try-link">
-        <a href="#">
-          Try For Free
-        </a>
-        <p>no credit card required</p>
+        <a href="#">Try For Free</a>
+        <p>
+          no credit card required
+        </p>
       </div>
       <div class="demo-video">
-        <button type="button" class="video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/cbU1VqFnGaI" data-target="#myModal">
+        <button type="button"
+          class="video-btn"
+          data-toggle="modal"
+          data-src="https://www.youtube.com/embed/cbU1VqFnGaI"
+          data-target="#myModal">
           <span class="play-img"></span>
           View Demo
         </button>

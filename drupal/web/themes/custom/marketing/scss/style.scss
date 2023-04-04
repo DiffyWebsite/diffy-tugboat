@@ -37,6 +37,12 @@ p {
   max-width: 1280px;
 }
 
+.xl-max-width-1600 {
+  @media (min-width: $xl) {
+    max-width: 1600px;
+  }
+}
+
 .button {
   border: none;
   width: 157px;

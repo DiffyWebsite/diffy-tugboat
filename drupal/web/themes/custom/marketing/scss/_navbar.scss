@@ -207,6 +207,8 @@
 
 //New menu
 #block-mainnavigation {
+  position: static;
+
   @media (min-width: $xl) {
     width: 100%;
   }
@@ -222,11 +224,11 @@
         padding: 20px;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
         background: #fff;
-        min-width: 300px;
+        min-width: 100vw;
         min-height: 500px;
         height: 100vh;
-        top: 54px !important;
-        right: 0 !important;
+        top: 84px !important;
+        left: -10% !important;
 
         li {
           background-color: #fff;
@@ -291,6 +293,12 @@
 
     &::after {
       color: $font-color;
+    }
+
+    &.sf-expanded {
+      &::after {
+        color: #9036AA;
+      }
     }
   }
 }
