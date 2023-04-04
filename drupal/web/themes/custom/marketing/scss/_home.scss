@@ -418,6 +418,8 @@
 }
 
 .screenshot-block {
+  padding: 0;
+
   .screenshot-block__background {
     margin-right: 70px;
 
@@ -429,6 +431,12 @@
 
   .screenshot-block__text {
     max-width: 500px;
+    margin-right: 15px;
+
+    &.position-left {
+      margin-right: 0;
+      margin-left: 15px;
+    }
 
     @media (max-width: $md) {
       max-width: 300px;
@@ -465,6 +473,32 @@
 
       &+p {
         margin-top: 16px;
+      }
+    }
+  }
+
+  .row {
+    @media (min-width: $md) {
+      flex-wrap: unset;
+    }
+
+    @media (max-width: $lg) {
+      flex-direction: column;
+
+      .screenshot-block__background {
+        margin: 0;
+        order: 2;
+      }
+
+      img {
+        max-height: 500px;
+      }
+    }
+
+    @media (max-width: $sm) {
+
+      img {
+        max-height: 315px;
       }
     }
   }
