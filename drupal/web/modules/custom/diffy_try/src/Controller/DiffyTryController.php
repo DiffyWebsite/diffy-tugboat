@@ -30,6 +30,11 @@ class DiffyTryController extends ControllerBase {
     $results = $this->loadResultsRaw($uuid);
     $prod_url = $project->get('prod_url')->value;
 
+    $carousel_items =
+      '<div class="carousel-item tab-pane active" id="carousel-item-640">' . $results[640] . '</div>'
+      . '<div class="carousel-item tab-pane" id="carousel-item-1024">' . $results[1024] . '</div>'
+      . '<div class="carousel-item tab-pane" id="carousel-item-1200">' . $results[1200] . '</div>';
+
     $header_text = "
       <header class='try-page--title'>
         <h1 class='page--tilte'>" . $this->t('How we take screenshots') . "</h1>
@@ -37,46 +42,40 @@ class DiffyTryController extends ControllerBase {
       . "</header>";
 
     $build['text'] = [
-      '#markup' => $header_text . (
-        count($results) != 3
-          ? "<div id='diffy-try-text'>
-               <div class='progress-text'>
-                  <div class='top-progress-text'>
-                    <p class='top--text'>" . $this->t('Screenshot for mobile is preparing.') . "</p>
-                  </div>
-                  <p class='subtitle'>" . $this->t('It takes a few seconds...') . "</p>
-               </div>
-             </div>"
-          : "<div class='container'>
-               <div id='diffy-try-results' class='results--wrap'>
-                 <div id='diffy-try--carousel' class='carousel slide' data-ride='carousel'>
-                   <ol class='carousel-indicators'>
-                     <li data-target='#diffy-try--carousel' data-slide-to='0' class='active'>
-                       <a href='carousel-item-640' class='carousel-item-640' data-toggle='tab'>640px</a>
-                     </li>
-                     <li data-target='#diffy-try--carousel' data-slide-to='1'>
-                       <a href='carousel-item-1000' class='carousel-item-1000' data-toggle='tab'>1000px</a>
-                     </li>
-                     <li data-target='#diffy-try--carousel' data-slide-to='2'>
-                       <a href='carousel-item-1024' class='carousel-item-1024' data-toggle='tab'>1024px</a>
-                     </li>
-                   </ol>
-                   <div class='carousel-inner'>"
-                      . implode('', $results) .
-                   "</div>
-                   <a class='carousel-control-prev' href='#diffy-try--carousel' role='button' data-slide='prev'>
-                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                     <span class='sr-only'>Previous</span>
-                   </a>
-                   <a class='carousel-control-next' href='#diffy-try--carousel' role='button' data-slide='next'>
-                     <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                     <span class='sr-only'>Next</span>
-                   </a>
-                 </div>
-               </div>
-             </div>"
-      ), '#cache' => ['max-age' => 0],
+      '#markup' => $header_text .
+        "<div class='container'>
+           <div id='diffy-try-results' class='results--wrap'>
+             <div id='diffy-try--carousel' class='carousel slide'>
+               <ol class='carousel-indicators'>
+                 <li data-target='#diffy-try--carousel' data-slide-to='0' class='active'>
+                   <a href='carousel-item-640' class='carousel-item-640' data-toggle='tab'>640px</a>
+                 </li>
+                 <li data-target='#diffy-try--carousel' data-slide-to='1'>
+                   <a href='carousel-item-1024' class='carousel-item-1024' data-toggle='tab'>1024px</a>
+                 </li>
+                 <li data-target='#diffy-try--carousel' data-slide-to='2'>
+                   <a href='carousel-item-1200' class='carousel-item-1200' data-toggle='tab'>1200px</a>
+                 </li>
+               </ol>
+               <div class='carousel-inner'>"
+                  . $carousel_items .
+               "</div>
+               <a class='carousel-control-prev' href='#diffy-try--carousel' role='button' data-slide='prev'>
+                 <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                 <span class='sr-only'>Previous</span>
+               </a>
+               <a class='carousel-control-next' href='#diffy-try--carousel' role='button' data-slide='next'>
+                 <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                 <span class='sr-only'>Next</span>
+               </a>
+             </div>
+           </div>
+         </div>"
+      ,
+      '#cache' => ['max-age' => 0],
     ];
+
+    $build['#attached']['library'][] = 'diffy_try/load_wait';
 
     return $build;
   }
@@ -105,25 +104,40 @@ class DiffyTryController extends ControllerBase {
       $rendered = [];
       $screenshots = reset($screenshot->data['screenshots']);
 
-      if (is_array($screenshots)) {
+//      unset($screenshots[1024]);
 
-        foreach ($screenshots as $breakpoint => $screenshot_image) {
-          $active = '';
-          $id = 'carousel-item-' . $breakpoint;
-          if ($breakpoint === key($screenshots)) {
-            $active = 'active';
-          }
-          $rendered[] = '
-          <div class="carousel-item tab-pane ' . $active . '" id="' . $id . '">
+      foreach ([640, 1024, 1200] as $breakpoint) {
+        if (is_array($screenshots) && isset($screenshots[$breakpoint])) {
+          $screenshot_image = $screenshots[$breakpoint];
+
+          $rendered[$breakpoint] = '
             <a href="'
               . $screenshot_image['full']
               . '" target="_blank"><img src="'
               . $screenshot_image['thumbnail']
               . '"/>
-            </a>
-          </div>';
+            </a>';
+        }
+        else {
+          $breakpoint_name = 'mobile';
+          if ($breakpoint > 1000) {
+            $breakpoint_name = 'tablet';
+          }
+          if ($breakpoint > 1100) {
+            $breakpoint_name = 'desktop';
+          }
+          $rendered[$breakpoint] = '
+            <div class="progress-text">
+              <div class="top-progress-text">
+                <p class="top--text">' . $this->t('Screenshot for @breakpoint_name is preparing.', [
+                  '@breakpoint_name' => $breakpoint_name
+                ]) . '</p>
+              </div>
+              <p class="subtitle">' . $this->t('It takes under a minute...') . '</p>
+           </div>';
         }
       }
+
 
       return $rendered;
     }

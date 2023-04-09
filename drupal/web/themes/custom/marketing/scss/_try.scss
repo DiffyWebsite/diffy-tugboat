@@ -39,17 +39,6 @@
     .top-progress-text {
       position: relative;
       min-height: 150px;
-
-      &::before {
-        position: absolute;
-        content: "";
-        background: url("../images/phone.svg") center no-repeat;
-        width: 62px;
-        height: 100px;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
     }
 
     .top--text {
@@ -77,12 +66,45 @@
       margin-bottom: 0;
     }
   }
+
+  #carousel-item-640 .top-progress-text::before {
+    position: absolute;
+    content: "";
+    background: url("../images/phone.svg") center no-repeat;
+    width: 62px;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #carousel-item-1024 .top-progress-text::before {
+    position: absolute;
+    content: "";
+    background: url("../images/tablet.svg") center no-repeat;
+    width: 62px;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #carousel-item-1200 .top-progress-text::before {
+    position: absolute;
+    content: "";
+    background: url("../images/monitor.svg") center no-repeat;
+    width: 62px;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 
 .carousel-item-640,
-.carousel-item-1000,
-.carousel-item-1024 {
+.carousel-item-1024,
+.carousel-item-1200 {
   &::before {
     position: absolute;
     content: '';
@@ -99,13 +121,13 @@
   }
 }
 
-.carousel-item-1000 {
+.carousel-item-1024 {
   &::before {
     background: url("../images/tablet-b20.svg") center no-repeat;
   }
 }
 
-.carousel-item-1024 {
+.carousel-item-1200 {
   &::before {
     background: url("../images/monitor-b20.svg") center no-repeat;
   }
@@ -149,13 +171,13 @@
         }
       }
 
-      .carousel-item-1000 {
+      .carousel-item-1024 {
         &::before {
           background: url("../images/tablet-v20.svg") center no-repeat;
         }
       }
 
-      .carousel-item-1024 {
+      .carousel-item-1200 {
         &::before {
           background: url("../images/monitor-v20.svg") center no-repeat;
         }
