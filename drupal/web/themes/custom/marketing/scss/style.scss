@@ -9,6 +9,8 @@
 @import "documentation";
 @import "screenshots";
 @import "try";
+@import "blocks";
+
 
 body,
 html {
@@ -93,6 +95,28 @@ p {
 .shadow-card {
   border: 1px solid #c6dde5;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.shadow-card-rounded {
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(25, 76, 97, 0.1);
+  h3 {
+    font-size: 22px !important;
+    line-height: 30px;
+    margin-bottom: 1rem !important;
+  }
+  p {
+    font-size: 16px !important;
+    line-height: 24px;
+  }
+  a {
+    color: $light-blue;
+  }
+  .read-more {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 .veritical-align-helper {
