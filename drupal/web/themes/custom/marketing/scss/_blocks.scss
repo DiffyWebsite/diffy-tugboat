@@ -1,8 +1,9 @@
-
+.main_banner__wordpress,
 .main_banner__drupal {
-  background: url('../images/drupal-logo-big.svg') no-repeat center bottom;
+  background-repeat: no-repeat;
   background-size: contain;
   padding-bottom: 330px;
+  background-position: center bottom;
   @media (min-width: $md) {
     background-position: right center;
     background-size: auto;
@@ -38,7 +39,12 @@
     }
   }
 }
-
+.main_banner__wordpress {
+  background-image: url('../images/wordpress-logo-big.svg');
+}
+.main_banner__drupal {
+  background-image: url('../images/drupal-logo-big.svg');
+}
 .block-features {
   background-color: rgba($color: $blue, $alpha: 0.1);
   padding: 15px 0 45px;
@@ -48,7 +54,7 @@
   h2 {
     font-size: 28px !important;
     @media (min-width: $md) {
-      font-size: 38px;
+      font-size: 38px !important;
     }
   }
   .inner {
@@ -149,7 +155,7 @@
   }
 }
 
-.trusted-drupal-agencies__block {
+.trusted-agencies__block {
   h2 {
     color: $font-color;
     font-size: 18px !important;
@@ -157,7 +163,8 @@
     line-height: 26px;
     text-align: center;
     margin-bottom: 20px;
-    @media (min-width: $md) {
+    width: 100%;
+    @media (min-width: $lg) {
       margin-bottom: 0;
       max-width: 215px;
       text-align: left;
@@ -320,5 +327,45 @@
 .text-size-18 {
   p {
     font-size: 18px !important;
+  }
+}
+
+.review__block {
+  @media (min-width: $md) {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .quote-bg {
+    background: url('../images/quote-bg.png') no-repeat center top;
+    display: block;
+    text-align: center;
+    height: 165px;
+    padding-top: 45px
+  }
+  .small-text {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+  }
+  .fa-quote-right {
+    color: #9036AA;
+    display: block;
+    font-size: 24px;
+    margin: 10px;
+    text-align: center;
+    @media (min-width: $md) {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+  .quote p {
+    font-size: 18px !important;
+    line-height: 30px;
+    text-align: center;
+    @media (min-width: $md) {
+      font-size: 22px;
+      line-height: 35px;
+      text-align: left;
+    }
   }
 }
