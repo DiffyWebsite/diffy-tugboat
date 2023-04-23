@@ -369,3 +369,70 @@
     }
   }
 }
+
+.bottom-banner__block {
+  background: radial-gradient(50% 132.51% at 50% 50%, #AA369E 0%, #6E1388 100%);
+  h2 {
+    color: #F0D500;
+    font-size: 18px !important;
+    font-weight: 600;
+    line-height: 26px;
+    margin: 0 0 16px;
+    @media (min-width: $md) {
+      margin: 0 0 12px;
+    }
+  }
+  h3 {
+    color: #fff;
+    font-size: 22px !important;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0 0 25px;
+    @media (min-width: $md) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+  .inner {
+    background: url("../images/purple-bn-logo.png") no-repeat center 0;
+    max-width: 680px;
+    margin:  0 auto;
+    padding: 95px 15px;
+    @media (min-width: $md) {
+      padding: 140px 15px 128px;
+    }
+  }
+  .try-for-free__block .action-link-wrap {
+    @media (min-width: $md) {
+      padding-left: 185px;
+    }
+    .try-link {
+      a {
+        background-color: #F0D500;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+        color: #333;
+      }
+      p {
+        color: #FFFFFF;
+        opacity: 0.7;
+        text-align: center;
+      }
+    }
+
+    .demo-video button {
+      color: #fff;
+      .play-img {
+        background-image: url("../images/play-yellow.svg");
+        color: #fff;
+      }
+      &:hover,
+      &:focus {
+        color: #F0D500;
+        .play-img,
+        .play-img {
+          border: 1px solid #F0D500;
+        }
+      }
+    }
+  }
+}

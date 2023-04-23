@@ -1,12 +1,18 @@
 $imageDir: '../images';
 
-#page-node-5-about_us {
-  background-image: url($imageDir + '/wavy_bg.svg');
-  background-repeat: no-repeat;
-}
-
 #node--5--about_us {
-
+  h1 {
+    color: #333;
+    font-size: 28px;
+    font-style: normal;
+    line-height: 36px;
+    margin: 45px 0;
+    @media (min-width: 768px) {
+      font-size: 38px;
+      line-height: 46px;
+      margin: 90px 0 55px;
+    }
+  }
   section.promotion {
     margin-top: 52px;
     @media (min-width: 576px) {
@@ -54,19 +60,27 @@ $imageDir: '../images';
       }
     }
 
-    .archievement {
-
-      @media (min-width: 576px) {
-        height: 280px;
-        background-image: url($imageDir + '/pink_bg.svg');
+    .achievements__block {
+      margin-bottom: 80px;
+      display: block;
+      @media (min-width: 768px) {
+        display: flex;
+        margin-bottom: 50px;
       }
-
+      .dot {
+        color: #53BAD1;
+        font-size: 40px;
+      }
       .item {
+        margin: 10px 0;
+        @media (min-width: 768px) {
+          margin: 0;
+        }
         .title {
-          font-size: 38px;
-          font-weight: bolder;
-          color: #03a1b5;
-          padding: 10px;
+          color: #333;
+          font-size: 28px;
+          line-height: 36px;
+          font-weight: 700;
         }
       }
     }
@@ -96,23 +110,28 @@ $imageDir: '../images';
   }
 
   section.story {
-
-    .section-title {
-      font-size: 30px;
-      font-weight: bolder;
-      padding: 20px 0;
-
-      @media (min-width: 576px) {
-        padding: 20px auto 80px auto;
+    margin-bottom: 70px;
+    @media (min-width: 768px) {
+      border-bottom: 1px solid #ededed;
+      margin-bottom: 90px;
+      padding-bottom: 55px;
+    }
+    .text {
+      p {
+        font-size: 18px !important;
+        line-height: 30px;
+      }
+      @media (min-width: 768px) {
+        padding-top: 45px;
+      }
+      .text-purple {
+        color: #9036AA;
       }
     }
-
     .image {
-      background: url($imageDir + '/blue_bg4.svg') no-repeat 0px 0px;
-      background-size: contain;
       img {
         width: 100%;
-        @media (min-width: 576px) {
+        @media (min-width: 768px) {
           width: auto;
         }
       }
@@ -131,6 +150,14 @@ $imageDir: '../images';
 
     .description {
       color: #93A9B0;
+    }
+  }
+
+  .trusted-agencies__block {
+    h2 {
+      margin-bottom: 10px;
+      max-width: 100%;
+      text-align: center !important;
     }
   }
 }
