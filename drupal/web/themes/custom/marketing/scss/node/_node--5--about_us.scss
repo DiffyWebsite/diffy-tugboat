@@ -6,8 +6,8 @@ $imageDir: '../images';
     font-size: 28px;
     font-style: normal;
     line-height: 36px;
-    margin: 45px 0;
-    @media (min-width: 768px) {
+    margin: 120px 0 45px;
+    @media (min-width: 992px) {
       font-size: 38px;
       line-height: 46px;
       margin: 90px 0 55px;
@@ -121,7 +121,7 @@ $imageDir: '../images';
         font-size: 18px !important;
         line-height: 30px;
       }
-      @media (min-width: 768px) {
+      @media (min-width: 992px) {
         padding-top: 45px;
       }
       .text-purple {
@@ -129,6 +129,7 @@ $imageDir: '../images';
       }
     }
     .image {
+      text-align: center;
       img {
         width: 100%;
         @media (min-width: 768px) {
