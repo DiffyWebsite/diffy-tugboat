@@ -563,3 +563,14 @@
     margin: 0 auto !important;
   }
 }
+
+.book-call-btn {
+  background: url("../images/book-call.png") no-repeat center center;
+  display: block;
+  height: 104px;
+  width: 222px;
+  position: fixed;
+  right: 10px;
+  bottom: 20%;
+  z-index: 50;
+}
