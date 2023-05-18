@@ -4,6 +4,7 @@ namespace Drupal\diffy_try\Form;
 
 use Diffy\Diffy;
 use Diffy\Screenshot;
+use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -66,6 +67,27 @@ class DiffyCollectUrlForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    $url = $form_state->getValue('url');
+
+    if (strpos($url, 'http') === FALSE) {
+      $url = 'https://' . $url;
+    }
+
+    if (!UrlHelper::isValid($url)) {
+      $form_state->setError($form['url'], 'Invalid URL. Please enter valid URL.');
+    }
+
+    $deny_list = $this->config('diffy_try.settings')->get('deny_list');
+    foreach (explode("\n", $deny_list) as $deny_list_pattern) {
+      $deny_list_pattern = trim($deny_list_pattern);
+      if (empty($deny_list_pattern)) {
+        continue;
+      }
+      if (strpos($url, $deny_list_pattern) !== FALSE) {
+        $form_state->setError($form['url'], 'URL you provided is not allowed');
+      }
+    }
+
     // Run curl request to see if URL is reachable.
   }
 

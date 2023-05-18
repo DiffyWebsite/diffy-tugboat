@@ -42,6 +42,11 @@ class SettingsForm extends ConfigFormBase {
       '#title' => $this->t('Diffy API Key'),
       '#default_value' => $config->get('api_key'),
     ];
+    $form['deny_list'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Deny list of domains (one per line)'),
+      '#default_value' => $config->get('deny_list'),
+    ];
 
     $query = \Drupal::entityTypeManager()->getStorage('project')->getQuery();
     $query->sort('created', 'DESC');
@@ -75,6 +80,7 @@ class SettingsForm extends ConfigFormBase {
     $values = $form_state->getValues();
     $this->config('diffy_try.settings')
       ->set('api_key', $values['api_key'])
+      ->set('deny_list', $values['deny_list'])
       ->save();
 
     parent::submitForm($form, $form_state);
