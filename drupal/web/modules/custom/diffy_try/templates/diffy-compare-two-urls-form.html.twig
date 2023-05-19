@@ -1,0 +1,15 @@
+{{ form.status_messages }}
+
+{% if form.name is not empty %}
+  <div class="float-left mr-3">{{ form.name }}</div>
+  <div class="float-left mr-3">{{ form.email }}</div>
+  <div class="float-left pt-1">{{ form.submit }}</div>
+{% elseif form.production is not empty %}
+  <div class="float-left mr-3">{{ form.production }}</div>
+  <div class="float-left mr-3">{{ form.staging }}</div>
+  <div class="float-left">{{ form.submit }}</div>
+{% else %}
+Thank you for submitting the form! We will reach out to you by email with the results soon.
+{% endif %}
+
+{{ form|without('name', 'email', 'production', 'staging', 'submit', 'status_messages', 'thank_you') }}

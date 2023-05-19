@@ -32,5 +32,26 @@ function diffy_try_theme($existing, $type, $theme, $path) {
       'render element' => 'form',
       'template' => 'diffy-try-collect-url-form',
     ],
+    'diffy_compare_two_urls' => [
+      'render element' => 'form',
+      'template' => 'diffy-compare-two-urls-form',
+    ],
   ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function diffy_try_mail($key, &$message, $params) {
+$options = array(
+  'langcode' => $message['langcode'],
+);
+
+ switch ($key) {
+   case 'compare_sites':
+     $message['from'] = \Drupal::config('system.site')->get('mail');
+     $message['subject'] = t('Request to compare from @email', array('@email' => $params['email']), $options);
+     $message['body'][] = $params['message'];
+     break;
+ }
 }

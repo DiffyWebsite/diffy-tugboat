@@ -504,6 +504,41 @@
   }
 }
 
+.use-case--block.compare-two-sites--block {
+  padding-top: 40px;
+
+  input.error {
+    border: 1px solid $purple-color;
+  }
+
+  .block-try-diffy {
+    margin-top: 0;
+  }
+
+  .compare-two-sites--form-wrapper {
+    padding-left: 50px;
+  }
+
+  button {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 32px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    background-color: $purple-color;
+    box-shadow: 0px 2px 5px rgba(144, 54, 170, 0.35);
+    border-radius: 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .use-case--block {
   background-color: rgba($color: $blue, $alpha: 0.1);
   border-radius: 20px;
