@@ -139,6 +139,7 @@ class ComposerStaticInitd85c138d3fb33991d08e84b08a86d57a
             'Masterminds\\' => 12,
             'Mailchimp\\http\\' => 15,
             'Mailchimp\\' => 10,
+            'MailchimpTransactional\\' => 23,
         ),
         'L' => 
         array (
@@ -470,6 +471,10 @@ class ComposerStaticInitd85c138d3fb33991d08e84b08a86d57a
         'Mailchimp\\' => 
         array (
             0 => __DIR__ . '/..' . '/thinkshout/mailchimp-api-php/src',
+        ),
+        'MailchimpTransactional\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mailchimp/transactional/lib',
         ),
         'League\\Container\\' => 
         array (
