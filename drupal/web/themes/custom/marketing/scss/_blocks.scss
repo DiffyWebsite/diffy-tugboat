@@ -45,6 +45,41 @@
 .main_banner__drupal {
   background-image: url('../images/drupal-logo-big.svg');
 }
+
+.blue-block {
+  border-radius: 5px;
+  background-color: rgba($color: $blue, $alpha: 0.1);
+
+  h3 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    color: $font-color;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: $font-color;
+    margin-top: 22px;
+    margin: 0;
+
+    span {
+      color: $purple-color;
+    }
+
+    &+p {
+      margin-top: 16px;
+    }
+  }
+}
+
 .block-features {
   background-color: rgba($color: $blue, $alpha: 0.1);
   padding: 15px 0 45px;
