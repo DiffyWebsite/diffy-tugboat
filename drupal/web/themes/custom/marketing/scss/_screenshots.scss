@@ -133,6 +133,14 @@
   }
 }
 
+.screenshot-block .screenshot-block__image img {
+  max-width: 800px;
+}
+
+.screenshot-block .screenshot-block__image.sm img {
+  max-width: 500px;
+}
+
 .screenshot-block--top {
   .screenshot-block__background {
     .screenshot-block__image {

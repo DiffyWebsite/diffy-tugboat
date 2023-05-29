@@ -64,32 +64,6 @@ class DiffyCompareTwoURLsForm extends FormBase {
 
     switch ($step) {
       case 0:
-        $form['name'] = [
-          '#type' => 'textfield',
-          '#required' => TRUE,
-          '#size' => 40,
-          '#attributes' => ['placeholder' => t('First Name')],
-        ];
-
-        $form['email'] = [
-          '#type' => 'textfield',
-          '#required' => TRUE,
-          '#size' => 40,
-          '#attributes' => ['placeholder' => t('Email')],
-        ];
-
-        $form['submit'] = [
-          '#type' => 'submit',
-          '#value' => $this->t('Next'),
-          '#ajax' => [
-            'callback' => [static::class, 'rebuildForm'],
-            'wrapper' => $wrapper_id,
-            'effect' => 'fade',
-          ]
-        ];
-        break;
-
-      case 1:
         $form['production'] = [
           '#type' => 'url',
           '#required' => TRUE,
@@ -107,6 +81,32 @@ class DiffyCompareTwoURLsForm extends FormBase {
         $form['submit'] = [
           '#type' => 'submit',
           '#value' => $this->t('Compare'),
+          '#ajax' => [
+            'callback' => [static::class, 'rebuildForm'],
+            'wrapper' => $wrapper_id,
+            'effect' => 'fade',
+          ]
+        ];
+        break;
+
+      case 1:
+        $form['name'] = [
+          '#type' => 'textfield',
+          '#required' => TRUE,
+          '#size' => 40,
+          '#attributes' => ['placeholder' => t('First Name')],
+        ];
+
+        $form['email'] = [
+          '#type' => 'textfield',
+          '#required' => TRUE,
+          '#size' => 40,
+          '#attributes' => ['placeholder' => t('Email')],
+        ];
+
+        $form['submit'] = [
+          '#type' => 'submit',
+          '#value' => $this->t('Get report'),
           '#ajax' => [
             'callback' => [static::class, 'rebuildForm'],
             'wrapper' => $wrapper_id,
@@ -146,26 +146,25 @@ class DiffyCompareTwoURLsForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $mailManager = \Drupal::service('plugin.manager.mail');
 
-    if ($form_state->getValue('name')) {
-      $name = $form_state->getValue('name');
-      $email = $form_state->getValue('email');
-
-      $form_state->set('step', 1);
-      $form_state->set('name', $name);
-      $form_state->set('email', $email);
-      // Send email.
-
-      $message = sprintf('%s %s', $name, $email);
-      $mailManager->mail('diffy_try', 'compare_sites', 'info@diffy.website', 'en', ['email' => $email, 'message' => $message], NULL, TRUE);
-    }
-    elseif ($form_state->getValue('production')) {
-      $name = $form_state->get('name');
-      $email = $form_state->get('email');
+    if ($form_state->getValue('production')) {
       $production = $form_state->getValue('production');
       $staging = $form_state->getValue('staging');
 
+      $form_state->set('production', $production);
+      $form_state->set('staging', $staging);
+
+      $form_state->set('step', 1);
+    }
+    elseif ($form_state->getValue('name')) {
+      $name = $form_state->getValue('name');
+      $email = $form_state->getValue('email');
+
+      $production = $form_state->get('production');
+      $staging = $form_state->get('staging');
+
       $form_state->set('step', 2);
-      // Send second email + confirmation email to the visitor.
+
+      // Email.
       $message = sprintf('%s %s %s %s', $name, $email, $production, $staging);
       $mailManager->mail('diffy_try', 'compare_sites', 'info@diffy.website', 'en', ['email' => $email, 'message' => $message], NULL, TRUE);
     }
