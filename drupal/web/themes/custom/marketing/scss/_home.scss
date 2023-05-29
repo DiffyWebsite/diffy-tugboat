@@ -285,10 +285,14 @@
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 700;
-      font-size: 38px;
-      line-height: 46px;
+      font-size: 28px !important;
+      line-height: 36px;
       text-align: center;
       color: $font-color;
+      @media (min-width: $lg) {
+        font-size: 38px;
+        line-height: 46px;
+      }
     }
 
     .block-subtitle {
@@ -451,17 +455,21 @@
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 700;
-      font-size: 28px;
-      line-height: 36px;
+      font-size: 22px !important;
+      line-height: 30px;
       color: $font-color;
       margin-bottom: 20px;
+      @media (min-width: $lg) {
+        font-size: 28px;
+        line-height: 36px;
+      }
     }
 
     p {
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 400;
-      font-size: 18px;
+      font-size: 18px !important;
       line-height: 30px;
       color: $font-color;
       margin-top: 22px;
@@ -506,7 +514,12 @@
 
 .use-case--block.compare-two-sites--block {
   padding-top: 40px;
-
+  @media (min-width: $lg) {
+    margin: 100px auto;
+  }
+  form.container {
+    padding: 0;
+  }
   input.error {
     border: 1px solid $purple-color;
   }
@@ -516,7 +529,9 @@
   }
 
   .compare-two-sites--form-wrapper {
-    padding-left: 50px;
+    @media (min-width: $lg) {
+      padding-left: 50px;
+    }
   }
 
   button {
@@ -542,8 +557,8 @@
 .use-case--block {
   background-color: rgba($color: $blue, $alpha: 0.1);
   border-radius: 20px;
-  padding: 40px;
-  margin: 100px 40px 0 40px;
+  padding: 60px 30px 70px;
+  margin: 70px 0 40px;
 
   @media (min-width: $lg) {
     padding: 90px 100px 40px 100px;
@@ -553,10 +568,15 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 38px;
-    line-height: 46px;
+    font-size: 28px !important;
+    line-height: 36px;
     text-align: center;
     margin-bottom: 40px;
+    width: 100%;
+    @media (min-width: $lg) {
+      font-size: 38px;
+      line-height: 46px;
+    }
   }
 
   .cases--wraps {
@@ -622,7 +642,7 @@
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 18px !important;
         line-height: 26px;
         color: $font-color;
 
@@ -655,6 +675,10 @@
         color: $font-color;
         padding: 12px 16px;
         border-radius: 4px;
+        margin: 0 auto;
+        @media (min-width: $lg) {
+          margin: 0;
+        }
 
         &:hover,
         &:focus {
@@ -674,6 +698,14 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  .try-block--title {
+    margin-bottom: 25px;
+    @media (min-width: $lg) {
+      margin-bottom: 0;
+    }
+  }
+
 }
 
 .diffy-collect-url-form {
@@ -991,6 +1023,7 @@
       position: absolute;
       top: 0;
       right: 0;
+      max-width: 100%;
     }
   }
 
@@ -998,6 +1031,7 @@
     position: relative;
     z-index: 1;
     padding: 90px 0;
+    max-width: 100%;
   }
 
   .right-image {
@@ -1006,7 +1040,10 @@
 
   .left-info {
     .text--wrap {
-      padding: 100px 40px;
+      padding: 60px 40px;
+      @media (min-width: $lg) {
+        padding: 100px 40px;
+      }
 
       @media (max-width: $xl) {
         display: flex;
@@ -1031,17 +1068,21 @@
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 700;
-      font-size: 38px;
-      line-height: 46px;
+      font-size: 28px !important;
+      line-height: 36px;
       color: $font-color;
       margin-bottom: 14px;
+      @media (min-width: $lg) {
+        font-size: 38px !important;
+        line-height: 46px;
+      }
     }
 
     h3 {
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 400;
-      font-size: 22px;
+      font-size: 22px !important;
       line-height: 30px;
       color: $font-color;
       margin-bottom: 40px;
@@ -1095,7 +1136,11 @@
       }
 
       .try-link {
-        margin-right: 30px;
+        margin-bottom: 40px;
+        @media (min-width: $lg) {
+          margin-right: 30px;
+          margin-bottom: 0;
+        }
 
         a {
           display: block;
@@ -1175,4 +1220,15 @@
     }
   }
 
+}
+
+.home__text_block {
+  h3 {
+    font-size: 22px !important;
+    line-height: 30px;
+  }
+  p {
+    font-size: 18px !important;
+    line-height: 30px;
+  }
 }

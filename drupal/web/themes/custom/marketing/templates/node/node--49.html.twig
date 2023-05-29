@@ -42,17 +42,6 @@
   </div>
 </section>
 
-<section class="use-case--block compare-two-sites--block">
-  <div class="block-try-diffy d-flex align-items-center">
-    <img alt="Compare icon" src="{{ base_path }}{{ directory }}/images/compare.svg" />
-    <div class="compare-two-sites--form-wrapper">
-      <h2 class="try-block--title">Compare two sites</h2>
-      <p>See the difference between your production and staging environment. We will run the comparison and manually mark the changes for you.</p>
-      {{ drupal_block('diffy_compare_two') }}
-    </div>
-  </div>
-</section>
-
 <section class="mt-4 customers-block container-fluid max-width-1280">
   <div class="row">
     <div class="customer-block--title d-flex align-items-center">
@@ -63,56 +52,66 @@
 
     <div class="customers-logo col-6 col-sm-6 col-md-3">
       <img class="m-auto"
-        alt="palantir.net"
-        src="{{ base_path }}{{ directory }}/images/logos-palantir.svg"
-         />
+           alt="palantir.net"
+           src="{{ base_path }}{{ directory }}/images/logos-palantir.svg"
+      />
     </div>
 
     <div class="customers-logo col-6 col-sm-6 col-md-3">
       <img class="m-auto"
-        alt="MD Systems logo"
-        src="{{ base_path }}{{ directory }}/images/logos-mdsystems.svg"
-        alt="md systems"
-        style="width: 115px;" />
+           alt="MD Systems logo"
+           src="{{ base_path }}{{ directory }}/images/logos-mdsystems.svg"
+           alt="md systems"
+           style="width: 115px;" />
     </div>
 
     <div class="customers-logo  col-6 col-sm-6 col-md-3">
       <img class="m-auto"
-        alt="Phase2 Technology"
-        src="{{ base_path }}{{ directory }}/images/logos-phase2.svg"
-        />
+           alt="Phase2 Technology"
+           src="{{ base_path }}{{ directory }}/images/logos-phase2.svg"
+      />
     </div>
 
     <div class="customers-logo col-6 col-sm-6 col-md-3">
       <img class="m-auto pr-4 pr-md-0"
-        alt="ForumOne"
-        src="{{ base_path }}{{ directory }}/images/logos-forumone.svg"
-        />
+           alt="ForumOne"
+           src="{{ base_path }}{{ directory }}/images/logos-forumone.svg"
+      />
     </div>
 
     <div class="customers-logo col-6 col-sm-6 col-md-3">
       <img class="m-auto"
-        alt="FFW"
-        src="{{ base_path }}{{ directory }}/images/logos-ffw.svg"
-        />
+           alt="FFW"
+           src="{{ base_path }}{{ directory }}/images/logos-ffw.svg"
+      />
     </div>
 
     <div class="customers-logo col-6 col-sm-6 col-md-3">
       <img class="m-auto"
-        alt="european commission"
-        src="{{ base_path }}{{ directory }}/images/logos-europeancommission.svg"
-        />
+           alt="european commission"
+           src="{{ base_path }}{{ directory }}/images/logos-europeancommission.svg"
+      />
     </div>
   </div>
 </section>
 
-<section class="container-fluid p-0 mt-5 max-width-1280 xl-max-width-1600">
+<section class="container-fluid max-width-1280 xl-max-width-1600 use-case--block compare-two-sites--block">
+  <div class="row block-try-diffy d-flex align-items-center">
+    <img alt="Compare icon" src="{{ base_path }}{{ directory }}/images/compare.svg" />
+    <div class="compare-two-sites--form-wrapper">
+      <h2 class="try-block--title">Compare two sites</h2>
+      <p>See the difference between your production and staging environment. We will run the comparison and manually mark the changes for you.</p>
+      {{ drupal_block('diffy_compare_two') }}
+    </div>
+  </div>
+</section>
+
+<section class="home__text_block container-fluid p-0 mt-5 max-width-1280 xl-max-width-1600">
   <div class="row">
     <div class="col-md-4">
       <div class="text-align-center pl-5 pr-5">
         <img alt="Updates or client break the site"
-             src="{{ base_path }}{{ directory }}/images/pain-point-purple.svg"
-        />
+             src="{{ base_path }}{{ directory }}/images/pain-point-purple.svg" />
 
         <h3>Don't let updates or customer coding break your website</h3>
 
@@ -329,8 +328,9 @@
     <a href="/documentation/using-apis">See all integrations</a>
   </div>
 </section>
-<section class="container-fluid p-0">
-  <div class="use-case--block">
+
+<section class="container-fluid max-width-1280 xl-max-width-1600 p-0">
+  <div class="row use-case--block">
     <h2 class="block--title">
       Use Cases
     </h2>
@@ -386,62 +386,96 @@
     </div>
   </div>
 </section>
-<section class="achievements-block container-fluid max-width-1280 d-flex justify-content-center">
-  <div class="achievements-wrap">
-    <div class="achievements-title">
-      1 million
-    </div>
-    <div class="achievements-text">
-      screenshots monthly
-    </div>
-  </div>
 
-  <div class="achievements-wrap">
-    <div class="achievements-title">
-      1000+
+<section class="glance container mt-lg-5 pt-lg-5 pb-lg-5">
+  <div class="achievements__block row align-items-center px-5">
+    <div class="item col">
+      <div class="title text-center">2 million</div>
+      <div class="subtitle text-center">screenshots taken</div>
+      <div class="subtitle text-center"><a href="/about-us">about us</a></div>
     </div>
-    <div class="achievements-text">
-      websites tested
-    </div>
-  </div>
-
-  <div class="achievements-wrap d-flex">
-    <div class="achievements-title">
-      5 years
-    </div>
-    <div class="achievements-text">
-      on the market
-    </div>
-    <div class="achievements-link">
-      about us
-    </div>
-  </div>
-
-
-</section>
-<section class="container-fluid p-0 cta-block">
-  <div class="background-image">
-    <img alt="CTA" src="{{ base_path }}{{ directory }}/images/cta_back.png" />
-  </div>
-  <div class="centered-logo">
-    <img alt="CTA" src="{{ base_path }}{{ directory }}/images/cta_icon.png" />
-  </div>
-  <div class="content-wrap">
-    <div class="diffy-message">
-      <span>Diffy help your QA team</span><br />
-      to ensure that websites don't get visual bugs
-    </div>
-    <div class="action-link-wrap">
-      <div class="try-link">
-        <a href="https://app.diffy.website/#/register">
-          Try For Free
-        </a>
-        <p>no credit card required</p>
+    <div class="item col dot text-align-center">&#183;</div>
+    <div class="item col">
+      <div class="title text-center">
+        1000+
       </div>
-      <div class="book-demo">
-        <a href="https://calendly.com/diffy/demo" target="_blank">
-          Book a Demo
-        </a>
+      <div class="subtitle text-center">
+        websites tested
+      </div>
+    </div>
+    <div class="item col dot text-align-center">&#183;</div>
+    <div class="item col">
+      <div class="title text-center">5 years</div>
+      <div class="subtitle text-center">on the market</div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials-carousel" class="review__block mb-5 pb-md-5 row carousel slide" data-ride="carousel" data-interval="false">
+  <ol class="carousel-indicators">
+    <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#testimonials-carousel" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="d-md-flex">
+        <div class="col-md-3">
+          <span class="quote-bg blue"><img src="{{ base_path ~ directory }}/images/jeffrey-bertoen.png" alt="Jeffrey Bertoen" /></span>
+          <p class="text-align-center small-text"><strong>Jeffrey Bertoen</strong></p>
+          <p class="text-align-center small-text">Solution Architect Synetic</p>
+        </div>
+        <div class="col-md-9 pt-3 pt-md-5 d-md-flex quote">
+          <i class="fas fa-quote-right"></i>
+          <p>
+            Diffy is a great and flexible tool that integrates easily with your Devops flows. Now we are way more confident with our releases.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="d-md-flex">
+        <div class="col-md-3">
+          <span class="quote-bg"><img src="{{ base_path ~ directory }}/images/daniele-besana.png" alt="Daniele Besana" /></span>
+          <p class="text-align-center small-text"><strong>Daniele Besana</strong></p>
+          <p class="text-align-center small-text">Founder of WP-OK</p>
+        </div>
+        <div class="col-md-9 pt-3 pt-md-5 d-md-flex quote">
+          <i class="fas fa-quote-right"></i>
+          <p>
+            At WP-OK we manage hundreds of WordPress websites, and detecting an issue before our customers do it's a tremendous added value.
+            Before signing up I was afraid of having to deal with a lot of false positives.
+            But the comparison works really well and Diffy helps us to deliver our promises.
+            It's like having extra staff in our team!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#testimonials-carousel" role="button" data-slide="prev">
+    <span aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#testimonials-carousel" role="button" data-slide="next">
+    <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+    <span class="sr-only">Next</span>
+  </a>
+</section>
+
+<section class="bottom-banner__block_v2 row">
+  <div class="inner col-12">
+    <h2 class="text-align-center">Diffy help your QA team</h2>
+    <h3 class="text-align-center">to ensure that websites don't get visual bugs</h3>
+    <div class="try-for-free__block">
+      <div class="action-link-wrap justify-content-center">
+        <div class="try-link">
+          <a href="https://app.diffy.website/#/register">Try For Free</a>
+          <p>no credit card required</p>
+        </div>
+        <div class="book-demo">
+          <a href="https://calendly.com/diffy/demo" target="_blank">
+            Book a Demo
+          </a>
+        </div>
       </div>
     </div>
   </div>
