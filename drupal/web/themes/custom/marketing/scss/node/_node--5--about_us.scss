@@ -48,44 +48,6 @@ $imageDir: '../images';
     }
   }
 
-  section.glance {
-    .section-title {
-      font-size: 30px;
-      font-weight: bolder;
-
-      padding: 20px 0;
-
-      @media (min-width: 576px) {
-        padding: 20px auto 80px auto;
-      }
-    }
-
-    .achievements__block {
-      margin-bottom: 80px;
-      display: block;
-      @media (min-width: 768px) {
-        display: flex;
-        margin-bottom: 50px;
-      }
-      .dot {
-        color: #53BAD1;
-        font-size: 40px;
-      }
-      .item {
-        margin: 10px 0;
-        @media (min-width: 768px) {
-          margin: 0;
-        }
-        .title {
-          color: #333;
-          font-size: 28px;
-          line-height: 36px;
-          font-weight: 700;
-        }
-      }
-    }
-  }
-
   section.team {
     .section-title {
       font-size: 30px;
