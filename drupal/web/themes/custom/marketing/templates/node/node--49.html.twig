@@ -97,12 +97,7 @@
 
 <section class="container-fluid max-width-1280 xl-max-width-1600 use-case--block compare-two-sites--block">
   <div class="row block-try-diffy d-flex align-items-center">
-    <img alt="Compare icon" src="{{ base_path }}{{ directory }}/images/compare.svg" />
-    <div class="compare-two-sites--form-wrapper">
-      <h2 class="try-block--title">Compare two sites</h2>
-      <p>See the difference between your production and staging environment. We will run the comparison and manually mark the changes for you.</p>
-      {{ drupal_block('diffy_compare_two') }}
-    </div>
+    {{ drupal_block('diffy_compare_two') }}
   </div>
 </section>
 

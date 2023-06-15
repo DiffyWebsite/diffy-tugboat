@@ -513,12 +513,16 @@
 }
 
 .use-case--block.compare-two-sites--block {
-  padding-top: 40px;
-  @media (min-width: $lg) {
+  padding-top: 10px;
+  @media (min-width: $md) {
     margin: 100px auto;
+    padding-top: 40px;
   }
   form.container {
     padding: 0;
+    @media (min-width: $md) {
+      display: flex;
+    }
   }
   input.error {
     border: 1px solid $purple-color;
@@ -531,6 +535,33 @@
   .compare-two-sites--form-wrapper {
     @media (min-width: $lg) {
       padding-left: 50px;
+    }
+    &.step-2 {
+      @media (min-width: $md) {
+        padding-top: 40px;
+      }
+    }
+    .form-control {
+      border-radius: 5px;
+      border: none;
+      max-width: 100%;
+      @media (min-width: $md) {
+        max-width: 332px;
+      }
+    }
+    .float-left {
+      @media (max-width: $md) {
+        float: none !important;
+      }
+    }
+    .form-submit {
+      @media (max-width: $md) {
+        text-align: center;
+      }
+      @media (max-width: $lg) {
+        clear: left;
+        float: none !important;
+      }
     }
   }
 
@@ -699,10 +730,27 @@
     flex-wrap: wrap;
   }
 
+  img {
+    @media (max-width: $md) {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  p {
+    font-size: 16px !important;
+    text-align: center;
+    @media (min-width: $md) {
+      text-align: left;
+    }
+  }
+
   .try-block--title {
-    margin-bottom: 25px;
-    @media (min-width: $lg) {
-      margin-bottom: 0;
+    margin-bottom: 10px;
+    font-size: 22px !important;
+    line-height: 30px;
+    text-align: center;
+    @media (min-width: $md) {
+      text-align: left;
     }
   }
 
