@@ -32,7 +32,10 @@
   Drupal.behaviors.diffyUTMs = {
     attach: function (context, settings) {
       var currentUrl = document.location.toString();
-      var getParameters = currentUrl.substr(currentUrl.indexOf('?'));
+      var getParameters = '';
+      if (currentUrl.indexOf('?') !== -1) {
+        getParameters = currentUrl.substr(currentUrl.indexOf('?'));
+      }
       var mixpanelDistinctId = '';
 
       setTimeout(
