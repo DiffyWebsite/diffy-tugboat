@@ -34,9 +34,22 @@
       var currentUrl = document.location.toString();
       if (currentUrl.indexOf('?') !== -1 && currentUrl.indexOf('utm_') !== -1) {
         var getParameters = currentUrl.substr(currentUrl.indexOf('?'));
+        var mixpanelDistinctId = '';
+        if (typeof mixpanel != 'undefined') {
+          mixpanelDistinctId = mixpanel.get_distinct_id();
+        }
         $(context).find('a[href*="app.diffy.website"]').once('diffyUTMs').each(function () {
           var href = $(this).attr('href');
           href = href + getParameters;
+          if (mixpanelDistinctId.length > 0) {
+            if (getParameters.length == 0) {
+              href = href + '?distinct_id=' + mixpanelDistinctId;
+            }
+            else {
+              href = href + '&distinct_id=' + mixpanelDistinctId;
+            }
+          }
+
           $(this).attr('href', href);
         });
         $(context).find('a[href^="/"]').once('diffyUTMs').each(function () {
