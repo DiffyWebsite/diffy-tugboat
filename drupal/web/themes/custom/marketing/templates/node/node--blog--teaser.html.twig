@@ -73,13 +73,12 @@
  */
 #}
 
-<article class="blog-teaser">
+<article class="blog-teaser mb-4 mt-4">
   <h3 class="mt-3 mb-2">
     <a class="blog-teaser-title" href="{{ url }}">{{ label.0 }}</a>
   </h3>
   {{ content|without("field_image", "field_read") }}
-  <div class="read">
-    {{ content.field_read.0  }}
-    read
+  <div class="read mt-4">
+    <i>{{ content.field_read.0  }} read</i>
   </div>
 </article>
