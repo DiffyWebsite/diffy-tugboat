@@ -67,12 +67,12 @@
  */
 #}
 {{ attach_library('marketing/content_navigation') }}
-<article {{ attributes.addClass('container-fluid', 'max-width-1280').setAttribute('id', 'page-documentation') }}>
+<article {{ attributes.addClass('container-fluid').setAttribute('id', 'page-documentation') }}>
   <div class="row">
-    <div class="col-sm-3 documentation-menu-place">
+    <div class="col-sm-2 documentation-menu-place">
       {{ documentation_menu }}
     </div>
-    <div class="col-sm-6 page-title">
+    <div class="col-sm-8 page-title">
       {{ title_prefix }}
         <h1>{{ label }}</h1>
       {{ title_suffix }}
@@ -80,7 +80,7 @@
         {{ content }}
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <div class="content_navigation"></div>
     </div>
   </div>
