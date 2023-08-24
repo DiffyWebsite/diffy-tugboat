@@ -42,11 +42,8 @@ services:
 
         # Install the latest version of terminus as standalone to avoid OOMs.
         # https://pantheon.io/docs/terminus/install#standalone-terminus-phar
-        - |
-          set -eo pipefail
-          TERMINUS_RELEASE=$(curl --silent "https://api.github.com/repos/pantheon-systems/terminus/releases/latest" | perl -nle'print $& while m#"tag_name": "\K[^"]*#g')
-          curl -L https://github.com/pantheon-systems/terminus/releases/download/$TERMINUS_RELEASE/terminus.phar --output /usr/local/bin/terminus
-          chmod +x /usr/local/bin/terminus
+        - wget -O /usr/local/bin/terminus https://github.com/pantheon-systems/terminus/releases/latest/download/terminus.phar
+        - chmod +x /usr/local/bin/terminus
 
         # Authenticate to terminus. Note this command uses a Tugboat environment
         # variable named PANTHEON_MACHINE_TOKEN
