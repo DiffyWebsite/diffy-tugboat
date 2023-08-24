@@ -58,6 +58,7 @@ services:
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
         # Install/update packages managed by composer, including drush.
+        - ls
         - composer install --optimize-autoloader
 
         # Import and sanitize a database backup from Pantheon
