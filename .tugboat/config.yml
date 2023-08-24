@@ -101,6 +101,7 @@ services:
 
   diffy:
     image: tugboatqa/php:8.2-apache
+    depends: php
     # A set of commands to run while building this service
     commands:
       # Commands that set up the basic preview infrastructure
