@@ -95,7 +95,7 @@ services:
         # Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
-        - wget "https://storage.googleapis.com/gcs-pantheon-backups/51b73c1d-15ea-4605-9b35-139337cefb1f/live/1689338718_export/diffy-marketing_live_2023-07-14T12-45-18_UTC_database.sql.gz?Expires=1692841163&GoogleAccessId=url-signer-us%40pantheon-backups.iam.gserviceaccount.com&Signature=g7%2BVDxuQveYR%2FetxvEMbAftVhCaqBJPpR3ivESs3u5vsDUA09Ow7HrpAI3oTJ%2B9UiNI1tdEuP2MQBhbtMqAkrpPIOPVTtsh%2FxNvfPDb8Hyzg6AyQQ%2BPbcew7l7cgYX9avKomYg9o6WA9qg5q3A8jqKkIoPjQpSCPD%2F3zNUoqoI4%2B1SpE4x7q9MleemxfcVdK4B%2BvIJrr2ip%2BkJDJzdhHCLuqtedLpZqnX6Jl%2Bpadgp9ZJH7aYy2w5Mx0VTKEu03p4VrJSDxPE0NMqKo%2FdORQ264nCMYGJmcwn2mZswHK424biL%2BrAJM8LzOjz%2BqDkZR5G64YnFeP7e0nbbVwLm6ikw%3D%3D" /tmp/database.sql.gz
+        - wget "https://storage.googleapis.com/gcs-pantheon-backups/51b73c1d-15ea-4605-9b35-139337cefb1f/live/1689338718_export/diffy-marketing_live_2023-07-14T12-45-18_UTC_database.sql.gz?Expires=1692841163&GoogleAccessId=url-signer-us%40pantheon-backups.iam.gserviceaccount.com&Signature=g7%2BVDxuQveYR%2FetxvEMbAftVhCaqBJPpR3ivESs3u5vsDUA09Ow7HrpAI3oTJ%2B9UiNI1tdEuP2MQBhbtMqAkrpPIOPVTtsh%2FxNvfPDb8Hyzg6AyQQ%2BPbcew7l7cgYX9avKomYg9o6WA9qg5q3A8jqKkIoPjQpSCPD%2F3zNUoqoI4%2B1SpE4x7q9MleemxfcVdK4B%2BvIJrr2ip%2BkJDJzdhHCLuqtedLpZqnX6Jl%2Bpadgp9ZJH7aYy2w5Mx0VTKEu03p4VrJSDxPE0NMqKo%2FdORQ264nCMYGJmcwn2mZswHK424biL%2BrAJM8LzOjz%2BqDkZR5G64YnFeP7e0nbbVwLm6ikw%3D%3D" -O /tmp/database.sql.gz
         - zcat /tmp/database.sql.gz | mysql tugboat
         - rm /tmp/database.sql.gz
 
