@@ -108,4 +108,4 @@ services:
         - diffy auth:login $DIFFY_API_KEY
 
       online:
-        - diffy project:compare $DIFFY_PROJECT_ID prod custom --env2Url=$TUGBOAT_SERVICE_URL
+        - diffy project:compare $DIFFY_PROJECT_ID prod custom --env2Url=$TUGBOAT_SERVICE_URL --commit-sha=${TUGBOAT_PREVIEW_SHA}
