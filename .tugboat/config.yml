@@ -90,22 +90,27 @@ services:
         # Clean up temp files used during the build
         - rm -rf /tmp/* /var/tmp/*
 
+        - curl -L https://github.com/diffywebsite/diffy-cli/releases/latest/download/diffy.phar -o /usr/local/bin/diffy
+        - chmod +x /usr/local/bin/diffy
+        - diffy auth:login ${DIFFY_API_KEY}
+        - diffy project:compare ${DIFFY_PROJECT_ID} prod custom --env2Url="${TUGBOAT_SERVICE_URL}" --commit-sha=${TUGBOAT_PREVIEW_SHA}
+
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
   mysql:
     # Use the latest available 5.x version of MariaDB
     image: tugboatqa/mariadb:10.5
 
-  diffy:
-    image: tugboatqa/php:8.2-apache
-    depends: php
-    # A set of commands to run while building this service
-    commands:
-      # Commands that set up the basic preview infrastructure
-      init:
-        - curl -L https://github.com/diffywebsite/diffy-cli/releases/latest/download/diffy.phar -o /usr/local/bin/diffy
-        - chmod +x /usr/local/bin/diffy
-        - diffy auth:login ${DIFFY_API_KEY}
-
-      online:
-        - diffy project:compare ${DIFFY_PROJECT_ID} prod custom --env2Url="${TUGBOAT_SERVICE_URL}" --commit-sha=${TUGBOAT_PREVIEW_SHA}
+#  diffy:
+#    image: tugboatqa/php:8.2-apache
+#    depends: php
+#    # A set of commands to run while building this service
+#    commands:
+#      # Commands that set up the basic preview infrastructure
+#      init:
+#        - curl -L https://github.com/diffywebsite/diffy-cli/releases/latest/download/diffy.phar -o /usr/local/bin/diffy
+#        - chmod +x /usr/local/bin/diffy
+#        - diffy auth:login ${DIFFY_API_KEY}
+#
+#      online:
+#        - diffy project:compare ${DIFFY_PROJECT_ID} prod custom --env2Url="${TUGBOAT_SERVICE_URL}" --commit-sha=${TUGBOAT_PREVIEW_SHA}
