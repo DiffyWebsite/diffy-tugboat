@@ -58,8 +58,7 @@ services:
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
 
         # Install/update packages managed by composer, including drush.
-        - ls
-        - composer install --optimize-autoloader
+#        - composer install --optimize-autoloader
 
         # Import and sanitize a database backup from Pantheon
         - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz
@@ -82,11 +81,11 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
-        - composer install --optimize-autoloader
-        - vendor/bin/drush cache:rebuild
-        - vendor/bin/drush config:import -y
-        - vendor/bin/drush updatedb -y
-        - vendor/bin/drush cache:rebuild
+#        - composer install --optimize-autoloader
+        - web/vendor/bin/drush cache:rebuild
+        - web/vendor/bin/drush config:import -y
+        - web/vendor/bin/drush updatedb -y
+        - web/vendor/bin/drush cache:rebuild
 
         # Clean up temp files used during the build
         - rm -rf /tmp/* /var/tmp/*
