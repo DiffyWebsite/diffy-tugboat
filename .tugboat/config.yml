@@ -65,6 +65,7 @@ services:
           --element=db
         - ls web
         - ls web/web
+        - pwd
         - web/web/vendor/bin/drush --yes sql-drop
         - zcat /tmp/database.sql.gz | web/web/vendor/bin/drush sql-cli
 
