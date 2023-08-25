@@ -1,5 +1,0 @@
-entity_type_groups:
-  node:
-    blog:
-      basic: basic
-      advanced: advanced

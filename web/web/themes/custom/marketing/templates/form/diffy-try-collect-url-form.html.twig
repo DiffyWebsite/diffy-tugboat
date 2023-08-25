@@ -1,0 +1,4 @@
+<div class="form--wrap">{{ form.url }}</div>
+<div class="form-actions">{{ form.submit }}</div>
+
+{{ form|without('url', 'submit') }}

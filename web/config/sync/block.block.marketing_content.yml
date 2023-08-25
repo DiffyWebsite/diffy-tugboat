@@ -1,0 +1,22 @@
+uuid: 90dd8b63-4656-4907-8656-35c752a32496
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - marketing
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: marketing_content
+theme: marketing
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

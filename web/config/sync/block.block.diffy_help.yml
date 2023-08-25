@@ -1,0 +1,22 @@
+uuid: 30f99ea1-2210-4f11-b5e5-ca712fe7fe0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - diffy
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: diffy_help
+theme: diffy
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

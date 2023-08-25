@@ -1,0 +1,20 @@
+uuid: 7dc4652a-8300-4e47-97c3-951a70144f62
+langcode: en
+status: true
+dependencies:
+  theme:
+    - marketing
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: marketing_local_actions
+theme: marketing
+region: content
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

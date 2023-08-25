@@ -1,0 +1,22 @@
+uuid: b3a364bf-aea7-4b82-809f-7d6ad7913953
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - marketing
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: marketing_breadcrumbs
+theme: marketing
+region: content
+weight: -2
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: aa6a3172-9fdc-4376-9957-950fcaab860d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - diffy
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: diffy_local_tasks
+theme: diffy
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

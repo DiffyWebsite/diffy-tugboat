@@ -1,8 +1,0 @@
-{
-  "main": "diffy",
-  "output": "diffy.phar",
-  "chmod": "0755",
-  "directories": ["src"],
-  "force-autodiscovery": true,
-  "files": ["diffy", "VERSION"]
-}

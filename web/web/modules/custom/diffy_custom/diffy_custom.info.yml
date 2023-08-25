@@ -1,0 +1,7 @@
+name: 'Diffy Custom'
+type: module
+description: 'Custom code for the site'
+core_version_requirement: ^8.8 || ^9
+package: 'Custom'
+dependencies:
+  - block

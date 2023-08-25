@@ -1,0 +1,126 @@
+$imageDir: '../images';
+
+#node--5--about_us {
+  h1 {
+    color: #333;
+    font-size: 28px;
+    font-style: normal;
+    line-height: 36px;
+    margin: 120px 0 45px;
+    @media (min-width: 992px) {
+      font-size: 38px;
+      line-height: 46px;
+      margin: 90px 0 55px;
+    }
+  }
+  section.promotion {
+    margin-top: 52px;
+    @media (min-width: 576px) {
+      margin-top: 0px;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+
+    .frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @media (min-width: 576px) {
+        background-image: url($imageDir + '/frame.svg');
+        width: 786px;
+        height: 154px;
+      }
+
+      .text {
+        font-size: 38px;
+        text-align: center;
+
+        .highlight {
+          color: #9c27b0;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  section.team {
+    .section-title {
+      font-size: 30px;
+      font-weight: bolder;
+      padding: 20px 0;
+
+      @media (min-width: 576px) {
+        padding: 20px auto 80px auto;
+      }
+    }
+
+    .member {
+      padding-top: 20px;
+
+      .name {
+        margin-top: 20px;
+      }
+      .position {
+        color: #93A9B0;
+      }
+    }
+  }
+
+  section.story {
+    margin-bottom: 70px;
+    @media (min-width: 768px) {
+      border-bottom: 1px solid #ededed;
+      margin-bottom: 90px;
+      padding-bottom: 55px;
+    }
+    .text {
+      p {
+        font-size: 18px !important;
+        line-height: 30px;
+      }
+      @media (min-width: 992px) {
+        padding-top: 45px;
+      }
+      .text-purple {
+        color: #9036AA;
+      }
+    }
+    .image {
+      text-align: center;
+      img {
+        width: 100%;
+        @media (min-width: 768px) {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  section.trial {
+    padding: 40px 0 0 0;
+
+    button {
+      color: white;
+      border: none;
+      background: #00BCD4;
+      padding: 10px 20px;
+    }
+
+    .description {
+      color: #93A9B0;
+    }
+  }
+
+  .trusted-agencies__block {
+    h2 {
+      margin-bottom: 10px;
+      max-width: 100%;
+      text-align: center !important;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+uuid: 12948ad4-5eba-4043-96c0-7cf6bf187d17
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - diffy
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: diffy_branding
+theme: diffy
+region: primary_menu
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

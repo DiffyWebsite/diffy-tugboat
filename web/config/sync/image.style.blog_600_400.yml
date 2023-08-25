@@ -1,0 +1,15 @@
+uuid: 4fbc7c0a-03ca-44ca-9e23-84f02f6d898f
+langcode: en
+status: true
+dependencies: {  }
+name: blog_600_400
+label: 'Blog 600*400'
+effects:
+  ff8af3bd-893b-481f-9efe-25455cb7e857:
+    uuid: ff8af3bd-893b-481f-9efe-25455cb7e857
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 400
+      anchor: center-center

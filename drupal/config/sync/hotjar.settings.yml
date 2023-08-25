@@ -1,9 +1,0 @@
-_core:
-  default_config_hash: '-GWwXUrtsp1lFD0QlWunv38ILxn_MjDorPf0wyaEZIw'
-account: '851221'
-snippet_version: 6
-visibility_pages: 0
-pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
-visibility_roles: 0
-roles:
-  anonymous: anonymous

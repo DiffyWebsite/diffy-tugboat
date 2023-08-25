@@ -1,7 +1,0 @@
-name: 'Diffy Try'
-type: module
-description: 'Try out Diffy screenshots'
-core_version_requirement: ^8.8 || ^9
-package: 'Custom'
-dependencies:
-  - block

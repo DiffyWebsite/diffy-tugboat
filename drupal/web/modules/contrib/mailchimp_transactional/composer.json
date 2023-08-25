@@ -1,7 +1,0 @@
-{
-  "name": "drupal/mailchimp_transactional",
-  "type": "drupal-module",
-  "require": {
-    "mailchimp/transactional": "^1.0.47"
-  }
-}

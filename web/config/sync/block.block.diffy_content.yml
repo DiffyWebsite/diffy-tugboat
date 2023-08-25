@@ -1,0 +1,22 @@
+uuid: dc245f20-9a55-4778-bc0c-57b729792cda
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - diffy
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: diffy_content
+theme: diffy
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

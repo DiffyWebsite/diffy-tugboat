@@ -1,0 +1,16 @@
+name: diffy
+type: theme
+description: 'Not used but needed for D9 uprade.'
+package: Other
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: false
+regions:
+  primary_menu: 'Primary menu'
+  content: 'Content'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_fourth: 'Footer fourth'
+  hidden: 'hidden'
+

@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: CWoZaJ1Wzi2LM06NC_nMAN8WF0gjUuUb2uSajAMzbMo
+ignore_admin_paths: true
+ignore_ajax_links: true
+ignore_hashes: true
+ignore_file_ext: true
+no_load_when_authenticated: true
+no_load_when_session: true
+no_load_content_types: {  }
+load_polyfill: true

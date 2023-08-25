@@ -1,0 +1,23 @@
+uuid: 1e66d265-1d39-4d24-8811-77bc55ee1be1
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - marketing
+_core:
+  default_config_hash: za-39d5WDUg6XvbyqSnuVYEeq6QM4qKJxW8MnoAha5A
+id: marketing_search
+theme: marketing
+region: content
+weight: -4
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  label_display: visible
+  provider: search
+  page_id: ''
+visibility: {  }

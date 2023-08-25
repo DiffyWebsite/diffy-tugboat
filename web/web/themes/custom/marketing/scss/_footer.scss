@@ -1,0 +1,157 @@
+footer {
+  padding: 66px 0 36px 0;
+  border: 1px solid rgba($color: #C3C3C3, $alpha: 0.3);
+
+  .site-logo-footer {
+    width: 93px;
+    height: 33px;
+    fill: $purple-color;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .footer-nav,
+  .diffy-first-menu,
+  .copyrights--menu {
+    list-style: none;
+
+    li {
+      a {
+        display: block;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+        color: $font-color;
+
+        &:hover {
+          color: $purple-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .diffy-first-menu {
+    margin-top: 16px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  h3.menu-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.1em;
+    color: $font-color;
+    margin-bottom: 16px;
+  }
+
+  .bottom-footer--region {
+    @media (max-width: $md) {
+      justify-content: center;
+    }
+
+    .copyrights-block {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 28px;
+      color: #8F8F8F;
+
+      @media (max-width: $md) {
+        text-align: center;
+        order: 3;
+      }
+    }
+
+    .copyrights--menu {
+      display: flex;
+      flex-wrap: wrap;
+      color: #8F8F8F;
+      margin: 0 0 0 90px;
+      padding: 0;
+
+      li {
+        &+li {
+          margin-left: 36px;
+        }
+      }
+
+      a {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 28px;
+        color: #8F8F8F;
+      }
+
+      @media (max-width: $md) {
+        margin: 0;
+        order: 2;
+        justify-content: center;
+        width: 100%;
+
+        li {
+          &+li {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+
+    .youtube-button {
+      @media (max-width: $md) {
+        margin-bottom: 32px;
+        order: 1;
+      }
+
+      @media (min-width: $md) {
+        margin-left: auto;
+      }
+
+      a {
+        margin-left: 5px;
+        width: fit-content;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 28px;
+        text-decoration: unset;
+        color: $font-color;
+
+        &:hover {
+          text-decoration: underline
+        }
+
+        &.is-active {
+          color: #FF585B !important;
+        }
+      }
+
+      img {
+        margin-right: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  footer {
+    .footer-nav {
+      li {
+        a {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

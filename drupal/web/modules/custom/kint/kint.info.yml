@@ -1,7 +1,0 @@
-name: 'Kint'
-type: module
-description: 'Not used but needed for smooth D9 upgrade'
-core_version_requirement: ^8.8 || ^9
-package: 'Custom'
-dependencies:
-  - block

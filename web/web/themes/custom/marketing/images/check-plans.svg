@@ -1,0 +1,15 @@
+<svg
+  width="25"
+  height="26"
+  viewBox="0 0 25 26"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+<ellipse cx="12.7273" cy="13" rx="12.2727" ry="12.2727" fill="white" />
+<path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M12.0028 17.7301L12.0086 17.7359L10.7303 19.0143L5.90912 14.1931L7.18746 12.9147L10.7244 16.4517L18.2457 8.93039L19.5241 10.2087L12.0028 17.7301Z"
+    fill="#74B31B"
+  />
+</svg>

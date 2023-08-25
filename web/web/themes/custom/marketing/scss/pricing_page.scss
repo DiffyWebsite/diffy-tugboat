@@ -1,0 +1,575 @@
+@import "variables";
+
+// Block Title
+.pricing-card-title {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 90px 20px 50px 20px;
+
+  h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    color: $font-color;
+    text-align: center;
+    margin: 0 0 12px 0;
+  }
+
+  h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: $font-color;
+    margin: 0;
+  }
+
+  @media (max-width: $lg) {
+    padding: 40px 20px 20px 20px;
+
+    h2 {
+      font-size: 28px !important;
+      line-height: 36px;
+    }
+
+    h4 {
+      font-size: 18px !important;
+      line-height: 30px;
+    }
+  }
+}
+
+// Price Period Switcher
+.price-period-switcher {
+  height: 30px;
+  margin-bottom: 30px;
+  align-items: center;
+
+  .switcher {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: $font-color;
+    opacity: 0.5;
+
+    span {
+      color: #74B31B;
+      margin-left: 5px;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+
+    @media (max-width: $sm) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+  }
+
+  .toggle {
+    margin: 0 20px;
+    position: relative;
+    box-sizing: border-box;
+
+    input[type="checkbox"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      opacity: 0;
+
+      &:checked {
+        + {
+          label {
+            &:before {
+              background: #9c27b0;
+            }
+
+            &:after {
+              left: 23px;
+            }
+          }
+        }
+      }
+    }
+
+    label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      margin: 0;
+
+      &:before {
+        content: "";
+        width: 50px;
+        height: 30px;
+        background: #74B31B;
+        position: relative;
+        display: inline-block;
+        border-radius: 18px;
+        box-sizing: border-box;
+        transition: 0.2s ease-in;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        left: 3px;
+        top: 3px;
+        z-index: 2;
+        background: #fff;
+        background-image: url("../images/check-plans.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        transition: 0.2s ease-in;
+      }
+    }
+  }
+}
+
+// Pricing Card
+.pricing-card--wrapper {
+  margin-top: 70px;
+  margin-bottom: 100px;
+
+  @media (max-width: $lg) {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.pricing-card {
+  padding: 30px 40px 30px 40px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  max-width: 360px;
+  border-radius: 10px;
+
+  @media (max-width: $lg) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  &.pricing-card--popular {
+    margin-top: -40px;
+    margin-bottom: -40px;
+    padding: 40px 40px 67px 40px;
+    border: 3px solid #D585EC;
+    box-shadow: 0px 0px 20px rgba(213, 133, 236, 0.5);
+    border-radius: 10px;
+
+    @media (max-width: $lg) {
+      margin: 0;
+      padding: 40px 40px 30px 40px;
+    }
+  }
+}
+
+.pricing-card--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.pricing-card__popular-text {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #74B31B;
+  margin-bottom: 13px;
+}
+
+.pricing-card__head {
+  h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    color: $font-color;
+  }
+
+  small,
+  p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: $font-color;
+  }
+}
+
+.pricing-card__price {
+  margin-top: 14px;
+
+  .price-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      min-width: 115px;
+    }
+
+    .price-text {
+      font-weight: 600;
+      font-size: 24px !important;
+      line-height: 29px;
+      color: $font-color;
+    }
+
+    small {
+      margin-left: 5px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: $font-color;
+    }
+
+    .price-description {
+      color: #8F8F8F !important;
+      font-size: 12px !important;
+      line-height: 16px;
+      max-width: 100px;
+    }
+  }
+}
+
+.border {
+  margin: 24px 0;
+  opacity: 0.25;
+  border: 0.5px solid $lightgray-color !important;
+}
+
+.pricing-card__body {
+  font-size: 14px;
+  line-height: 22px;
+  color: $font-color;
+  padding-left: 20px;
+  margin-bottom: 0;
+
+  a {
+    color: $font-color;
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-image: url("../images/check.svg");
+    padding-inline-start: 10px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.pricing-card__bottom {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a.btn {
+    width: fit-content;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    background: #9036AA;
+    box-shadow: 0px 2px 5px rgba(144, 54, 170, 0.35);
+    border-radius: 5px;
+    padding: 15px 30px;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background: #C751E9;
+      box-shadow: 0px 2px 5px rgba(144, 54, 170, 0.35);
+    }
+  }
+
+  .diffy-register-description {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $lightgray-color;
+  }
+
+  &.contact-us--btn {
+    a.btn {
+      background: #53BAD1;
+      box-shadow: 0px 2px 5px rgba(83, 186, 209, 0.35);
+      border-radius: 5px;
+      color: #fff;
+
+      &:hover {
+        background: #3ED6F8;
+        box-shadow: 0px 2px 5px rgba(83, 186, 209, 0.35);
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Accordion
+.accordion-block {
+  background: #E5F5FC;
+  border-radius: 20px;
+  max-width: 1280px;
+  margin: 80px auto 40px auto;
+  padding: 60px 100px 100px;
+
+  @media (max-width: $lg) {
+    max-width: 100%;
+    margin: 70px auto 40px auto;
+    padding: 60px 30px;
+    border-radius: unset;
+  }
+}
+
+// Block Title
+.accordion-block-title {
+  padding: 40px 0;
+
+  h2 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: $font-color;
+    margin: 0;
+  }
+
+  @media (max-width: $lg) {
+    padding: 20px 0;
+
+    h2 {
+      font-size: 22px !important;
+      line-height: 30px;
+    }
+  }
+}
+
+// Accordion Content
+.accordion.accordion-block-content {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+
+  .accordion__item {
+    position: relative;
+    padding: 24px 0;
+    border-top: 1px solid rgba($color: #53BAD1, $alpha: 0.3);
+    cursor: pointer;
+
+    &:last-child {
+      border-bottom: 1px solid rgba($color: #53BAD1, $alpha: 0.3);
+    }
+
+    // active item
+    &_active {
+      .accordion__trigger {
+        svg {
+          transform: rotate(45deg);
+          transition: 0.4s ease-in-out;
+        }
+      }
+
+      .accordion__content {
+        height: auto;
+        padding-top: 20px;
+        transition: all 0.4s ease-in-out;
+        opacity: 1;
+      }
+    }
+  }
+
+  .accordion__trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 15px;
+
+    svg {
+      transition: 0.4s ease-in-out;
+      min-width: 21px;
+      min-height: 21px;
+    }
+
+    &:hover {
+      .accordion__title {
+        color: #53BAD1;
+      }
+
+      svg path {
+        fill: #53BAD1;
+      }
+    }
+  }
+
+  .accordion__title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 0;
+  }
+
+  .accordion__content {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $font-color;
+    max-width: 90%;
+  }
+}
+
+// Text Block
+.text-block-custom-bg {
+  padding: 60px 0;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  @media (max-width: $lg) {
+    padding: 60px 15px;
+  }
+
+  // BG Color
+  &.white--bg {
+    background: #fff;
+  }
+
+  &.light-purple--bg {
+    background: rgba(144, 54, 170, 0.04);
+  }
+
+  &.lightgray--bg {
+    background: $lightgray-color;
+  }
+
+  // Block Title
+  h2 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: $font-color;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: $lg) {
+    h2 {
+      font-size: 22px !important;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// Block Container
+.text-block-custom-bg--container {
+  max-width: 850px;
+}
+
+// Block Content
+.text-block-custom-bg--content {
+  h2 {
+    margin-top: 60px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 16px !important;
+    line-height: 24px;
+    color: $font-color;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+.customers-block--pricing-page {
+  .row {
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .customers-logo {
+    text-align: center;
+
+    @media (min-width: $md) {
+      max-width: fit-content;
+    }
+  }
+
+  .customer-block--title {
+    h2 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 26px;
+      color: $font-color;
+      margin-bottom: 12px;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto !important;
+  }
+}
+
+.book-call-btn {
+  background: url("../images/book-call.png") no-repeat center center;
+  display: block;
+  height: 104px;
+  width: 222px;
+  position: fixed;
+  right: 10px;
+  bottom: 20%;
+  z-index: 50;
+}
