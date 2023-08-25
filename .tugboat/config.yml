@@ -63,7 +63,7 @@ services:
         # Import and sanitize a database backup from Pantheon
         - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz
           --element=db
-        - cd web
+        - cd web/web
         - ls
         - vendor/bin/drush --yes sql-drop
         - zcat /tmp/database.sql.gz | vendor/bin/drush sql-cli
@@ -84,7 +84,7 @@ services:
       # from the base preview.
       build:
 #        - composer install --optimize-autoloader
-        - cd web
+        - cd web/web
         - vendor/bin/drush cache:rebuild
         - vendor/bin/drush config:import -y
         - vendor/bin/drush updatedb -y
