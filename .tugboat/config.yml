@@ -90,7 +90,7 @@ services:
         # Clean up temp files used during the build
         - rm -rf /tmp/* /var/tmp/*
 
-        - curl -L https://github.com/diffywebsite/diffy-cli/releases/latest/download/diffy.phar -o /usr/local/bin/diffy
+        - wget -O /usr/local/bin/diffy https://github.com/diffywebsite/diffy-cli/releases/latest/download/diffy.phar
         - chmod +x /usr/local/bin/diffy
         - diffy auth:login ${DIFFY_API_KEY}
         - diffy project:compare ${DIFFY_PROJECT_ID} prod custom --env2Url="${TUGBOAT_SERVICE_URL}" --commit-sha=${TUGBOAT_PREVIEW_SHA}
