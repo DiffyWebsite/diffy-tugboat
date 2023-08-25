@@ -63,8 +63,6 @@ services:
         # Import and sanitize a database backup from Pantheon
         - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz
           --element=db
-        - pwd
-        - echo ${DOCROOT}
         - web/vendor/bin/drush --yes sql-drop
         - zcat /tmp/database.sql.gz | web/vendor/bin/drush sql-cli
 
@@ -107,7 +105,7 @@ services:
       init:
         - curl -L https://github.com/diffywebsite/diffy-cli/releases/latest/download/diffy.phar -o /usr/local/bin/diffy
         - chmod +x /usr/local/bin/diffy
-        - diffy auth:login $DIFFY_API_KEY
+        - diffy auth:login ${DIFFY_API_KEY}
 
       online:
-        - diffy project:compare $DIFFY_PROJECT_ID prod custom --env2Url=$TUGBOAT_SERVICE_URL --commit-sha=${TUGBOAT_PREVIEW_SHA}
+        - diffy project:compare ${DIFFY_PROJECT_ID} prod custom --env2Url="${TUGBOAT_SERVICE_URL}" --commit-sha=${TUGBOAT_PREVIEW_SHA}
