@@ -63,8 +63,9 @@ services:
         # Import and sanitize a database backup from Pantheon
         - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz
           --element=db
-        - web/vendor/bin/drush --yes sql-drop
-        - zcat /tmp/database.sql.gz | web/vendor/bin/drush sql-cli
+        - cd web
+        - vendor/bin/drush --yes sql-drop
+        - zcat /tmp/database.sql.gz | vendor/bin/drush sql-cli
 
         # Import the files from Pantheon. Alternatively, the stage_file_proxy
         # Drupal module could be enabled & configured here using Drush commands
@@ -82,10 +83,11 @@ services:
       # from the base preview.
       build:
 #        - composer install --optimize-autoloader
-        - web/vendor/bin/drush cache:rebuild
-        - web/vendor/bin/drush config:import -y
-        - web/vendor/bin/drush updatedb -y
-        - web/vendor/bin/drush cache:rebuild
+        - cd web
+        - vendor/bin/drush cache:rebuild
+        - vendor/bin/drush config:import -y
+        - vendor/bin/drush updatedb -y
+        - vendor/bin/drush cache:rebuild
 
         # Clean up temp files used during the build
         - rm -rf /tmp/* /var/tmp/*
