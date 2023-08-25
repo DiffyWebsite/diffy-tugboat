@@ -63,8 +63,8 @@ services:
         # Import and sanitize a database backup from Pantheon
         - terminus backup:get ${PANTHEON_SOURCE_SITE}.${PANTHEON_SOURCE_ENVIRONMENT} --to=/tmp/database.sql.gz
           --element=db
-        - drush --yes sql-drop
-        - zcat /tmp/database.sql.gz | drush sql-cli
+        - web/vendor/bin/drush --yes sql-drop
+        - zcat /tmp/database.sql.gz | web/vendor/bin/drush sql-cli
 
         # Import the files from Pantheon. Alternatively, the stage_file_proxy
         # Drupal module could be enabled & configured here using Drush commands
