@@ -1,4 +1,4 @@
-# Drupal VM Changelog 
+# Drupal VM Changelog  
 
 
 ## 4.9.2 (2019-01-03)
