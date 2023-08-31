@@ -93,7 +93,8 @@ services:
         - wget -O /usr/local/bin/diffy https://github.com/diffywebsite/diffy-cli/releases/latest/download/diffy.phar
         - chmod +x /usr/local/bin/diffy
         - diffy auth:login ${DIFFY_API_KEY}
-        - diffy project:compare ${DIFFY_PROJECT_ID} prod custom --env2Url="${TUGBOAT_SERVICE_URL}" --commit-sha=${TUGBOAT_PREVIEW_SHA}
+        - diffy screenshot:create-baseline ${DIFFY_PROJECT_ID} prod
+        - diffy project:compare ${DIFFY_PROJECT_ID} baseline custom --env2Url="${TUGBOAT_SERVICE_URL}" --commit-sha=${TUGBOAT_PREVIEW_SHA}
 
   # What to call the service hosting MySQL. This name also acts as the
   # hostname to access the service by from the php service.
